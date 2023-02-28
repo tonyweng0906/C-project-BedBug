@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(project1)
+project(project1bedbug)
 
 set(CMAKE_CXX_STANDARD 14)
 
