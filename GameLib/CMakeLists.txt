@@ -1,7 +1,7 @@
 
 project(GameLib)
 
-set(SOURCE_FILES pch.h MainFrame.h MainFrame.cpp)
+set(SOURCE_FILES pch.h MainFrame.h MainFrame.cpp GameView.cpp GameView.h Game.cpp Game.h ids.h)
 
 set(wxBUILD_PRECOMP OFF)
 find_package(wxWidgets COMPONENTS core base xrc html xml REQUIRED)
