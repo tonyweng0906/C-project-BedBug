@@ -1,7 +1,10 @@
-#include <iostream>
 
-int main()
-{
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
+/**
+ * @file main.cpp
+ * @author Xin Weng
+ */
+
+#include "pch.h"
+#include "GameApp.h"
+
+wxIMPLEMENT_APP(GameApp);
