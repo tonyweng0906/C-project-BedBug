@@ -14,7 +14,7 @@
 void MainFrame::Initialize()
 {
 	Create(nullptr, wxID_ANY, L"BedBug",
-		   wxDefaultPosition,  wxSize( 1000,800 ));
+		   wxDefaultPosition,  wxSize( 900,790 ));
 
 	// Create a sizer that will lay out child windows vertically
 	// one above each other
@@ -57,6 +57,7 @@ void MainFrame::Initialize()
 
 	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnExit, this, wxID_EXIT);
 	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnAbout, this, wxID_ABOUT);
+
 	SetMenuBar( menuBar );
 }
 
@@ -80,3 +81,4 @@ void MainFrame::OnAbout(wxCommandEvent& event)
 				 wxOK,
 				 this);
 }
+

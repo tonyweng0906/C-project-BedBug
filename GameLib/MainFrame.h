@@ -20,6 +20,7 @@ public:
 	void Initialize();
 	void OnExit(wxCommandEvent &event);
 	void OnAbout(wxCommandEvent &event);
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_MAINFRAME_H

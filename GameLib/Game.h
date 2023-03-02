@@ -18,6 +18,8 @@ private:
 
 public:
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+	/// Set the Shrinked when click on view
+	void SetShrinked();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H
