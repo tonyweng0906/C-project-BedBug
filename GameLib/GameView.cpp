@@ -24,6 +24,7 @@ void GameView::Initialize(wxFrame* parent)
 	SetBackgroundStyle(wxBG_STYLE_PAINT);
 	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 	parent->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, this, IDM_ONSHRINK);
+	parent->Bind(wxEVT_UPDATE_UI, &GameView::OnUpdateShrink, this, IDM_ONUPDATESHRINK);
 
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
@@ -73,4 +74,14 @@ void GameView::OnShrink(wxCommandEvent& event)
 void GameView::OnTimerEvent(wxTimerEvent & event)
 {
 	Refresh();
+}
+
+
+/**
+ * Update handler for View>Shrink menu option
+ * @param event Update event
+ */
+void GameView::OnUpdateShrink(wxUpdateUIEvent& event)
+{
+	event.Check(mGame.GetShrinked());
 }

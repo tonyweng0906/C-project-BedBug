@@ -20,6 +20,9 @@ public:
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 	/// Set the Shrinked when click on view
 	void SetShrinked();
+	/// Return is Shrinked or not
+	/// @return bool
+	bool GetShrinked(){return mShrinked;}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H

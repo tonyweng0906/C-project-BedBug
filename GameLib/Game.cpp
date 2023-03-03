@@ -50,6 +50,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	wxBrush rectBrush(*wxWHITE);
 	graphics->SetBrush(rectBrush);
 	graphics->DrawRectangle(0, 0, Width, Height);
+
 	//
 	// Your drawing code goes here
 	//

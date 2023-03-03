@@ -33,6 +33,7 @@ public:
 
 	void Initialize(wxFrame *parent);
 
+	void OnUpdateShrink(wxUpdateUIEvent &event);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEVIEW_H
