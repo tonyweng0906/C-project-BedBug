@@ -9,11 +9,15 @@
 
 /**
  * define behavior for when the bug is double clicked
+ * Code Window should be called from the FatBug on a double click
  */
-void FatBug::doubleClicked(wxWindow* window)
+void FatBug::codeWindow(wxWindow* window)
 {
 	CodeDlg dlg(window, mCode);
 	dlg.ShowModal();
+	// Function testCode not yet built
+	// once built, if true, we squish this bug
+	auto SquishBug = dlg.testCode(mPass);
 }
 
 /**

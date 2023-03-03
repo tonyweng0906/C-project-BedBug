@@ -23,7 +23,7 @@ private:
 
 public:
 	FatBug(std::wstring pass, std::wstring code);
-	void doubleClicked(wxWindow* window);
+	void codeWindow(wxWindow* window);
 
 
 };

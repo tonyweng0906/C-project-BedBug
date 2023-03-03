@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "CodeDlg.h"
+#include "regex"
 
 /**
  * Constructor for the code dialog box
@@ -13,7 +14,12 @@
  */
 CodeDlg::CodeDlg(wxWindow* parent, std::wstring code)
 {
-	wxDialog::Create(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE, code);
+	wxDialog::Create(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition,
+					 wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxTRANSPARENT_WINDOW, L"Bug Squash IDE");
+	mCode = code;
+
+	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
+							 wxTE_MULTILINE | wxTE_RICH, wxDefaultValidator, wxTextCtrlNameStr);
 
 }
 
@@ -26,5 +32,11 @@ CodeDlg::CodeDlg(wxWindow* parent, std::wstring code)
  */
 bool CodeDlg::testCode(std::wstring pass)
 {
+	// This will probably be called from a function in FatBug
+	// and the return value will indicate whether it squishes or not
+
+	// This will return the text stored in the text box
+	auto code = textBox->GetValue();
+	// Still need to build regex test to look for the pass value in the stored text
 	return false;
 }

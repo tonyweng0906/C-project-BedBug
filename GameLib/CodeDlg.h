@@ -11,6 +11,8 @@
 class CodeDlg : public wxDialog
 {
 private:
+	wxTextCtrl *textBox;
+	std::wstring mCode;
 
 public:
 	CodeDlg(wxWindow* parent, std::wstring code);
