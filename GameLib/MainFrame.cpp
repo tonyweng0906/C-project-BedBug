@@ -53,7 +53,7 @@ void MainFrame::Initialize()
 	levelMenu->Append(IDM_ONLEVEL1, "Level 1", "Load Level 1");
 	levelMenu->Append(IDM_ONLEVEL2, "Level 2", "Load Level 2");
 	levelMenu->Append(IDM_ONLEVEL3, "Level 3", "Load Level 3");
-	viewMenu->Append(IDM_ONSHRINK, "Shrink", "Shrink",wxITEM_CHECK);
+	viewMenu->Append(IDM_ONSHRINK, "Shrink", "Shrink", wxITEM_CHECK);
 
 	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnExit, this, wxID_EXIT);
 	Bind(wxEVT_COMMAND_MENU_SELECTED, &MainFrame::OnAbout, this, wxID_ABOUT);

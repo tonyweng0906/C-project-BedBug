@@ -29,11 +29,15 @@ private:
 	void OnPaint(wxPaintEvent& event);
 	void OnShrink(wxCommandEvent &event);
 	void OnTimerEvent(wxTimerEvent & event);
+	void OnUpdateShrink(wxUpdateUIEvent &event);
+	void OnLeftDown(wxMouseEvent &event);
+	void OnLeftDoubleClick(wxMouseEvent &event);
+
 public:
 
 	void Initialize(wxFrame *parent);
 
-	void OnUpdateShrink(wxUpdateUIEvent &event);
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEVIEW_H

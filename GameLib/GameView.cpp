@@ -26,6 +26,9 @@ void GameView::Initialize(wxFrame* parent)
 	parent->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, this, IDM_ONSHRINK);
 	parent->Bind(wxEVT_UPDATE_UI, &GameView::OnUpdateShrink, this, IDM_ONUPDATESHRINK);
 
+	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
+	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
+
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
 	mStopWatch.Start();
@@ -84,4 +87,23 @@ void GameView::OnTimerEvent(wxTimerEvent & event)
 void GameView::OnUpdateShrink(wxUpdateUIEvent& event)
 {
 	event.Check(mGame.GetShrinked());
+}
+
+/**
+ * Handle the left mouse button down event
+ * @param event
+ */
+void GameView::OnLeftDown(wxMouseEvent &event)
+{
+
+}
+
+/**
+* Handle the left mouse button double click event
+* @param event
+*/
+void GameView::OnLeftDoubleClick(wxMouseEvent &event)
+{
+
+
 }
