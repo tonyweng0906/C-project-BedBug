@@ -79,3 +79,12 @@ void Game::SetShrinked()
 {
 	mShrinked = !mShrinked;
 }
+
+
+void Game::Accept(BugVisitor * visitor)
+{
+	for (auto bug : mBugs)
+	{
+		bug->Accept(visitor);
+	}
+}

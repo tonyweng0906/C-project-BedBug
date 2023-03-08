@@ -6,6 +6,7 @@
  */
 
 #include "GameObject.h"
+#include "BugVisitor.h"
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUG_H
 #define PROJECT1BEDBUG_GAMELIB_BUG_H
@@ -36,6 +37,13 @@ public:
 	/// Assignment operator
 	void operator=(const Bug &) = delete;
 
+	/**
+	 * Accept a visitor
+	  * @param visitor The visitor we accept
+	  */
+	virtual void Accept(BugVisitor* visitor) = 0;
+
+
 protected:
 	Bug(Game *game, const std::wstring &filename);
 
@@ -45,6 +53,8 @@ protected:
 	void XmlLoad(wxXmlNode *node);
 */
 	void BugSpeed(double speedX, double speedY);
+
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUG_H

@@ -1,0 +1,27 @@
+/**
+ * @file BugRedundancy.h
+ * @author Xin Weng
+ *
+ *
+ */
+
+#ifndef PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H
+#define PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H
+
+#include "Bug.h"
+
+class BugRedundancy : public Bug
+{
+private:
+
+public:
+
+	/**
+     * Accept a visitor
+     * @param visitor The visitor we accept
+     */
+	void Accept(BugVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
+
+};
+
+#endif //PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H
