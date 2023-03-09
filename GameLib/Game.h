@@ -13,7 +13,6 @@
 
 #include "Bug.h"
 
-class BugVisitor;
 
 class Game
 {
@@ -22,7 +21,7 @@ private:
 	double mYOffset = 0;
 	double mScale = 0;
 	bool mShrinked = false;
-	std::vector<std::shared_ptr<Bug>> mBugs;
+
 
 public:
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
@@ -34,9 +33,7 @@ public:
 	/// @return bool
 	bool GetShrinked(){return mShrinked;}
 
-	/// Accept the visitor
-	/// @param visitor Bug visitor
-	void Accept(BugVisitor *visitor);
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H

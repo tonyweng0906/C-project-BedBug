@@ -6,7 +6,7 @@
  */
 
 #include "GameObject.h"
-#include "BugVisitor.h"
+#include "ObjectVisitor.h"
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUG_H
 #define PROJECT1BEDBUG_GAMELIB_BUG_H
@@ -41,7 +41,7 @@ public:
 	 * Accept a visitor
 	  * @param visitor The visitor we accept
 	  */
-	virtual void Accept(BugVisitor* visitor) = 0;
+	virtual void Accept(ObjectVisitor* visitor) = 0;
 
 
 protected:

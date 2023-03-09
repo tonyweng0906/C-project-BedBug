@@ -20,7 +20,7 @@ public:
      * Accept a visitor
      * @param visitor The visitor we accept
      */
-	void Accept(BugVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
+	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
 
 };
 

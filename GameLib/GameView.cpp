@@ -25,6 +25,7 @@ void GameView::Initialize(wxFrame* parent)
 	Bind(wxEVT_PAINT, &GameView::OnPaint, this);
 	parent->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnShrink, this, IDM_ONSHRINK);
 	parent->Bind(wxEVT_UPDATE_UI, &GameView::OnUpdateShrink, this, IDM_ONUPDATESHRINK);
+	parent->Bind(wxEVT_COMMAND_MENU_SELECTED, &GameView::OnLevel0, this, IDM_ONLEVEL0);
 
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
@@ -105,5 +106,14 @@ void GameView::OnLeftDown(wxMouseEvent &event)
 void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 {
 
+
+}
+
+/**
+* When open level 0
+* @param event
+*/
+void GameView::OnLevel0(wxCommandEvent& event)
+{
 
 }

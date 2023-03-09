@@ -20,7 +20,7 @@ public:
      * Accept a visitor
      * @param visitor The visitor we accept
      */
-	void Accept(BugVisitor* visitor) override { visitor->VisitFeature(this);}
+	void Accept(ObjectVisitor* visitor) override { visitor->VisitFeature(this);}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_FEATURE_H

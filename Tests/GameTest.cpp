@@ -6,6 +6,10 @@
 #include <pch.h>
 #include "gtest/gtest.h"
 #include <Game.h>
+#include <regex>
+#include <string>
+#include <fstream>
+#include <streambuf>
 
 using namespace std;
 

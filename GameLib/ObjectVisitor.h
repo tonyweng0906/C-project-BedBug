@@ -1,32 +1,32 @@
 /**
- * @file BugVisitor.h
+ * @file ObjectVisitor.h
  * @author Xin Weng
  *
  *
  */
 
-#ifndef PROJECT1BEDBUG_GAMELIB_BUGVISITOR_H
-#define PROJECT1BEDBUG_GAMELIB_BUGVISITOR_H
+#ifndef PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H
+#define PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H
 
 class Bug;
 class FatBug;
-
+class GameObject;
 class BugGarbage;
 class BugNull;
 class BugRedundancy;
 class Feature;
 
-class BugVisitor
+class ObjectVisitor
 {
 protected:
 	/**
 	 * Constructor
 	 * Ensures this is an abstract class
 	 */
-	BugVisitor() {};
+	ObjectVisitor() {};
 
 public:
-	virtual ~BugVisitor() {}
+	virtual ~ObjectVisitor() {}
 
 	/**
 	 * Visit a Bug object
@@ -66,4 +66,4 @@ public:
 
 };
 
-#endif //PROJECT1BEDBUG_GAMELIB_BUGVISITOR_H
+#endif //PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H
