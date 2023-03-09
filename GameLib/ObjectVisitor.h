@@ -16,6 +16,7 @@ class BugNull;
 class BugRedundancy;
 class Feature;
 
+/// class for the Visitor
 class ObjectVisitor
 {
 protected:
