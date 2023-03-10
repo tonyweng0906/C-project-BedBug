@@ -12,7 +12,7 @@
 #include <vector>
 
 #include "Bug.h"
-
+#include "PlayArea.h"
 
 class Game
 {
@@ -22,6 +22,8 @@ private:
 	double mScale = 0;
 	bool mShrinked = false;
 
+	/// play area we create
+	std::shared_ptr<PlayArea> mPlayArea;
 
 public:
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
@@ -33,7 +35,8 @@ public:
 	/// @return bool
 	bool GetShrinked(){return mShrinked;}
 
-
+	void Load(const wxString &filename);
+	void XmlItem(wxXmlNode *node);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H

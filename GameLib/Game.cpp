@@ -82,3 +82,29 @@ void Game::SetShrinked()
 
 
 
+/**
+ * Load the Game from a  XML file.
+ *
+ * Opens the XML file and reads the nodes, creating items as appropriate.
+ *
+ * @param filename The filename of the file to load the game from.
+ */
+void Game::Load(const wxString &filename)
+{
+	wxXmlDocument xmlDoc;
+	if(!xmlDoc.Load(filename))
+	{
+		wxMessageBox(L"Unable to load Aquarium file");
+		return;
+	}
+	mPlayArea->Clear();
+}
+
+/**
+ * Handle a node of type item.
+ * @param node XML node
+ */
+void Game::XmlItem(wxXmlNode *node)
+{
+
+}

@@ -14,5 +14,5 @@
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
-
+#include <wx/xml/xml.h>
 #endif //PROJECT1BEDBUG__PCH_H

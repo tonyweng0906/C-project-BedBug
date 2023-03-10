@@ -74,3 +74,9 @@ void PlayArea::Accept(ObjectVisitor *visitor)
 		//object.Accept(visitor);
 	}
 }
+
+/// Clear the Objects
+void PlayArea::Clear()
+{
+	mObjects.clear();
+}

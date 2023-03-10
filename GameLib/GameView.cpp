@@ -118,7 +118,8 @@ void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 */
 void GameView::OnLevel0(wxCommandEvent& event)
 {
-
+	//mGame.Load(L"Level/level0.xml");
+	Refresh();
 }
 
 /**
