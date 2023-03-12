@@ -15,6 +15,16 @@ class BugGarbage : public Bug
 private:
 
 public:
+	/// constructor
+//	BugGarbage(Game* game);
+
+	/// Default constructor (disabled)
+	BugGarbage() = delete;
+
+	/// Copy constructor (disabled)
+	BugGarbage(const BugGarbage&) = delete;
+
+//	virtual wxXmlNode* XmlSave(wxXmlNode* node) override;
 
 	/**
      * Accept a visitor
