@@ -82,15 +82,16 @@ void Bug::Update(double elapsed)
  * @param node The parent node we are going to be a child of
  * @return wxXmlNode that we saved the item into
  *
+ * */
 wxXmlNode *Bug::XmlSave(wxXmlNode *node)
 {
-	auto itemNode = Item::XmlSave(node);
+	auto itemNode = GameObject::XmlSave(node);
 	itemNode->AddAttribute(L"speedX", wxString::FromDouble(mSpeedX));
 	itemNode->AddAttribute(L"speedY", wxString::FromDouble(mSpeedY));
 
 	return itemNode;
 }
- */
+
 
 /**
  * Load the attributes for a bug node.
@@ -100,12 +101,12 @@ wxXmlNode *Bug::XmlSave(wxXmlNode *node)
  *
  *
  * @param node The Xml node we are loading the item from
-
+*/
 void Bug::XmlLoad(wxXmlNode *node)
 {
 	node->GetAttribute(L"speedX", L"0").ToDouble(&mSpeedX);
 	node->GetAttribute(L"speedY", L"0").ToDouble(&mSpeedY);
-	Item::XmlLoad(node);
+	GameObject::XmlLoad(node);
 }
-*/
+
 
