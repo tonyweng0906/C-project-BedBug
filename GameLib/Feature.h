@@ -8,9 +8,9 @@
 #ifndef PROJECT1BEDBUG_GAMELIB_FEATURE_H
 #define PROJECT1BEDBUG_GAMELIB_FEATURE_H
 
-#include "Bug.h"
+#include "GameObject.h"
 
-class Feature : public Bug
+class Feature : public GameObject
 {
 private:
 

@@ -9,7 +9,7 @@
 
 /**
  * Constructor
- * @param aquarium The aquarium we are in
+ * @param game The game we are in
  * @param filename Filename for the image we use
  */
 Bug::Bug(Game *game, const std::wstring &filename) :
@@ -23,7 +23,7 @@ Bug::Bug(Game *game, const std::wstring &filename) :
 }
 
 /**
- *  FishSpeed sets the speed for each fish
+ * BugSpeed sets the speed for each fish
  * @param speedX x-parameter
  * @param speedY y-parameter
  */
@@ -81,8 +81,8 @@ void Bug::Update(double elapsed)
  * Save this item to an XML node
  * @param node The parent node we are going to be a child of
  * @return wxXmlNode that we saved the item into
-
-wxXmlNode *Fish::XmlSave(wxXmlNode *node)
+ *
+wxXmlNode *Bug::XmlSave(wxXmlNode *node)
 {
 	auto itemNode = Item::XmlSave(node);
 	itemNode->AddAttribute(L"speedX", wxString::FromDouble(mSpeedX));
@@ -90,9 +90,10 @@ wxXmlNode *Fish::XmlSave(wxXmlNode *node)
 
 	return itemNode;
 }
+ */
 
 /**
- * Load the attributes for an fish node.
+ * Load the attributes for a bug node.
  *
  * This is the  derived class version that loads the attributes
  * common to all items.
@@ -100,7 +101,7 @@ wxXmlNode *Fish::XmlSave(wxXmlNode *node)
  *
  * @param node The Xml node we are loading the item from
 
-void Fish::XmlLoad(wxXmlNode *node)
+void Bug::XmlLoad(wxXmlNode *node)
 {
 	node->GetAttribute(L"speedX", L"0").ToDouble(&mSpeedX);
 	node->GetAttribute(L"speedY", L"0").ToDouble(&mSpeedY);

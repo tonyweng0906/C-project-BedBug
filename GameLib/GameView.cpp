@@ -118,7 +118,7 @@ void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 */
 void GameView::OnLevel0(wxCommandEvent& event)
 {
-	//mGame.Load(L"Level/level0.xml");
+	mGame.Load(L"Level/level0.xml");
 	Refresh();
 }
 
@@ -128,7 +128,8 @@ void GameView::OnLevel0(wxCommandEvent& event)
 */
 void GameView::OnLevel1(wxCommandEvent& event)
 {
-
+	mGame.Load(L"Level/level1.xml");
+	Refresh();
 }
 
 /**
@@ -137,7 +138,8 @@ void GameView::OnLevel1(wxCommandEvent& event)
 */
 void GameView::OnLevel2(wxCommandEvent& event)
 {
-
+	mGame.Load(L"Level/level2.xml");
+	Refresh();
 }
 
 /**
@@ -146,5 +148,6 @@ void GameView::OnLevel2(wxCommandEvent& event)
 */
 void GameView::OnLevel3(wxCommandEvent& event)
 {
-
+	mGame.Load(L"Level/level3.xml");
+	Refresh();
 }

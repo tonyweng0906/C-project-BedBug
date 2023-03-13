@@ -9,7 +9,7 @@
 #define PROJECT1BEDBUG_GAMELIB_FATBUG_H
 
 #include <string>
-
+#include "GameObject.h"
 /**
  * Super class for fat bugs that have a coding challenge when double clicked
  */

@@ -94,10 +94,27 @@ void Game::Load(const wxString &filename)
 	wxXmlDocument xmlDoc;
 	if(!xmlDoc.Load(filename))
 	{
-		wxMessageBox(L"Unable to load Aquarium file");
+		wxMessageBox(L"Unable to load Game file");
 		return;
 	}
-	mPlayArea->Clear();
+	//mPlayArea->ClearObject();
+
+	// Get the XML document root node
+	auto root = xmlDoc.GetRoot();
+
+	//
+	// Traverse the children of the root
+	// node of the XML document in memory!!!!
+	//
+	auto child = root->GetChildren();
+	for( ; child; child=child->GetNext())
+	{
+		auto name = child->GetName();
+		if(name == L"item")
+		{
+			XmlItem(child);
+		}
+	}
 }
 
 /**
