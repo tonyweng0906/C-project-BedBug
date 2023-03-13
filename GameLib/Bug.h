@@ -48,10 +48,11 @@ protected:
 	Bug(Game *game, const std::wstring &filename);
 
 	void Update(double elapsed);
-/**
+
 	wxXmlNode *XmlSave(wxXmlNode *node);
+
 	void XmlLoad(wxXmlNode *node);
-*/
+
 	void BugSpeed(double speedX, double speedY);
 
 

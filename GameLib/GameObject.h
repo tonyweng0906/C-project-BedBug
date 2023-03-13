@@ -26,12 +26,6 @@ private:
 	/// The game this object is contained in
 	Game  *mGame;
 
-	/// The underlying GameObject image
-	std::unique_ptr<wxImage> mGameImage;
-
-	/// The bitmap we can display for this GameObject
-	std::unique_ptr<wxBitmap> mGameBitmap;
-
 public:
 	virtual ~GameObject();
 
@@ -78,11 +72,11 @@ public:
 	 */
 	virtual void DoubleClick(){};
 
-	/**
+
 	virtual wxXmlNode *XmlSave(wxXmlNode *node);
 
 	virtual void XmlLoad(wxXmlNode *node);
-	*/
+
 
 	/**
  	* Handle updates for animation
@@ -111,6 +105,12 @@ protected:
 	GameObject(Game *game, const std::wstring &filename);
 
 	void SetMirror(bool m);
+
+	/// The underlying GameObject image
+	std::unique_ptr<wxImage> mGameImage;
+
+	/// The bitmap we can display for this GameObject
+	std::unique_ptr<wxBitmap> mGameBitmap;
 
 };
 

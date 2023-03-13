@@ -100,6 +100,7 @@ void GameObject::Draw(wxDC *dc)
  * Save this item to an XML node
  * @param node The parent node we are going to be a child of
  * @return wxXmlNode that we saved the item into
+*/
 
 wxXmlNode *GameObject::XmlSave(wxXmlNode *node)
 {
@@ -120,13 +121,12 @@ wxXmlNode *GameObject::XmlSave(wxXmlNode *node)
  * for specific items.
  *
  * @param node The Xml node we are loading the item from
-
+*/
 void GameObject::XmlLoad(wxXmlNode *node)
 {
 	node->GetAttribute(L"x", L"0").ToDouble(&mX);
 	node->GetAttribute(L"y", L"0").ToDouble(&mY);
 }
- */
 
 /**
 * Get the width of image
