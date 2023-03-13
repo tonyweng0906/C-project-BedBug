@@ -8,6 +8,8 @@
 #ifndef PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
 #define PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
 
+#include "ObjectVisitor.h"
+
 class Game;
 
 /**
@@ -98,6 +100,12 @@ public:
 	virtual int GetWidth() const;
 
 	virtual int GetHeight() const;
+
+	/**
+ 	* Accept a visitor
+ 	 * @param visitor The visitor we accept
+ 	 */
+	virtual void Accept(ObjectVisitor* visitor) = 0;
 
 protected:
 	GameObject(Game *game, const std::wstring &filename);

@@ -23,7 +23,7 @@ private:
 	bool mShrinked = false;
 
 	/// play area we create
-	std::shared_ptr<PlayArea> mPlayArea;
+	//PlayArea *mPlayArea;
 
 public:
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);

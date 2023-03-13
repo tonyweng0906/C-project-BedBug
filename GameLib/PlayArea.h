@@ -47,7 +47,7 @@ public:
 	 void OnDraw(wxDC* graphics);
 
 	// Loading and saving functions go here?
-	void Clear();
+	void ClearObject();
 
 };
 

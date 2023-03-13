@@ -118,7 +118,7 @@ void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 */
 void GameView::OnLevel0(wxCommandEvent& event)
 {
-	//mGame.Load(L"Level/level0.xml");
+	//mGame.Load(L"F:/335 vs save/project1bedbug/Level/level0.xml");
 	Refresh();
 }
 

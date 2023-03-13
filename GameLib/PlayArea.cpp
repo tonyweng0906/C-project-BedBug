@@ -76,7 +76,7 @@ void PlayArea::Accept(ObjectVisitor *visitor)
 }
 
 /// Clear the Objects
-void PlayArea::Clear()
+void PlayArea::ClearObject()
 {
 	mObjects.clear();
 }
