@@ -1,7 +1,7 @@
 
 project(GameLib)
 
-set(SOURCE_FILES pch.h MainFrame.h MainFrame.cpp GameView.cpp GameView.h Game.cpp Game.h ids.h FatBug.cpp FatBug.h CodeDlg.cpp CodeDlg.h GameObject.cpp GameObject.h Bug.cpp Bug.h ObjectVisitor.cpp ObjectVisitor.h BugGarbage.cpp BugGarbage.h Feature.cpp Feature.h BugRedundancy.cpp BugRedundancy.h BugNull.cpp BugNull.h PlayArea.cpp PlayArea.h)
+set(SOURCE_FILES pch.h MainFrame.h MainFrame.cpp GameView.cpp GameView.h Game.cpp Game.h ids.h FatBug.cpp FatBug.h CodeDlg.cpp CodeDlg.h GameObject.cpp GameObject.h Bug.cpp Bug.h ObjectVisitor.cpp ObjectVisitor.h BugGarbage.cpp BugGarbage.h Feature.cpp Feature.h BugRedundancy.cpp BugRedundancy.h BugNull.cpp BugNull.h PlayArea.cpp PlayArea.h Level.cpp Level.h)
 
 set(wxBUILD_PRECOMP OFF)
 find_package(wxWidgets COMPONENTS core base xrc html xml REQUIRED)
