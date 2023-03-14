@@ -15,6 +15,8 @@ class Program : public GameObject
 private:
 
 public:
+	/// Constructor
+	Program(Game *game, std::shared_ptr<wxBitmap> image);
 
 	/**
      * Accept a visitor

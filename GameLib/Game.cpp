@@ -7,6 +7,7 @@
 #include "Game.h"
 #include <wx/dcbuffer.h>
 #include <wx/graphics.h>
+#include <memory>
 
 /// Game area in virtual pixels
 const static int Width = 1250;
@@ -132,6 +133,27 @@ void Game::Load(const wxString &filename)
  */
 void Game::XmlItem(wxXmlNode *node)
 {
-
+	// A pointer for the object we are loading
+	std::shared_ptr<GameObject> item;
+	// We have an item. What type?
+	/*auto type = node->GetAttribute(L"type");
+	if (type == L"redundancy")
+	{
+		item = std::make_shared<BugRedundancy>(this);
+	}
+	if (type == L"garbage")
+	{
+		item = std::make_shared<BugGarbage>(this);
+	}
+	if (type == L"null")
+	{
+		item = std::make_shared<BugNull>(this);
+	}
+	if (item != nullptr)
+	{
+		mPlayArea.Add(item);
+		item->XmlLoad(node);
+		//item->XmlLoadSpeed(node);
+	}*/
 }
 

@@ -6,10 +6,12 @@
 #ifndef PROJECT1BEDBUG_SCOREBOARD_H
 #define PROJECT1BEDBUG_SCOREBOARD_H
 
+#include "GameObject.h"
+
 /*
  * class for game scoreboard
  */
-class ScoreBoard {
+class ScoreBoard : public GameObject{
 public:
     void AddFixed();
     void AddMissed();

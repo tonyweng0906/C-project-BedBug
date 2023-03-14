@@ -5,7 +5,17 @@
 
 #include "pch.h"
 #include "PlayArea.h"
+#include <memory>
+using namespace std;
 
+/// The bug sprite image
+const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
+
+/// The splat image
+const std::wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
+
+/// Number of sprite images
+const int GarbageBugNumSpriteImages = 5;
 
 
 /**
@@ -14,6 +24,11 @@
 
 PlayArea::PlayArea()
 {
+	// Adding the GarbageBug bitmap
+	std::shared_ptr<wxImage> GarbageBugImage =
+		make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
+	std::shared_ptr<wxBitmap> GarbageBugBitmap = make_unique<wxBitmap>(*GarbageBugImage);
+	mImages.insert({"GarbageBug", GarbageBugBitmap});
 
 }
 

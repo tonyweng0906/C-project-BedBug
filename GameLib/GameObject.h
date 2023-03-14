@@ -26,6 +26,9 @@ private:
 	/// The game this object is contained in
 	Game  *mGame;
 
+	/// The bitmap we can display for this object
+	std::unique_ptr<wxBitmap> mItemBitmap;
+
 public:
 	virtual ~GameObject();
 

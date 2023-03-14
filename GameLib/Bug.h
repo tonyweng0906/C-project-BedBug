@@ -10,6 +10,7 @@
 
 #include "GameObject.h"
 #include "ObjectVisitor.h"
+#include "Program.h"
 
 /**
  * Base class for a bug

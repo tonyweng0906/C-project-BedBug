@@ -10,6 +10,8 @@
 
 #include <string>
 #include "GameObject.h"
+#include "Program.h"
+
 /**
  * Super class for fat bugs that have a coding challenge when double clicked
  */
