@@ -27,4 +27,5 @@ void FatBug::codeWindow(wxWindow* window)
  */
 FatBug::FatBug(std::wstring pass, std::wstring code) : mPass(pass), mCode(code)
 {
+
 }
