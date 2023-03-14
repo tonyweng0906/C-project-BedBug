@@ -39,10 +39,10 @@ void GameObject::SetMirror(bool m) {
  * @param aquarium The aquarium this item is a member of
  * @param filename the loaded in xml file
  */
-GameObject::GameObject(Game *game, const std::wstring &filename) : mGame(game)
+GameObject::GameObject(Game *game, std::shared_ptr<wxBitmap> image) : mGame(game), mGameBitmap(image)
 {
-	mGameImage = make_unique<wxImage>(filename, wxBITMAP_TYPE_ANY);
-	mGameBitmap = make_unique<wxBitmap>(*mGameImage);
+	//mGameImage = make_unique<wxImage>(filename, wxBITMAP_TYPE_ANY);
+	//mGameBitmap = make_unique<wxBitmap>(*mGameImage);
 }
 
 /**

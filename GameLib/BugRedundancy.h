@@ -15,8 +15,9 @@ class BugRedundancy : public Bug
 private:
 
 public:
-
-	/**
+	/// Constructor
+	BugRedundancy(Game *game, std::shared_ptr<wxBitmap> image);
+/**
      * Accept a visitor
      * @param visitor The visitor we accept
      */

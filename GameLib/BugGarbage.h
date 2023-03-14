@@ -16,7 +16,7 @@ private:
 
 public:
 	/// constructor
-//	BugGarbage(Game* game);
+	BugGarbage(Game* game, std::shared_ptr<wxBitmap> image);
 
 	/// Default constructor (disabled)
 	BugGarbage() = delete;

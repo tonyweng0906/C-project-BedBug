@@ -45,7 +45,7 @@ public:
 
 
 protected:
-	Bug(Game *game, const std::wstring &filename);
+	Bug(Game *game, std::shared_ptr<wxBitmap> image);
 
 	void Update(double elapsed);
 
