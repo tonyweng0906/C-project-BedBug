@@ -19,6 +19,15 @@ const double ShrinkScale = 0.75;
 
 
 /**
+ * Game Constructor
+ */
+ Game::Game()
+ {
+
+ }
+
+
+/**
  * Draw the game area
  * @param graphics The graphics context to draw on
  * @param width Width of the client window

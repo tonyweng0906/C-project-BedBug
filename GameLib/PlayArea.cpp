@@ -6,6 +6,17 @@
 #include "pch.h"
 #include "PlayArea.h"
 
+
+
+/**
+ * PlayArea Constructor
+ */
+
+PlayArea::PlayArea()
+{
+
+}
+
 /**
  * Add an object to the PlayArea
  * @param object new object to add

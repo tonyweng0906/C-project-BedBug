@@ -5,11 +5,11 @@
  *
  */
 
-#include "GameObject.h"
-#include "ObjectVisitor.h"
-
 #ifndef PROJECT1BEDBUG_GAMELIB_BUG_H
 #define PROJECT1BEDBUG_GAMELIB_BUG_H
+
+#include "GameObject.h"
+#include "ObjectVisitor.h"
 
 /**
  * Base class for a bug

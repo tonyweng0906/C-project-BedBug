@@ -14,6 +14,7 @@
 #include "Bug.h"
 #include "PlayArea.h"
 
+///Class for the Game part
 class Game
 {
 private:
@@ -23,9 +24,12 @@ private:
 	bool mShrinked = false;
 
 	/// play area we create
-	//PlayArea *mPlayArea;
+	PlayArea mPlayArea;
 
 public:
+
+	Game();
+
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
 	/// Set the Shrinked when click on view
