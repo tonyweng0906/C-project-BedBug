@@ -6,12 +6,14 @@
 #ifndef PROJECT1BEDBUG_SCOREBOARD_H
 #define PROJECT1BEDBUG_SCOREBOARD_H
 
-
+/*
+ * class for game scoreboard
+ */
 class ScoreBoard {
 public:
-    void AddFixed(){mFixed++;}
-    void AddMissed(){mMissed++;}
-    void AddOops(){mOops++;}
+    void AddFixed();
+    void AddMissed();
+    void AddOops();
 
 private:
     /// fixed score

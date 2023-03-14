@@ -24,3 +24,27 @@ const int ScoreY = 20;
 
 /// Score label Y location
 const int ScoreLabelY = 100;
+
+/*
+ * increments the Fixed score count
+ */
+void ScoreBoard::AddFixed() {
+    mFixed++;
+    return;
+}
+
+/*
+ * increments the Missed count
+ */
+void ScoreBoard::AddMissed(){
+    mMissed++;
+    return;
+}
+
+/*
+ * increments the Oops count
+ */
+void ScoreBoard::AddOops(){
+    mOops++;
+    return;
+}
