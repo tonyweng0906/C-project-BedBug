@@ -22,17 +22,11 @@ class Bug : public GameObject
 private:
 	/// Bug speed in the X direction
 	/// in pixels per second
-	double mSpeedX;
+	double mSpeed = 0;
 
-	/// Bug speed in the Y direction
-	/// in pixels per second
-	double mSpeedY;
+	/// Bug rotation in degrees
+	double mRotation = 0;
 
-	/// Starting X position of the bug
-	double mStartX;
-
-	/// Starting Y position of the bug
-	double mStartY;
 
 public:
 	/// Default constructor (disabled)
@@ -54,13 +48,8 @@ public:
 	 * Get the starting X position of the bug
 	 * @return The starting X position
 	 */
-	double GetStartX() const { return mStartX; }
+	double GetSpeed() const { return mSpeed; }
 
-	/**
-	 * Get the starting Y position of the bug
-	 * @return The starting Y position
-	 */
-	double GetStartY() const { return mStartY; }
 
 protected:
 	Bug(Game *game, std::shared_ptr<wxBitmap> image);
