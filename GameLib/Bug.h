@@ -28,7 +28,7 @@ private:
 	double mRotation = 0;
 
 	/// Program the bug will target
-	Program mProgram;
+	std::shared_ptr<Program> mProgram;
 
 public:
 	/// Default constructor (disabled)

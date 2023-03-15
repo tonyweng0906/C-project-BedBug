@@ -28,7 +28,7 @@ private:
 	std::vector<std::shared_ptr<GameObject> > mObjects;
 
 	/// List of all the images
-	std::map<std::string,  std::shared_ptr<wxBitmap>> mImages;
+	std::map<std::string, std::shared_ptr<wxBitmap>> mImages;
 public:
 	PlayArea();
 
