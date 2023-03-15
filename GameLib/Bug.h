@@ -28,6 +28,12 @@ private:
 	/// in pixels per second
 	double mSpeedY;
 
+	/// Starting X position of the bug
+	double mStartX;
+
+	/// Starting Y position of the bug
+	double mStartY;
+
 public:
 	/// Default constructor (disabled)
 	Bug() = delete;
@@ -44,19 +50,26 @@ public:
 	  */
 	virtual void Accept(ObjectVisitor* visitor) = 0;
 
+	/**
+	 * Get the starting X position of the bug
+	 * @return The starting X position
+	 */
+	double GetStartX() const { return mStartX; }
+
+	/**
+	 * Get the starting Y position of the bug
+	 * @return The starting Y position
+	 */
+	double GetStartY() const { return mStartY; }
 
 protected:
 	Bug(Game *game, std::shared_ptr<wxBitmap> image);
 
 	void Update(double elapsed);
 
-	wxXmlNode *XmlSave(wxXmlNode *node);
-
 	void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
-
-
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUG_H

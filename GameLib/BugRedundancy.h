@@ -13,11 +13,22 @@
 class BugRedundancy : public Bug
 {
 private:
+	double mStartTime; ///< The time at which the bug should start moving towards the program
+	double mTimeElapsed; ///< The time that has elapsed since the bug started moving
+	double mAngle; ///< The angle at which the bug should move towards the program
 
 public:
-	/// Constructor
-	BugRedundancy(Game *game, std::shared_ptr<wxBitmap> image);
-/**
+	/// constructor
+	BugRedundancy(Game* game, double startX, double startY, double speedX, double speedY, double startTime);
+
+	/// Default constructor (disabled)
+	BugRedundancy() = delete;
+
+	/// Copy constructor (disabled)
+	BugRedundancy(const BugRedundancy&) = delete;
+
+	void Update(double elapsed) override;
+	/**
      * Accept a visitor
      * @param visitor The visitor we accept
      */
