@@ -129,6 +129,11 @@ void PlayArea::ClearObject()
 	mObjects.clear();
 }
 
+/**
+ * Get the Bitmap when call the name of the object
+ * @param name name of the object
+ * @return Pointer to the bitmap
+ */
 std::shared_ptr<wxBitmap> PlayArea::GetBitmap(std::string name)
 {
 	auto bitMap = mImages.find(name);
@@ -137,4 +142,5 @@ std::shared_ptr<wxBitmap> PlayArea::GetBitmap(std::string name)
 		return bitMap->second;
 	}
 }
+
 
