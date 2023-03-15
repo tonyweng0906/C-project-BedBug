@@ -50,10 +50,10 @@ const int WingSetY = 5;
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugRedundancy::BugRedundancy(Game *game) : Bug(game, std::shared_ptr<wxBitmap> RedundancyFlyBitmap)
-{
+//BugRedundancy::BugRedundancy(Game *game) : Bug(game, std::shared_ptr<wxBitmap> RedundancyFlyBitmap)
+//{
 
-}
+//}
 
 void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> graphics)
 {
