@@ -8,24 +8,38 @@
 #ifndef PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H
 #define PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H
 
+#include <wx/graphics.h>
 #include "Bug.h"
 
 class BugRedundancy : public Bug
 {
 private:
-	double mStartTime; ///< The time at which the bug should start moving towards the program
-	double mTimeElapsed; ///< The time that has elapsed since the bug started moving
-	double mAngle; ///< The angle at which the bug should move towards the program
+	/// left wing image
+	std::shared_ptr<wxImage> mImageLeftWing;
+	/// right wing image
+	std::shared_ptr<wxImage> mImageRightWing;
+	/// top image
+	std::shared_ptr<wxImage> mImageTop;
+
+	/// left wing bitmap
+	wxGraphicsBitmap mLeftWingBitmap;
+	/// right wing bitmap
+	wxGraphicsBitmap mRightWingBitmap;
+	/// top bitmap
+	wxGraphicsBitmap mTopBitmap;
 
 public:
 	/// constructor
-	BugRedundancy(Game* game, double startX, double startY, double speedX, double speedY, double startTime);
+	BugRedundancy(Game* game);
 
 	/// Default constructor (disabled)
 	BugRedundancy() = delete;
 
 	/// Copy constructor (disabled)
 	BugRedundancy(const BugRedundancy&) = delete;
+
+	/// Assignment operator
+	void operator=(const BugRedundancy &) = delete;
 
 	void Update(double elapsed) override;
 	/**
@@ -34,6 +48,7 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
 
+	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H
