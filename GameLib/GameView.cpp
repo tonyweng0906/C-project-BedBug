@@ -89,6 +89,7 @@ void GameView::OnPaint(wxPaintEvent& event)
 	wxRect rect = GetRect();
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
+    /****Drawing ScoreBoard stuff****/
     wxFont ScoreFont(wxSize(0,ScoreSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
     dc.SetFont(ScoreFont);
     dc.SetTextForeground(FontColor);
@@ -104,6 +105,7 @@ void GameView::OnPaint(wxPaintEvent& event)
     dc.DrawText(L"Fixed",LeftScoreX,ScoreLabelY);
     dc.DrawText(L"Missed",rect.GetWidth()/2,ScoreLabelY);
     dc.DrawText(L"Oops",rect.GetWidth()-LeftScoreX,ScoreLabelY);
+    /*****End Scoreboard Stuff*********/
 
 
 
