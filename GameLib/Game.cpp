@@ -23,6 +23,26 @@ const static int Height = 1000;
 /// Scale to shrink to when in shrink mode
 const double ShrinkScale = 0.75;
 
+/********Scoreboard Constants**********/
+/// Score font size to use
+const int ScoreSize = 85;
+
+/// Lable for score font size to use
+const int LabelSize = 40;
+
+/// The font color to use
+const wxColour FontColor = wxColour(0, 200, 200);
+
+/// Left score X location. The right score is
+/// the width minus this value.
+const int LeftScoreX = 150;
+
+/// Score Y location
+const int ScoreY = 20;
+
+/// Score label Y location
+const int ScoreLabelY = 100;
+
 
 /**
  * Game Constructor
@@ -78,13 +98,21 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 				wxFONTSTYLE_NORMAL,
 				wxFONTWEIGHT_BOLD);
 	graphics->SetFont(font, *wxBLACK);
-	graphics->DrawText(L"Testing", 1250/2, 100);
-	graphics->DrawText(L"Testing", 100, 500);
-	graphics->DrawText(L"Testing", 1100, 500);
-	graphics->DrawText(L"Testing", 1250/2, 900);
-	graphics->SetFont(font, *wxWHITE);
-	graphics->DrawText(L"I am here", 600, -100);
 
+
+    /****Drawing ScoreBoard stuff****/
+    wxFont LabelFont(wxSize(0,LabelSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
+    graphics->SetFont(LabelFont,FontColor);
+    graphics->DrawText(L"Fixed",LeftScoreX-30,ScoreLabelY);
+    graphics->DrawText(L"Missed",Width/2-40,ScoreLabelY);
+    graphics->DrawText(L"Oops",Width-LeftScoreX-25,ScoreLabelY);
+
+    wxFont ScoreFont(wxSize(0,ScoreSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
+    graphics->SetFont(ScoreFont,FontColor);
+    graphics->DrawText(L"6",LeftScoreX,ScoreY);
+    graphics->DrawText(L"1",Width/2,ScoreY);
+    graphics->DrawText(L"0",Width-LeftScoreX,ScoreY);
+    /*****End Scoreboard Stuff*********/
 
 
 	graphics->PopState();

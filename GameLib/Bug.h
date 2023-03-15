@@ -27,6 +27,8 @@ private:
 	/// Bug rotation in degrees
 	double mRotation = 0;
 
+	/// Program the bug will target
+	Program mProgram;
 
 public:
 	/// Default constructor (disabled)
