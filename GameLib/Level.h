@@ -8,21 +8,27 @@
 #ifndef PROJECT1BEDBUG_LEVEL_H
 #define PROJECT1BEDBUG_LEVEL_H
 
-#include "Game.h"
 #include "Bug.h"
 #include "Feature.h"
 
+class Game;
+
 class Level {
 private:
+    Game *mGame;
     double mWidth;
 
     double mHeight;
+
+    Bug *mBug;
 
     ///Level xml document
     wxXmlDocument mXmlDoc;
 
     /// items in level
     std::vector<std::shared_ptr<Bug>> mBugs;
+
+
 
 public:
     /// Default constructor (disabled)
