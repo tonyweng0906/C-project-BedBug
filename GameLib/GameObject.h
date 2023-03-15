@@ -19,7 +19,7 @@ class GameObject
 {
 private:
 
-	// Item location in the aquarium
+	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item
 	double  mY = 0;     ///< Y location for the center of the item
 
