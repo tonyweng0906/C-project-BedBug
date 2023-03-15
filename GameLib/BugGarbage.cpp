@@ -14,7 +14,7 @@
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugGarbage::BugGarbage(Game *game, std::shared_ptr<wxBitmap> image) : Bug(game, image)
+BugGarbage::BugGarbage(Game *game) : Bug(game)
 {
 
 }
