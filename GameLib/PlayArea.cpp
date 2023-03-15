@@ -15,12 +15,12 @@ const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
 const std::wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
 
 /// The bug feature image
-const std::wstring FeatureBugImageName = L"feature.png";
+const std::wstring FeatureBugImageName = L"images/feature.png";
 
 /// The redundancy fly image
-const std:: wstring RedundancyFlyImageName = L"redundancy-fly-base.png";
+const std:: wstring RedundancyFlyImageName = L"images/redundancy-fly-base.png";
 
-const std::wstring NullBugImageName = L"scarlet-gray-bug.png";
+const std::wstring NullBugImageName = L"images/scarlet-gray-bug.png";
 /// Number of sprite images
 const int GarbageBugNumSpriteImages = 5;
 

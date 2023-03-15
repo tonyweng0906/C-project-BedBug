@@ -56,7 +56,7 @@ protected:
 
 	void Update(double elapsed);
 
-	void XmlLoad(wxXmlNode *node);
+	//void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
 };
