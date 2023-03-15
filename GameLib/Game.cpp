@@ -8,6 +8,11 @@
 #include <wx/dcbuffer.h>
 #include <wx/graphics.h>
 #include <memory>
+#include "BugGarbage.h"
+#include "BugNull.h"
+#include "BugRedundancy.h"
+#include "Feature.h"
+#include "Program.h"
 
 /// Game area in virtual pixels
 const static int Width = 1250;
@@ -117,10 +122,11 @@ void Game::Load(const wxString &filename)
 	// node of the XML document in memory!!!!
 	//
 	auto child = root->GetChildren();
+	child = child->GetChildren();
 	for( ; child; child=child->GetNext())
 	{
 		auto name = child->GetName();
-		if(name == L"item")
+		if(name == L"bug")
 		{
 			XmlItem(child);
 		}
@@ -133,27 +139,29 @@ void Game::Load(const wxString &filename)
  */
 void Game::XmlItem(wxXmlNode *node)
 {
-	// A pointer for the object we are loading
+//	 A pointer for the object we are loading
 	std::shared_ptr<GameObject> item;
 	// We have an item. What type?
-	/*auto type = node->GetAttribute(L"type");
-	if (type == L"redundancy")
-	{
-		item = std::make_shared<BugRedundancy>(this);
-	}
+	auto type = node->GetAttribute(L"type");
 	if (type == L"garbage")
 	{
-		item = std::make_shared<BugGarbage>(this);
-	}
-	if (type == L"null")
-	{
-		item = std::make_shared<BugNull>(this);
+		//item = std::make_shared<BugGarbage>(this, mPlayArea.GetBitmap("Garbage"));
 	}
 	if (item != nullptr)
 	{
 		mPlayArea.Add(item);
 		item->XmlLoad(node);
 		//item->XmlLoadSpeed(node);
-	}*/
+	}
+	/*
+	if (type == L"redundancy")
+	{
+		item = std::make_shared<BugRedundancy>(this);
+	}
+	if (type == L"null")
+	{
+		item = std::make_shared<BugNull>(this);
+	}
+	*/
 }
 

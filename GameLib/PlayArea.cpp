@@ -6,7 +6,7 @@
 #include "pch.h"
 #include "PlayArea.h"
 #include <memory>
-using namespace std;
+#include <iostream>
 
 /// The bug sprite image
 const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
@@ -26,8 +26,8 @@ PlayArea::PlayArea()
 {
 	// Adding the GarbageBug bitmap
 	std::shared_ptr<wxImage> GarbageBugImage =
-		make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
-	std::shared_ptr<wxBitmap> GarbageBugBitmap = make_unique<wxBitmap>(*GarbageBugImage);
+		std::make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
+	std::shared_ptr<wxBitmap> GarbageBugBitmap = std::make_unique<wxBitmap>(*GarbageBugImage);
 	mImages.insert({"GarbageBug", GarbageBugBitmap});
 
 }
@@ -97,7 +97,7 @@ void PlayArea::Accept(ObjectVisitor *visitor)
 	for (auto object : mObjects)
 	{
 		//Need to build accept function in object class
-		//object.Accept(visitor);
+		object->Accept(visitor);
 	}
 }
 
@@ -105,4 +105,13 @@ void PlayArea::Accept(ObjectVisitor *visitor)
 void PlayArea::ClearObject()
 {
 	mObjects.clear();
+}
+
+std::shared_ptr<wxBitmap> PlayArea::GetBitmap(std::string name)
+{
+	auto bitMap = mImages.find(name);
+	if (bitMap!=mImages.end())
+	{
+		return bitMap->second;
+	}
 }

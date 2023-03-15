@@ -11,6 +11,7 @@
 #include <memory>
 #include <vector>
 
+#include "GameObject.h"
 #include "Bug.h"
 #include "PlayArea.h"
 

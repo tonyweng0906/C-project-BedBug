@@ -26,6 +26,8 @@ public:
 
 //	virtual wxXmlNode* XmlSave(wxXmlNode* node) override;
 
+	/// Assignment operator
+	void operator=(const BugGarbage &) = delete;
 	/**
      * Accept a visitor
      * @param visitor The visitor we accept

@@ -52,6 +52,7 @@ public:
 	// Loading and saving functions go here?
 	void ClearObject();
 
+	std::shared_ptr<wxBitmap> GetBitmap(std::string name);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_PLAYAREA_H
