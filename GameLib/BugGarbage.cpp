@@ -12,15 +12,12 @@
 /**
 * Constructor
  * @param game the game this is a member of
+ * @param image the image this object is represented by
 */
+BugGarbage::BugGarbage(Game *game, std::shared_ptr<wxBitmap> image) : Bug(game, image)
+{
 
-// Does not currently match GameObject constructor, game object has a file name being passed??
-
-//BugGarbage::BugGarbage(Game *game) : GameObject(game)
-//{
-//	// Set image function likely to go in the Tile class?
-//	//SetImage(GarbageImage);
-//}
+}
 
 /**
 * Save this item to an XML node

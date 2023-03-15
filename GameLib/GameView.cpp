@@ -12,6 +12,28 @@
 /// Frame duration in milliseconds
 const int FrameDuration = 30;
 
+/********Scoreboard Constants**********/
+/// Score font size to use
+const int ScoreSize = 85;
+
+/// Lable for score font size to use
+const int LabelSize = 40;
+
+/// The font color to use
+const wxColour FontColor = wxColour(0, 200, 200);
+
+/// Left score X location. The right score is
+/// the width minus this value.
+const int LeftScoreX = 150;
+
+/// Score Y location
+const int ScoreY = 20;
+
+/// Score label Y location
+const int ScoreLabelY = 100;
+
+
+
 /**
  * Initialize the game view class.
  * @param parent The parent window for this class+
@@ -66,6 +88,27 @@ void GameView::OnPaint(wxPaintEvent& event)
 	// Tell the game class to draw
 	wxRect rect = GetRect();
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
+
+    /****Drawing ScoreBoard stuff****/
+    wxFont ScoreFont(wxSize(0,ScoreSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
+    dc.SetFont(ScoreFont);
+    dc.SetTextForeground(FontColor);
+    dc.DrawText(L"6",LeftScoreX,ScoreY);
+    dc.DrawText(L"1",rect.GetWidth()/2,ScoreY);
+    dc.DrawText(L"0",rect.GetWidth()-LeftScoreX,ScoreY);
+
+    wxFont LabelFont(wxSize(0,LabelSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
+    dc.SetFont(LabelFont);
+    dc.SetTextForeground(FontColor);
+    GetTextExtent("Fixed",mLabelWidth,mLabelHeight);
+
+    dc.DrawText(L"Fixed",LeftScoreX,ScoreLabelY);
+    dc.DrawText(L"Missed",rect.GetWidth()/2,ScoreLabelY);
+    dc.DrawText(L"Oops",rect.GetWidth()-LeftScoreX,ScoreLabelY);
+    /*****End Scoreboard Stuff*********/
+
+
+
 }
 
 void GameView::OnShrink(wxCommandEvent& event)

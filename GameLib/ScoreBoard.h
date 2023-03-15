@@ -6,12 +6,16 @@
 #ifndef PROJECT1BEDBUG_SCOREBOARD_H
 #define PROJECT1BEDBUG_SCOREBOARD_H
 
+#include "GameObject.h"
 
-class ScoreBoard {
+/*
+ * class for game scoreboard
+ */
+class ScoreBoard : public GameObject{
 public:
-    void AddFixed(){mFixed++;}
-    void AddMissed(){mMissed++;}
-    void AddOops(){mOops++;}
+    void AddFixed();
+    void AddMissed();
+    void AddOops();
 
 private:
     /// fixed score

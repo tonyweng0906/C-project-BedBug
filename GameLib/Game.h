@@ -11,9 +11,11 @@
 #include <memory>
 #include <vector>
 
+#include "GameObject.h"
 #include "Bug.h"
 #include "PlayArea.h"
 
+///Class for the Game part
 class Game
 {
 private:
@@ -23,9 +25,12 @@ private:
 	bool mShrinked = false;
 
 	/// play area we create
-	//PlayArea *mPlayArea;
+	PlayArea mPlayArea;
 
 public:
+
+	Game();
+
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
 	/// Set the Shrinked when click on view
@@ -37,6 +42,10 @@ public:
 
 	void Load(const wxString &filename);
 	void XmlItem(wxXmlNode *node);
+
+	///Getter for the playarea
+	///@return PlayArea
+	PlayArea GetPlayArea(){return mPlayArea;}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H

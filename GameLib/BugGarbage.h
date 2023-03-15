@@ -16,7 +16,7 @@ private:
 
 public:
 	/// constructor
-//	BugGarbage(Game* game);
+	BugGarbage(Game* game, std::shared_ptr<wxBitmap> image);
 
 	/// Default constructor (disabled)
 	BugGarbage() = delete;
@@ -26,6 +26,8 @@ public:
 
 //	virtual wxXmlNode* XmlSave(wxXmlNode* node) override;
 
+	/// Assignment operator
+	void operator=(const BugGarbage &) = delete;
 	/**
      * Accept a visitor
      * @param visitor The visitor we accept

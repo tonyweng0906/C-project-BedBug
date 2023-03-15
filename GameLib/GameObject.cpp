@@ -6,6 +6,7 @@
 #include "pch.h"
 #include "GameObject.h"
 #include "Game.h"
+#include <memory>
 
 bool mMirror = false;   ///< True mirrors the item image
 
@@ -36,13 +37,14 @@ void GameObject::SetMirror(bool m) {
 
 /**
  * Constructor
- * @param aquarium The aquarium this item is a member of
+ * @param game The game this item is a member of
  * @param filename the loaded in xml file
  */
-GameObject::GameObject(Game *game, const std::wstring &filename) : mGame(game)
+GameObject::GameObject(Game *game, std::shared_ptr<wxBitmap> image) : mGame(game)
 {
-	mGameImage = make_unique<wxImage>(filename, wxBITMAP_TYPE_ANY);
-	mGameBitmap = make_unique<wxBitmap>(*mGameImage);
+	//mGameImage = make_unique<wxImage>(filename, wxBITMAP_TYPE_ANY);
+	//mGameBitmap = make_unique<wxBitmap>(*mGameImage);
+	//*mItemBitmap = *image;
 }
 
 /**

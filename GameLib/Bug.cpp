@@ -12,8 +12,8 @@
  * @param game The game we are in
  * @param filename Filename for the image we use
  */
-Bug::Bug(Game *game, const std::wstring &filename) :
-	GameObject(game, filename)
+Bug::Bug(Game *game, std::shared_ptr<wxBitmap> image) :
+	GameObject(game, image)
 {
 	/**
 	std::uniform_real_distribution<> distribution(MinSpeedX, MaxSpeedX);
@@ -82,7 +82,7 @@ void Bug::Update(double elapsed)
  * @param node The parent node we are going to be a child of
  * @return wxXmlNode that we saved the item into
  *
- * */
+ *
 wxXmlNode *Bug::XmlSave(wxXmlNode *node)
 {
 	auto itemNode = GameObject::XmlSave(node);
@@ -101,12 +101,12 @@ wxXmlNode *Bug::XmlSave(wxXmlNode *node)
  *
  *
  * @param node The Xml node we are loading the item from
-*/
+
 void Bug::XmlLoad(wxXmlNode *node)
 {
 	node->GetAttribute(L"speedX", L"0").ToDouble(&mSpeedX);
 	node->GetAttribute(L"speedY", L"0").ToDouble(&mSpeedY);
 	GameObject::XmlLoad(node);
-}
+}*/
 
 

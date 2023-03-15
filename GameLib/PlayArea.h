@@ -10,6 +10,7 @@
 
 #include <memory>
 #include <vector>
+#include <map>
 #include "GameObject.h"
 
 
@@ -26,6 +27,8 @@ private:
 	/// All of the game objects that make up the game
 	std::vector<std::shared_ptr<GameObject> > mObjects;
 
+	/// List of all the images
+	std::map<std::string,  std::shared_ptr<wxBitmap>> mImages;
 public:
 	PlayArea();
 
@@ -49,6 +52,7 @@ public:
 	// Loading and saving functions go here?
 	void ClearObject();
 
+	std::shared_ptr<wxBitmap> GetBitmap(std::string name);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_PLAYAREA_H

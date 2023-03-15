@@ -5,11 +5,12 @@
  *
  */
 
-#include "GameObject.h"
-#include "ObjectVisitor.h"
-
 #ifndef PROJECT1BEDBUG_GAMELIB_BUG_H
 #define PROJECT1BEDBUG_GAMELIB_BUG_H
+
+#include "GameObject.h"
+#include "ObjectVisitor.h"
+#include "Program.h"
 
 /**
  * Base class for a bug
@@ -21,11 +22,11 @@ class Bug : public GameObject
 private:
 	/// Bug speed in the X direction
 	/// in pixels per second
-	double mSpeedX;
+	double mSpeed = 0;
 
-	/// Bug speed in the Y direction
-	/// in pixels per second
-	double mSpeedY;
+	/// Bug rotation in degrees
+	double mRotation = 0;
+
 
 public:
 	/// Default constructor (disabled)
@@ -43,19 +44,21 @@ public:
 	  */
 	virtual void Accept(ObjectVisitor* visitor) = 0;
 
+	/**
+	 * Get the starting X position of the bug
+	 * @return The starting X position
+	 */
+	double GetSpeed() const { return mSpeed; }
+
 
 protected:
-	Bug(Game *game, const std::wstring &filename);
+	Bug(Game *game, std::shared_ptr<wxBitmap> image);
 
 	void Update(double elapsed);
 
-	wxXmlNode *XmlSave(wxXmlNode *node);
-
-	void XmlLoad(wxXmlNode *node);
+	//void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
-
-
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUG_H

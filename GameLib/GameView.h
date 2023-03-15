@@ -26,6 +26,12 @@ private:
 	/// The last stopwatch time
 	long mTime = 0;
 
+    ///used to record label width
+    int* mLabelWidth;
+
+    ///used to record label height
+    int* mLabelHeight;
+
 	void OnPaint(wxPaintEvent& event);
 	void OnShrink(wxCommandEvent &event);
 	void OnTimerEvent(wxTimerEvent & event);

@@ -26,6 +26,9 @@ private:
 	/// The game this object is contained in
 	Game  *mGame;
 
+	/// The bitmap we can display for this object
+	std::shared_ptr<wxBitmap> mItemBitmap;
+
 public:
 	virtual ~GameObject();
 
@@ -102,7 +105,7 @@ public:
 	virtual void Accept(ObjectVisitor* visitor) = 0;
 
 protected:
-	GameObject(Game *game, const std::wstring &filename);
+	GameObject(Game *game, std::shared_ptr<wxBitmap> image);
 
 	void SetMirror(bool m);
 
@@ -110,8 +113,8 @@ protected:
 	std::unique_ptr<wxImage> mGameImage;
 
 	/// The bitmap we can display for this GameObject
-	std::unique_ptr<wxBitmap> mGameBitmap;
-
+	//std::unique_ptr<wxBitmap> mGameBitmap;
+	std::shared_ptr<wxBitmap> mGameBitmap;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
