@@ -6,6 +6,7 @@
 #include "pch.h"
 #include "Bug.h"
 #include "Game.h"
+#include "Program.h"
 
 /**
  * Constructor
