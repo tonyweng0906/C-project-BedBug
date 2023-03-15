@@ -42,6 +42,10 @@ public:
 
 	void Load(const wxString &filename);
 	void XmlItem(wxXmlNode *node);
+
+	///Getter for the playarea
+	///@return PlayArea
+	PlayArea GetPlayArea(){return mPlayArea;}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H
