@@ -12,8 +12,7 @@
  * @param game The game we are in
  * @param filename Filename for the image we use
  */
-Bug::Bug(Game *game, std::shared_ptr<wxBitmap> image) :
-	GameObject(game, image)
+Bug::Bug(Game *game) : GameObject(game)
 {
 	/**
 	std::uniform_real_distribution<> distribution(MinSpeedX, MaxSpeedX);
