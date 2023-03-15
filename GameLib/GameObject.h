@@ -105,7 +105,7 @@ public:
 	virtual void Accept(ObjectVisitor* visitor) = 0;
 
 protected:
-	GameObject(Game *game);
+	GameObject(Game *game, std::wstring name );
 
 	void SetMirror(bool m);
 

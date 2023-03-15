@@ -9,19 +9,19 @@
 using namespace std;
 
 /// The bug base image
-const std::wstring RedundancyFlyImageName = L"redundancy-fly-base.png";
+const std::wstring RedundancyFlyImageName = L"images/redundancy-fly-base.png";
 
 /// The bug top image
-const std::wstring RedundancyFlyTopImageName = L"redundancy-fly-top.png";
+const std::wstring RedundancyFlyTopImageName = L"images/redundancy-fly-top.png";
 
 /// The left wing image
-const std::wstring RedundancyFlyLeftWingImageName = L"redundancy-fly-lwing.png";
+const std::wstring RedundancyFlyLeftWingImageName = L"images/redundancy-fly-lwing.png";
 
 /// The right wing image
-const std::wstring RedundancyFlyRightWingImageName = L"redundancy-fly-rwing.png";
+const std::wstring RedundancyFlyRightWingImageName = L"images/redundancy-fly-rwing.png";
 
 /// The splat image
-const std::wstring RedundancyFlySplatImageName = L"redundancy-fly-splat.png";
+const std::wstring RedundancyFlySplatImageName = L"images/redundancy-fly-splat.png";
 
 /// Wing flapping period in seconds
 const double WingPeriod = 0.2;
@@ -50,7 +50,7 @@ const int WingSetY = 5;
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugRedundancy::BugRedundancy(Game *game) : Bug(game)
+BugRedundancy::BugRedundancy(Game *game) : Bug(game,RedundancyFlyImageName)
 {
 
 }

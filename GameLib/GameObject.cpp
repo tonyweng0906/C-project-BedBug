@@ -40,7 +40,7 @@ void GameObject::SetMirror(bool m) {
  * @param game The game this item is a member of
  * @param filename the loaded in xml file
  */
-GameObject::GameObject(Game *game) : mGame(game)
+GameObject::GameObject(Game *game, std::wstring name) : mGame(game)
 {
 	//mGameImage = make_unique<wxImage>(filename, wxBITMAP_TYPE_ANY);
 	//mGameBitmap = make_unique<wxBitmap>(*mGameImage);

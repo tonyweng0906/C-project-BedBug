@@ -54,7 +54,7 @@ public:
 
 
 protected:
-	Bug(Game *game);
+	Bug(Game *game, std::wstring name );
 
 	void Update(double elapsed);
 
