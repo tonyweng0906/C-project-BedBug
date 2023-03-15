@@ -16,7 +16,7 @@ private:
 
 public:
 	/// Constructor
-	Program(Game *game, std::shared_ptr<wxBitmap> image);
+	Program(Game *game);
 
 	/// Default constructor (disabled)
 	Program() = delete;
