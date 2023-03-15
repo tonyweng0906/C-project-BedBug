@@ -30,7 +30,7 @@ private:
 
 public:
 	/// constructor
-	BugRedundancy(Game* game);
+	BugRedundancy(Game* game, std::shared_ptr<wxBitmap> RedundancyFlyBitmap);
 
 	/// Default constructor (disabled)
 	BugRedundancy() = delete;

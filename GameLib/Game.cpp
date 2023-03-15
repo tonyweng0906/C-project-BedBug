@@ -143,9 +143,9 @@ void Game::XmlItem(wxXmlNode *node)
 	std::shared_ptr<GameObject> item;
 	// We have an item. What type?
 	auto type = node->GetAttribute(L"type");
-	if (type == L"garbage")
+	if (type == L"redundancy")
 	{
-		//item = std::make_shared<BugGarbage>(this, mPlayArea.GetBitmap("Garbage"));
+		item = std::make_shared<BugGarbage>(this, mPlayArea.GetBitmap("Garbage"));
 	}
 	if (item != nullptr)
 	{
