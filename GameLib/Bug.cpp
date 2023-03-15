@@ -13,7 +13,7 @@
  * @param game The game we are in
  * @param filename Filename for the image we use
  */
-Bug::Bug(Game *game, std::wstring name ) : GameObject(game, name)
+Bug::Bug(Game *game, const std::wstring & name ) : GameObject(game, name)
 {
 	/**
 	std::uniform_real_distribution<> distribution(MinSpeedX, MaxSpeedX);
