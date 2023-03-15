@@ -18,6 +18,12 @@ public:
 	/// Constructor
 	Program(Game *game, std::shared_ptr<wxBitmap> image);
 
+	/// Default constructor (disabled)
+	Program() = delete;
+
+	/// Copy constructor (disabled)
+	Program(const Program&) = delete;
+
 	/**
      * Accept a visitor
      * @param visitor The visitor we accept
