@@ -16,7 +16,7 @@ private:
 
 public:
 	/// Constructor
-	BugNull(Game *game, std::shared_ptr<wxBitmap> image);
+	BugNull(Game *game);
 
 /**
      * Accept a visitor

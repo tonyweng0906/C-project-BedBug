@@ -105,7 +105,7 @@ public:
 	virtual void Accept(ObjectVisitor* visitor) = 0;
 
 protected:
-	GameObject(Game *game, std::shared_ptr<wxBitmap> image);
+	GameObject(Game *game);
 
 	void SetMirror(bool m);
 
