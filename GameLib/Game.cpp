@@ -98,12 +98,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 				wxFONTSTYLE_NORMAL,
 				wxFONTWEIGHT_BOLD);
 	graphics->SetFont(font, *wxBLACK);
-	//graphics->DrawText(L"Testing", 1250/2, 100);
-	graphics->DrawText(L"Testing", 100, 500);
-	graphics->DrawText(L"Testing", 1100, 500);
-	graphics->DrawText(L"Testing", 1250/2, 900);
-	graphics->SetFont(font, *wxWHITE);
-	graphics->DrawText(L"I am here", 600, -100);
+
 
     /****Drawing ScoreBoard stuff****/
     wxFont LabelFont(wxSize(0,LabelSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
