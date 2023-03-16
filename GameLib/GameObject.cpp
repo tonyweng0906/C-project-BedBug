@@ -96,22 +96,6 @@ void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	dc->DrawBitmap(mObjectBitmap, mX, mY, objectWid, objectHit);
 }
 
-/**
- * Save this item to an XML node
- * @param node The parent node we are going to be a child of
- * @return wxXmlNode that we saved the item into
-*/
-
-wxXmlNode *GameObject::XmlSave(wxXmlNode *node)
-{
-	auto itemNode = new wxXmlNode(wxXML_ELEMENT_NODE, L"item");
-	node->AddChild(itemNode);
-
-	itemNode->AddAttribute(L"x", wxString::FromDouble(mX));
-	itemNode->AddAttribute(L"y", wxString::FromDouble(mY));
-
-	return itemNode;
-}
 
 /**
  * Load the attributes for an item node.

@@ -80,8 +80,6 @@ public:
 	virtual void DoubleClick(){};
 
 
-	virtual wxXmlNode *XmlSave(wxXmlNode *node);
-
 	virtual void XmlLoad(wxXmlNode *node);
 
 

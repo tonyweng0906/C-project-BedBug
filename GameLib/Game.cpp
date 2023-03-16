@@ -93,16 +93,14 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	{
 		item->Draw(graphics);
 	}
-	//
-	// Draw some text for testing, can be deleted anytime
-	//
-	wxFont font(wxSize(0, 30),
-				wxFONTFAMILY_SWISS,
-				wxFONTSTYLE_NORMAL,
-				wxFONTWEIGHT_BOLD);
-	graphics->SetFont(font, *wxBLACK);
-
-
+	// hide the bugs
+	if (!mShrinked)
+	{
+		wxBrush rectBrush(*wxBLACK);
+		graphics->SetBrush(rectBrush);
+		graphics->DrawRectangle(-300, -300, 300, Height+300);
+		graphics->DrawRectangle(Width, -300, 300, Height+300);
+	}
     /****Drawing ScoreBoard stuff****/
     wxFont LabelFont(wxSize(0,LabelSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
     graphics->SetFont(LabelFont,FontColor);
@@ -143,7 +141,7 @@ void Game::Load(const wxString &filename)
 		wxMessageBox(L"Unable to load Game file");
 		return;
 	}
-	//mPlayArea->ClearObject();
+	mPlayArea.ClearObject();
 
 	// Get the XML document root node
 	auto root = xmlDoc.GetRoot();
@@ -153,9 +151,17 @@ void Game::Load(const wxString &filename)
 	// node of the XML document in memory!!!!
 	//
 	auto child = root->GetChildren();
+
+	// program
+	std::shared_ptr<GameObject> item = std::make_shared<Program>(this);
+	mPlayArea.Add(item);
+	item->XmlLoad(child);
+
+	//Bugs
 	child = child->GetChildren();
 	for( ; child; child=child->GetNext())
 	{
+
 		auto name = child->GetName();
 		if(name == L"bug")
 		{
