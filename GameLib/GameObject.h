@@ -8,6 +8,7 @@
 #ifndef PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
 #define PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
 
+#include <wx/graphics.h>
 #include "ObjectVisitor.h"
 
 class Game;
@@ -26,8 +27,11 @@ private:
 	/// The game this object is contained in
 	Game  *mGame;
 
-	/// The bitmap we can display for this object
-	std::shared_ptr<wxBitmap> mItemBitmap;
+	/// The item image
+	std::shared_ptr<wxImage> mObjectImage;
+
+	/// The item bitmap
+	wxGraphicsBitmap mObjectBitmap;
 
 public:
 	virtual ~GameObject();
@@ -64,7 +68,7 @@ public:
 	* Draw this GameObject
 	* @param dc Device context to draw on
 	*/
-	void Draw(wxDC *dc);
+	virtual void Draw(std::shared_ptr<wxGraphicsContext> dc);
 
 	bool HitTest(int x, int y);
 
@@ -109,12 +113,12 @@ protected:
 
 	void SetMirror(bool m);
 
-	/// The underlying GameObject image
-	std::unique_ptr<wxImage> mGameImage;
-
-	/// The bitmap we can display for this GameObject
-	//std::unique_ptr<wxBitmap> mGameBitmap;
-	std::shared_ptr<wxBitmap> mGameBitmap;
+//	/// The underlying GameObject image
+//	std::unique_ptr<wxImage> mGameImage;
+//
+//	/// The bitmap we can display for this GameObject
+//	//std::unique_ptr<wxBitmap> mGameBitmap;
+//	std::shared_ptr<wxBitmap> mGameBitmap;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H

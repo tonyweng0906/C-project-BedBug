@@ -41,7 +41,7 @@ public:
 	/// Assignment operator
 	void operator=(const BugRedundancy &) = delete;
 
-	void Update(double elapsed) override;
+	//void Update(double elapsed) override;
 	/**
      * Accept a visitor
      * @param visitor The visitor we accept

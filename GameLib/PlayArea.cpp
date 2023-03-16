@@ -8,6 +8,7 @@
 #include <memory>
 #include <iostream>
 
+
 /// The bug sprite image
 const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
 
@@ -31,26 +32,25 @@ const int GarbageBugNumSpriteImages = 5;
 
 PlayArea::PlayArea()
 {
-	// Adding the GarbageBug bitmap
-	std::shared_ptr<wxImage> GarbageBugImage =
-		std::make_unique<wxImage>(GarbageBugSpriteImageName, wxBITMAP_TYPE_ANY);
-	std::shared_ptr<wxBitmap> GarbageBugBitmap = std::make_unique<wxBitmap>(*GarbageBugImage);
-	mImages.insert({"garbage", GarbageBugBitmap});
-
-	std::shared_ptr<wxImage> FeatureBugImage =
-		std::make_unique<wxImage>(FeatureBugImageName, wxBITMAP_TYPE_ANY);
-	std::shared_ptr<wxBitmap> FeatureBugBitmap = std::make_unique<wxBitmap>(*FeatureBugImage);
-	mImages.insert({"feature", FeatureBugBitmap});
-
-	std::shared_ptr<wxImage> RedundancyFlyImage =
-		std::make_unique<wxImage>(RedundancyFlyImageName, wxBITMAP_TYPE_ANY);
-	std::shared_ptr<wxBitmap> RedundancyFlyBitmap = std::make_unique<wxBitmap>(*RedundancyFlyImage);
-	mImages.insert({"redundancy", RedundancyFlyBitmap});
-
-	std::shared_ptr<wxImage> NullBugImage =
-		std::make_unique<wxImage>(NullBugImageName, wxBITMAP_TYPE_ANY);
-	std::shared_ptr<wxBitmap> NullBugBitmap = std::make_unique<wxBitmap>(*NullBugImage);
-	mImages.insert({"null", NullBugBitmap});
+//	// Adding the GarbageBug bitmap
+//	std::shared_ptr<wxImage> mGarbageBugImage = std::make_shared<wxImage>(GarbageBugSpriteImageName);
+//	wxGraphicsBitmap GarbageBugBitmap = CreateBitmapFromImage(*mGarbageBugImage);
+//	mImages.insert({"garbage", GarbageBugBitmap});
+//
+//	std::shared_ptr<wxImage> FeatureBugImage =
+//		std::make_unique<wxImage>(FeatureBugImageName, wxBITMAP_TYPE_ANY);
+//	wxGraphicsBitmap FeatureBugBitmap = std::make_unique<wxBitmap>(*FeatureBugImage);
+//	mImages.insert({"feature", FeatureBugBitmap});
+//
+//	std::shared_ptr<wxImage> RedundancyFlyImage =
+//		std::make_unique<wxImage>(RedundancyFlyImageName, wxBITMAP_TYPE_ANY);
+//	wxGraphicsBitmap RedundancyFlyBitmap = std::make_unique<wxBitmap>(*RedundancyFlyImage);
+//	mImages.insert({"redundancy", RedundancyFlyBitmap});
+//
+//	std::shared_ptr<wxImage> NullBugImage =
+//		std::make_unique<wxImage>(NullBugImageName, wxBITMAP_TYPE_ANY);
+//	wxGraphicsBitmap NullBugBitmap = std::make_unique<wxBitmap>(*NullBugImage);
+//	mImages.insert({"null", NullBugBitmap});
 
 }
 
@@ -132,9 +132,9 @@ void PlayArea::ClearObject()
 /**
  * Get the Bitmap when call the name of the object
  * @param name name of the object
- * @return Pointer to the bitmap
+ * @return  the bitmap
  */
-std::shared_ptr<wxBitmap> PlayArea::GetBitmap(std::string name)
+wxGraphicsBitmap PlayArea::GetBitmap(std::string name)
 {
 	auto bitMap = mImages.find(name);
 	if (bitMap!=mImages.end())

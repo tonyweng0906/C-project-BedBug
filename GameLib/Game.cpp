@@ -89,7 +89,10 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	//
 	// Your drawing code goes here
 	//
-
+	for (auto item : mPlayArea.GetObject())
+	{
+		item->Draw(graphics);
+	}
 	//
 	// Draw some text for testing, can be deleted anytime
 	//
@@ -171,17 +174,10 @@ void Game::XmlItem(wxXmlNode *node)
 	std::shared_ptr<GameObject> item;
 	// We have an item. What type?
 	auto type = node->GetAttribute(L"type");
-	if (type == L"redundancy")
+	if (type == L"garbage")
 	{
 		item = std::make_shared<BugGarbage>(this);
 	}
-	if (item != nullptr)
-	{
-		mPlayArea.Add(item);
-		item->XmlLoad(node);
-		//item->XmlLoadSpeed(node);
-	}
-	/*
 	if (type == L"redundancy")
 	{
 		item = std::make_shared<BugRedundancy>(this);
@@ -190,6 +186,12 @@ void Game::XmlItem(wxXmlNode *node)
 	{
 		item = std::make_shared<BugNull>(this);
 	}
-	*/
+
+	if (item != nullptr)
+	{
+		mPlayArea.Add(item);
+		item->XmlLoad(node);
+		//item->XmlLoadSpeed(node);
+	}
 }
 

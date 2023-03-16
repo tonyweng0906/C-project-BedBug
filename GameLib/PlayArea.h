@@ -12,6 +12,7 @@
 #include <vector>
 #include <map>
 #include "GameObject.h"
+#include <wx/graphics.h>
 
 
 // forward reference for object visitor
@@ -28,7 +29,7 @@ private:
 	std::vector<std::shared_ptr<GameObject> > mObjects;
 
 	/// List of all the images
-	std::map<std::string, std::shared_ptr<wxBitmap>> mImages;
+	std::map<std::string,  wxGraphicsBitmap> mImages;
 public:
 	PlayArea();
 
@@ -52,7 +53,11 @@ public:
 	// Loading and saving functions go here?
 	void ClearObject();
 
-	std::shared_ptr<wxBitmap> GetBitmap(std::string name);
+	wxGraphicsBitmap GetBitmap(std::string name);
+
+	///Getter for the objects
+	///@return vector of the object
+	std::vector<std::shared_ptr<GameObject>> GetObject() {return mObjects;}
 
 
 };

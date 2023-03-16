@@ -70,7 +70,6 @@ void GameView::OnPaint(wxPaintEvent& event)
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 
 
-
 }
 
 void GameView::OnShrink(wxCommandEvent& event)

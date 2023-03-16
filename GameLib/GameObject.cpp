@@ -7,6 +7,8 @@
 #include "GameObject.h"
 #include "Game.h"
 #include <memory>
+#include <wx/dcbuffer.h>
+#include <wx/graphics.h>
 
 bool mMirror = false;   ///< True mirrors the item image
 
@@ -20,20 +22,6 @@ GameObject::~GameObject()
 
 }
 
-/**
- * Set the mirror status
- * @param m New mirror flag
- */
-void GameObject::SetMirror(bool m) {
-	if(m != mMirror)
-	{
-		mGameBitmap = make_unique<wxBitmap>(mGameImage->Mirror());
-	}
-	else
-	{
-		mGameBitmap = make_unique<wxBitmap>(*mGameImage);
-	}
-}
 
 /**
  * Constructor
@@ -45,6 +33,8 @@ GameObject::GameObject(Game *game, const std::wstring & name) : mGame(game)
 	//mGameImage = make_unique<wxImage>(filename, wxBITMAP_TYPE_ANY);
 	//mGameBitmap = make_unique<wxBitmap>(*mGameImage);
 	//*mItemBitmap = *image;
+	mObjectImage = std::make_shared<wxImage>(name);
+
 }
 
 /**
@@ -67,35 +57,43 @@ double GameObject::DistanceTo(std::shared_ptr<GameObject> gameObject)
  */
 bool GameObject::HitTest(int x, int y)
 {
-	double wid = mGameBitmap->GetWidth();
-	double hit = mGameBitmap->GetHeight();
-
-	// Make x and y relative to the top-left corner of the bitmap image
-	// Subtracting the center makes x, y relative to the image center
-	// Adding half the size makes x, y relative to theimage top corner
-	double testX = x - GetX() + wid / 2;
-	double testY = y - GetY() + hit / 2;
-
-	// Test to see if x, y are in the image
-	if (testX < 0 || testY < 0 || testX >= wid || testY >= hit)
-	{
-		// We are outside the image
-		return false;
-	}
-
-	// Test to see if x, y are in the drawn part of the image
-	// If the location is transparent, we are not in the drawn
-	// part of the image
-	return !mGameImage->IsTransparent((int)testX, (int)testY);
+//	double wid = mGameBitmap->GetWidth();
+//	double hit = mGameBitmap->GetHeight();
+//
+//	// Make x and y relative to the top-left corner of the bitmap image
+//	// Subtracting the center makes x, y relative to the image center
+//	// Adding half the size makes x, y relative to theimage top corner
+//	double testX = x - GetX() + wid / 2;
+//	double testY = y - GetY() + hit / 2;
+//
+//	// Test to see if x, y are in the image
+//	if (testX < 0 || testY < 0 || testX >= wid || testY >= hit)
+//	{
+//		// We are outside the image
+//		return false;
+//	}
+//
+//	// Test to see if x, y are in the drawn part of the image
+//	// If the location is transparent, we are not in the drawn
+//	// part of the image
+//	return !mGameImage->IsTransparent((int)testX, (int)testY);
+	return 0;
 }
 
-void GameObject::Draw(wxDC *dc)
+void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 {
-	double wid = mGameBitmap->GetWidth();
-	double hit = mGameBitmap->GetHeight();
-	dc->DrawBitmap(*mGameBitmap,
-				   int(GetX() - wid / 2),
-				   int(GetY() - hit / 2));
+//	double wid = mGameBitmap->GetWidth();
+//	double hit = mGameBitmap->GetHeight();
+//	dc->DrawBitmap(*mGameBitmap,
+//				   int(GetX() - wid / 2),
+//				   int(GetY() - hit / 2));
+	if (mObjectBitmap.IsNull())
+	{
+		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
+	}
+	int objectWid = mObjectImage->GetWidth();
+	int objectHit = mObjectImage->GetHeight();
+	dc->DrawBitmap(mObjectBitmap, mX, mY, objectWid, objectHit);
 }
 
 /**
@@ -134,10 +132,10 @@ void GameObject::XmlLoad(wxXmlNode *node)
 * Get the width of image
  * @return width of the fish
 */
-int GameObject::GetWidth() const { return mGameImage->GetWidth();}
+int GameObject::GetWidth() const { return mObjectImage->GetWidth();}
 
 /**
 * Get the height of image
  * @return height of the fish
 */
-int GameObject::GetHeight() const { return mGameImage->GetHeight();}
+int GameObject::GetHeight() const { return mObjectImage->GetHeight();}
