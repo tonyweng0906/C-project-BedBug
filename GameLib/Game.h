@@ -41,7 +41,7 @@ public:
 	bool GetShrinked(){return mShrinked;}
 
 	void Load(const wxString &filename);
-	void XmlItem(wxXmlNode *node);
+	void XmlItem(wxXmlNode *node,  std::shared_ptr<Program> program);
 
 	///Getter for the playarea
 	///@return PlayArea

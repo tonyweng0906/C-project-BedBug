@@ -79,6 +79,11 @@ public:
 	 */
 	virtual void DoubleClick(){};
 
+	/**
+	 * Set the target program
+	  * @param program the target
+	  */
+	virtual void SetProgram(std::shared_ptr<Program> program) {};
 
 	virtual void XmlLoad(wxXmlNode *node);
 

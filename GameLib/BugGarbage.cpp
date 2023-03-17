@@ -28,17 +28,3 @@ BugGarbage::BugGarbage(Game *game) : Bug(game, GarbageBugSpriteImageName )
 
 }
 
-/**
-* Save this item to an XML node
- * @param node The node we are going to be a child of
- * @return Allocated node
-*/
-
-// GameObject XmlSave function not yet built
-
-//wxXmlNode* BugGarbage::XmlSave(wxXmlNode *node)
-//{
-//	auto itemNode = GameObject::XmlSave(node);
-//	itemNode->AddAttribute(L"type", L"garden");
-//  return itemNode;
-//}

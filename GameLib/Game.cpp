@@ -93,6 +93,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	{
 		item->Draw(graphics);
 	}
+
 	// hide the bugs
 	if (!mShrinked)
 	{
@@ -153,9 +154,9 @@ void Game::Load(const wxString &filename)
 	auto child = root->GetChildren();
 
 	// program
-	std::shared_ptr<GameObject> item = std::make_shared<Program>(this);
-	mPlayArea.Add(item);
-	item->XmlLoad(child);
+	std::shared_ptr<Program> program = std::make_shared<Program>(this);
+	mPlayArea.Add(program);
+	program->XmlLoad(child);
 
 	//Bugs
 	child = child->GetChildren();
@@ -165,7 +166,11 @@ void Game::Load(const wxString &filename)
 		auto name = child->GetName();
 		if(name == L"bug")
 		{
-			XmlItem(child);
+			XmlItem(child, program);
+		}
+		if(name == L"feature")
+		{
+			XmlItem(child, program);
 		}
 	}
 }
@@ -174,7 +179,7 @@ void Game::Load(const wxString &filename)
  * Handle a node of type item.
  * @param node XML node
  */
-void Game::XmlItem(wxXmlNode *node)
+void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 {
 //	 A pointer for the object we are loading
 	std::shared_ptr<GameObject> item;
@@ -192,11 +197,16 @@ void Game::XmlItem(wxXmlNode *node)
 	{
 		item = std::make_shared<BugNull>(this);
 	}
+	if (node->GetName() == "feature")
+	{
+		item = std::make_shared<Feature>(this);
+	}
 
 	if (item != nullptr)
 	{
 		mPlayArea.Add(item);
 		item->XmlLoad(node);
+		item->SetProgram(program);
 		//item->XmlLoadSpeed(node);
 	}
 }
