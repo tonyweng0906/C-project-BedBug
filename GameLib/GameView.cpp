@@ -107,6 +107,9 @@ void GameView::OnUpdateShrink(wxUpdateUIEvent& event)
  */
 void GameView::OnLeftDown(wxMouseEvent &event)
 {
+	double oX = (event.GetX() - mGame.GetXOffset()) / mGame.GetScale();
+	double oY = (event.GetY() - mGame.GetYOffset()) / mGame.GetScale();
+	auto object = mGame.GetPlayArea().HitTest(oX, oY);
 
 }
 

@@ -73,6 +73,7 @@ void PlayArea::Add(std::shared_ptr<GameObject> object)
  */
 std::shared_ptr<GameObject> PlayArea::HitTest(int x, int y)
 {
+
 	for (auto i = mObjects.rbegin(); i != mObjects.rend(); i++)
 	{
 		if ((*i)->HitTest(x,y))

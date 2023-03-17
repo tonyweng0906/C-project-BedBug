@@ -47,6 +47,12 @@ public:
 	///@return PlayArea
 	PlayArea GetPlayArea(){return mPlayArea;}
 	void Update(double elapsed);
+	///Getter for X offset @return mXOffset
+	double GetXOffset(){return mXOffset;}
+	///Getter for Y offset @return mYOffset
+	double GetYOffset(){return mYOffset;}
+	///Getter for scale @reutrn scale
+	double GetScale(){return mScale;}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H
