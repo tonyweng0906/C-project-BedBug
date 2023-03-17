@@ -14,6 +14,9 @@ bool mMirror = false;   ///< True mirrors the item image
 
 using namespace std;
 
+/// Distance in pixels to how far away a bug can be clicked on
+const double BugHitRange = 50;
+
 /**
  * Destructor
  */
@@ -50,13 +53,20 @@ double GameObject::DistanceTo(std::shared_ptr<GameObject> gameObject)
 }
 
 /**
- * Test to see if we hit this object with a mouse.
+ * Test to see if we hit near this object with a mouse.
  * @param x X position to test
  * @param y Y position to test
  * @return true if hit.
  */
 bool GameObject::HitTest(int x, int y)
 {
+	double dx = x - GetX();
+	double dy = y - GetY();
+
+	return sqrt(dx * dx + dy * dy) < BugHitRange;
+
+	// Previous pre-build code
+
 //	double wid = mGameBitmap->GetWidth();
 //	double hit = mGameBitmap->GetHeight();
 //
@@ -77,7 +87,6 @@ bool GameObject::HitTest(int x, int y)
 //	// If the location is transparent, we are not in the drawn
 //	// part of the image
 //	return !mGameImage->IsTransparent((int)testX, (int)testY);
-	return 0;
 }
 
 void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
