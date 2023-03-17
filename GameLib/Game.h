@@ -41,11 +41,12 @@ public:
 	bool GetShrinked(){return mShrinked;}
 
 	void Load(const wxString &filename);
-	void XmlItem(wxXmlNode *node);
+	void XmlItem(wxXmlNode *node,  std::shared_ptr<Program> program);
 
 	///Getter for the playarea
 	///@return PlayArea
 	PlayArea GetPlayArea(){return mPlayArea;}
+	void Update(double elapsed);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H

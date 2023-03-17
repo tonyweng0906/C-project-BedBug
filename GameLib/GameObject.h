@@ -8,6 +8,7 @@
 #ifndef PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
 #define PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
 
+#include <wx/graphics.h>
 #include "ObjectVisitor.h"
 
 class Game;
@@ -26,8 +27,11 @@ private:
 	/// The game this object is contained in
 	Game  *mGame;
 
-	/// The bitmap we can display for this object
-	std::shared_ptr<wxBitmap> mItemBitmap;
+	/// The item image
+	std::shared_ptr<wxImage> mObjectImage;
+
+	/// The item bitmap
+	wxGraphicsBitmap mObjectBitmap;
 
 public:
 	virtual ~GameObject();
@@ -64,7 +68,7 @@ public:
 	* Draw this GameObject
 	* @param dc Device context to draw on
 	*/
-	void Draw(wxDC *dc);
+	virtual void Draw(std::shared_ptr<wxGraphicsContext> dc);
 
 	bool HitTest(int x, int y);
 
@@ -75,8 +79,11 @@ public:
 	 */
 	virtual void DoubleClick(){};
 
-
-	virtual wxXmlNode *XmlSave(wxXmlNode *node);
+	/**
+	 * Set the target program
+	  * @param program the target
+	  */
+	virtual void SetProgram(std::shared_ptr<Program> program) {};
 
 	virtual void XmlLoad(wxXmlNode *node);
 
@@ -94,6 +101,7 @@ public:
 	Game *GetGame() { return mGame;  }
 
 
+
 	virtual int GetWidth() const;
 
 	virtual int GetHeight() const;
@@ -102,19 +110,19 @@ public:
  	* Accept a visitor
  	 * @param visitor The visitor we accept
  	 */
-	virtual void Accept(ObjectVisitor* visitor) = 0;
+	virtual void Accept(ObjectVisitor* visitor) {};
 
 protected:
-	GameObject(Game *game);
+	GameObject(Game *game, const std::wstring & name );
 
 	void SetMirror(bool m);
 
-	/// The underlying GameObject image
-	std::unique_ptr<wxImage> mGameImage;
-
-	/// The bitmap we can display for this GameObject
-	//std::unique_ptr<wxBitmap> mGameBitmap;
-	std::shared_ptr<wxBitmap> mGameBitmap;
+//	/// The underlying GameObject image
+//	std::unique_ptr<wxImage> mGameImage;
+//
+//	/// The bitmap we can display for this GameObject
+//	//std::unique_ptr<wxBitmap> mGameBitmap;
+//	std::shared_ptr<wxBitmap> mGameBitmap;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H

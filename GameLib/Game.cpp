@@ -89,17 +89,19 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	//
 	// Your drawing code goes here
 	//
+	for (auto item : mPlayArea.GetObject())
+	{
+		item->Draw(graphics);
+	}
 
-	//
-	// Draw some text for testing, can be deleted anytime
-	//
-	wxFont font(wxSize(0, 30),
-				wxFONTFAMILY_SWISS,
-				wxFONTSTYLE_NORMAL,
-				wxFONTWEIGHT_BOLD);
-	graphics->SetFont(font, *wxBLACK);
-
-
+	// hide the bugs
+	if (!mShrinked)
+	{
+		wxBrush rectBrush(*wxBLACK);
+		graphics->SetBrush(rectBrush);
+		graphics->DrawRectangle(-300, -300, 300, Height+300);
+		graphics->DrawRectangle(Width, -300, 300, Height+300);
+	}
     /****Drawing ScoreBoard stuff****/
     wxFont LabelFont(wxSize(0,LabelSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
     graphics->SetFont(LabelFont,FontColor);
@@ -140,7 +142,7 @@ void Game::Load(const wxString &filename)
 		wxMessageBox(L"Unable to load Game file");
 		return;
 	}
-	//mPlayArea->ClearObject();
+	mPlayArea.ClearObject();
 
 	// Get the XML document root node
 	auto root = xmlDoc.GetRoot();
@@ -150,13 +152,25 @@ void Game::Load(const wxString &filename)
 	// node of the XML document in memory!!!!
 	//
 	auto child = root->GetChildren();
+
+	// program
+	std::shared_ptr<Program> program = std::make_shared<Program>(this);
+	mPlayArea.Add(program);
+	program->XmlLoad(child);
+
+	//Bugs
 	child = child->GetChildren();
 	for( ; child; child=child->GetNext())
 	{
+
 		auto name = child->GetName();
 		if(name == L"bug")
 		{
-			XmlItem(child);
+			XmlItem(child, program);
+		}
+		if(name == L"feature")
+		{
+			XmlItem(child, program);
 		}
 	}
 }
@@ -165,23 +179,16 @@ void Game::Load(const wxString &filename)
  * Handle a node of type item.
  * @param node XML node
  */
-void Game::XmlItem(wxXmlNode *node)
+void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 {
 //	 A pointer for the object we are loading
 	std::shared_ptr<GameObject> item;
 	// We have an item. What type?
 	auto type = node->GetAttribute(L"type");
-	if (type == L"redundancy")
+	if (type == L"garbage")
 	{
 		item = std::make_shared<BugGarbage>(this);
 	}
-	if (item != nullptr)
-	{
-		mPlayArea.Add(item);
-		item->XmlLoad(node);
-		//item->XmlLoadSpeed(node);
-	}
-	/*
 	if (type == L"redundancy")
 	{
 		item = std::make_shared<BugRedundancy>(this);
@@ -190,6 +197,27 @@ void Game::XmlItem(wxXmlNode *node)
 	{
 		item = std::make_shared<BugNull>(this);
 	}
-	*/
+	if (node->GetName() == "feature")
+	{
+		item = std::make_shared<Feature>(this);
+	}
+
+	if (item != nullptr)
+	{
+		mPlayArea.Add(item);
+		item->XmlLoad(node);
+		item->SetProgram(program);
+	}
 }
 
+/**
+ * Handle updates for animation
+ * @param elapsed The time since the last update
+ */
+void Game::Update(double elapsed)
+{
+	for (auto item : mPlayArea.GetObject())
+	{
+		item->Update(elapsed);
+	}
+}

@@ -34,6 +34,8 @@ void GameView::Initialize(wxFrame* parent)
 
 	Bind(wxEVT_LEFT_DOWN, &GameView::OnLeftDown, this);
 	Bind(wxEVT_LEFT_DCLICK, &GameView::OnLeftDoubleClick, this);
+	Bind(wxEVT_TIMER, &GameView::OnTimerEvent, this);
+	Bind(wxEVT_MOTION, &GameView::OnMouseMove, this);
 
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
@@ -49,16 +51,17 @@ void GameView::OnPaint(wxPaintEvent& event)
 	// Create a double-buffered display context
 	wxAutoBufferedPaintDC dc(this);
 
+	// Clear the image to black
+	wxBrush background(*wxBLACK);
+	dc.SetBackground(background);
+	dc.Clear();
+
 	// Compute the time that has elapsed
 	// since the last call to OnPaint.
 	auto newTime = mStopWatch.Time();
 	auto elapsed = (double)(newTime - mTime) * 0.001;
 	mTime = newTime;
 
-	// Clear the image to black
-	wxBrush background(*wxBLACK);
-	dc.SetBackground(background);
-	dc.Clear();
 
 
 	// Create a graphics context
@@ -67,8 +70,8 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 	// Tell the game class to draw
 	wxRect rect = GetRect();
+	mGame.Update(elapsed);
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
-
 
 
 }
@@ -114,6 +117,15 @@ void GameView::OnLeftDown(wxMouseEvent &event)
 void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 {
 
+
+}
+
+/**
+* Handle the left mouse button down event
+* @param event
+*/
+void GameView::OnMouseMove(wxMouseEvent &event)
+{
 
 }
 

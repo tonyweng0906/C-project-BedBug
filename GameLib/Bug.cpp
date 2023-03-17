@@ -13,13 +13,9 @@
  * @param game The game we are in
  * @param filename Filename for the image we use
  */
-Bug::Bug(Game *game) : GameObject(game)
+Bug::Bug(Game *game, const std::wstring & name ) : GameObject(game, name)
 {
-	/**
-	std::uniform_real_distribution<> distribution(MinSpeedX, MaxSpeedX);
-	mSpeedX = distribution(aquarium->GetRandom());
-	mSpeedY = distribution(aquarium->GetRandom());
-	 */
+
 }
 
 /**
@@ -30,11 +26,7 @@ Bug::Bug(Game *game) : GameObject(game)
 
 void Bug::BugSpeed(double speedX, double speedY)
 {
-	/**
-	std::uniform_real_distribution<> distribution(speedX, speedX);
-	mSpeedX = distribution(GetGame()->GetRandom());
-	mSpeedY = distribution(GetGame()->GetRandom());
-	 */
+
 }
 
 /**
@@ -47,51 +39,13 @@ void Bug::BugSpeed(double speedX, double speedY)
  */
 void Bug::Update(double elapsed)
 {
-	/*
-	SetLocation(GetX() + mSpeedX * elapsed,
-				GetY() + mSpeedY * elapsed);
 
-	int half_bug_width = GetWidth() / 2;
-	int half_bug_height = GetHeight() / 2;
+	double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
+	double newX = GetX() + elapsed * -mSpeed * cos(angle);
+	double newY = GetY() + elapsed * -mSpeed * sin(angle);
+	SetLocation(newX,newY);
 
-	if (mSpeedX > 0 && GetX() + half_bug_width >= GetGame()->GetWidth() - 10)
-	{
-		mSpeedX = -mSpeedX;
-		SetMirror(true);
-	}
-
-	if (mSpeedX < 0 && GetX() - half_bug_width < 10)
-	{
-		mSpeedX = -mSpeedX;
-		SetMirror(false);
-	}
-
-	if (mSpeedY > 0 && GetY() + half_bug_height >= GetGame()->GetHeight() - 10)
-	{
-		mSpeedY = -mSpeedY;
-	}
-	if (mSpeedY < 0 && GetY() - half_bug_height < 10)
-	{
-		mSpeedY = -mSpeedY;
-	}
-	*/
 }
-
-/**
- * Save this item to an XML node
- * @param node The parent node we are going to be a child of
- * @return wxXmlNode that we saved the item into
- *
- *
-wxXmlNode *Bug::XmlSave(wxXmlNode *node)
-{
-	auto itemNode = GameObject::XmlSave(node);
-	itemNode->AddAttribute(L"speedX", wxString::FromDouble(mSpeedX));
-	itemNode->AddAttribute(L"speedY", wxString::FromDouble(mSpeedY));
-
-	return itemNode;
-}
-
 
 /**
  * Load the attributes for a bug node.
@@ -101,12 +55,12 @@ wxXmlNode *Bug::XmlSave(wxXmlNode *node)
  *
  *
  * @param node The Xml node we are loading the item from
-
+ */
 void Bug::XmlLoad(wxXmlNode *node)
 {
-	node->GetAttribute(L"speedX", L"0").ToDouble(&mSpeedX);
-	node->GetAttribute(L"speedY", L"0").ToDouble(&mSpeedY);
+	node->GetAttribute(L"speed", L"0").ToDouble(&mSpeed);
+	node->GetAttribute(L"start", L"0").ToDouble(&mStart);
 	GameObject::XmlLoad(node);
-}*/
+}
 
 

@@ -24,6 +24,9 @@ private:
 	/// in pixels per second
 	double mSpeed = 0;
 
+	/// start time
+	double mStart = 0;
+
 	/// Bug rotation in degrees
 	double mRotation = 0;
 
@@ -52,15 +55,23 @@ public:
 	 */
 	double GetSpeed() const { return mSpeed; }
 
-
-protected:
-	Bug(Game *game);
+	/**
+	 * Set the target program
+	  * @param program the target
+	  */
+	void SetProgram(std::shared_ptr<Program> program) {mProgram = program;}
 
 	void Update(double elapsed);
 
 	//void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
+	void XmlLoad(wxXmlNode *node);
+
+protected:
+	Bug(Game *game, const std::wstring & name );
+
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUG_H
