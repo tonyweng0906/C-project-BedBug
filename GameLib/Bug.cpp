@@ -15,7 +15,6 @@
  */
 Bug::Bug(Game *game, const std::wstring & name ) : GameObject(game, name)
 {
-
 }
 
 /**
@@ -45,6 +44,8 @@ void Bug::Update(double elapsed)
 	double newY = GetY() + elapsed * -mSpeed * sin(angle);
 	SetLocation(newX,newY);
 
+	// delete code goes here
+
 }
 
 /**
@@ -63,4 +64,38 @@ void Bug::XmlLoad(wxXmlNode *node)
 	GameObject::XmlLoad(node);
 }
 
+/**
+* Draw this GameObject
+* @param dc Device context to draw on
+*/
+void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
+{
+//	dc->PushState();  // Save the graphics state
+//	dc->Translate(GetX(), GetY());
+//	dc->Rotate(180);
+	if (mObjectBitmap.IsNull())
+	{
+		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
+	}
 
+	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
+
+	int objectWid = 100;
+	int objectHit = 100;
+
+	dc->DrawBitmap(mSubBugBitmap, mX-(objectWid)/2, mY-(objectHit)/2, 100, 100);
+
+
+}
+
+///**
+//* Get the width of image
+// * @return width of the fish
+//*/
+//int Bug::GetWidth() const { return mSubBugBitmap->GetWidth();}
+//
+///**
+//* Get the height of image
+// * @return height of the fish
+//*/
+//int Bug::GetHeight() const { return mSubBugBitmap->GetHeight();}

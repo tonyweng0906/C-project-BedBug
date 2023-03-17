@@ -23,6 +23,26 @@ private:
 /// Program the bug will target
 	std::shared_ptr<Program> mProgram;
 
+	/// The item bitmap
+	wxGraphicsBitmap mSubBugBitmap;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap1;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap2;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap3;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap4;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap5;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap6;
 protected:
 
 
@@ -39,6 +59,7 @@ public:
 
 	void Update(double elapsed);
 
+	void Draw(std::shared_ptr<wxGraphicsContext> dc);
 	/**
 	 * Set the target program
 	  * @param program the target
