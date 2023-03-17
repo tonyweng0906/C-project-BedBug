@@ -32,6 +32,7 @@ private:
 	void OnUpdateShrink(wxUpdateUIEvent &event);
 	void OnLeftDown(wxMouseEvent &event);
 	void OnLeftDoubleClick(wxMouseEvent &event);
+	void OnMouseMove(wxMouseEvent &event);
 	void OnLevel0(wxCommandEvent &event);
 	void OnLevel1(wxCommandEvent &event);
 	void OnLevel2(wxCommandEvent &event);

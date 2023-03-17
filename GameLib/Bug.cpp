@@ -15,11 +15,7 @@
  */
 Bug::Bug(Game *game, const std::wstring & name ) : GameObject(game, name)
 {
-	/**
-	std::uniform_real_distribution<> distribution(MinSpeedX, MaxSpeedX);
-	mSpeedX = distribution(aquarium->GetRandom());
-	mSpeedY = distribution(aquarium->GetRandom());
-	 */
+
 }
 
 /**
@@ -30,11 +26,7 @@ Bug::Bug(Game *game, const std::wstring & name ) : GameObject(game, name)
 
 void Bug::BugSpeed(double speedX, double speedY)
 {
-	/**
-	std::uniform_real_distribution<> distribution(speedX, speedX);
-	mSpeedX = distribution(GetGame()->GetRandom());
-	mSpeedY = distribution(GetGame()->GetRandom());
-	 */
+
 }
 
 /**
@@ -48,10 +40,12 @@ void Bug::BugSpeed(double speedX, double speedY)
 void Bug::Update(double elapsed)
 {
 
+	double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
+	double newX = GetX() + elapsed * -mSpeed * cos(angle);
+	double newY = GetY() + elapsed * -mSpeed * sin(angle);
+	SetLocation(newX,newY);
+
 }
-
-
-
 
 /**
  * Load the attributes for a bug node.

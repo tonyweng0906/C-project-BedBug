@@ -20,10 +20,12 @@ private:
 	/// start time
 	double mStart = 0;
 
-	/// Program the bug will target
+/// Program the bug will target
 	std::shared_ptr<Program> mProgram;
 
 protected:
+
+
 
 public:
 	Feature(Game *game);
@@ -34,6 +36,8 @@ public:
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitFeature(this);}
 
 	void XmlLoad(wxXmlNode *node);
+
+	void Update(double elapsed);
 
 	/**
 	 * Set the target program

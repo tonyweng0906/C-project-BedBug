@@ -46,6 +46,7 @@ public:
 	///Getter for the playarea
 	///@return PlayArea
 	PlayArea GetPlayArea(){return mPlayArea;}
+	void Update(double elapsed);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H

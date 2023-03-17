@@ -101,6 +101,7 @@ public:
 	Game *GetGame() { return mGame;  }
 
 
+
 	virtual int GetWidth() const;
 
 	virtual int GetHeight() const;
@@ -109,7 +110,7 @@ public:
  	* Accept a visitor
  	 * @param visitor The visitor we accept
  	 */
-	virtual void Accept(ObjectVisitor* visitor) = 0;
+	virtual void Accept(ObjectVisitor* visitor) {};
 
 protected:
 	GameObject(Game *game, const std::wstring & name );

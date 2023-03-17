@@ -207,7 +207,17 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		mPlayArea.Add(item);
 		item->XmlLoad(node);
 		item->SetProgram(program);
-		//item->XmlLoadSpeed(node);
 	}
 }
 
+/**
+ * Handle updates for animation
+ * @param elapsed The time since the last update
+ */
+void Game::Update(double elapsed)
+{
+	for (auto item : mPlayArea.GetObject())
+	{
+		item->Update(elapsed);
+	}
+}
