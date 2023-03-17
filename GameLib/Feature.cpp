@@ -58,3 +58,23 @@ void Feature::Update(double elapsed)
 
 	}
 }
+
+/**
+* Draw this GameObject
+* @param dc Device context to draw on
+*/
+
+void Feature::Draw(std::shared_ptr<wxGraphicsContext> dc)
+{
+	if (mObjectBitmap.IsNull())
+	{
+		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
+	}
+
+	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
+
+	int objectWid = 100;
+	int objectHit = 100;
+
+	dc->DrawBitmap(mSubBugBitmap, mX-(objectWid)/2, mY-(objectHit)/2, 100, 100);
+}

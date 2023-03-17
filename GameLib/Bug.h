@@ -33,6 +33,24 @@ private:
 	/// Program the bug will target
 	std::shared_ptr<Program> mProgram;
 
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubBugBitmap;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap1;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap2;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap3;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap4;
+
+	/// The item sub bitmap
+	wxGraphicsBitmap mSubMovingBugBitmap5;
+
 public:
 	/// Default constructor (disabled)
 	Bug() = delete;
@@ -68,6 +86,12 @@ public:
 	void BugSpeed(double speedX, double speedY);
 	void XmlLoad(wxXmlNode *node);
 
+
+	void Draw(std::shared_ptr<wxGraphicsContext> dc);
+
+//	int GetWidth() const;
+//
+//	int GetHeight() const;
 protected:
 	Bug(Game *game, const std::wstring & name );
 

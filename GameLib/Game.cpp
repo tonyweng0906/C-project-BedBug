@@ -151,28 +151,32 @@ void Game::Load(const wxString &filename)
 	// Traverse the children of the root
 	// node of the XML document in memory!!!!
 	//
-	auto child = root->GetChildren();
-
-	// program
-	std::shared_ptr<Program> program = std::make_shared<Program>(this);
-	mPlayArea.Add(program);
-	program->XmlLoad(child);
-
-	//Bugs
-	child = child->GetChildren();
-	for( ; child; child=child->GetNext())
+	auto rootChild = root->GetChildren();
+	for( ; rootChild; rootChild=rootChild->GetNext())
 	{
+		// program
+		std::shared_ptr<Program> program = std::make_shared<Program>(this);
+		mPlayArea.Add(program);
+		program->XmlLoad(rootChild);
 
-		auto name = child->GetName();
-		if(name == L"bug")
+		//Bugs
+		auto child = rootChild->GetChildren();
+		for( ; child; child=child->GetNext())
 		{
-			XmlItem(child, program);
+
+			auto name = child->GetName();
+			if(name == L"bug")
+			{
+				XmlItem(child, program);
+			}
+			if(name == L"feature")
+			{
+				XmlItem(child, program);
+			}
 		}
-		if(name == L"feature")
-		{
-			XmlItem(child, program);
-		}
+
 	}
+
 }
 
 /**

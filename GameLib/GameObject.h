@@ -19,13 +19,15 @@ class Game;
 class GameObject
 {
 private:
+	/// The game this object is contained in
+	Game  *mGame;
+
+protected:
+	GameObject(Game *game, const std::wstring & name );
 
 	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item
 	double  mY = 0;     ///< Y location for the center of the item
-
-	/// The game this object is contained in
-	Game  *mGame;
 
 	/// The item image
 	std::shared_ptr<wxImage> mObjectImage;
@@ -112,17 +114,7 @@ public:
  	 */
 	virtual void Accept(ObjectVisitor* visitor) {};
 
-protected:
-	GameObject(Game *game, const std::wstring & name );
 
-	void SetMirror(bool m);
-
-//	/// The underlying GameObject image
-//	std::unique_ptr<wxImage> mGameImage;
-//
-//	/// The bitmap we can display for this GameObject
-//	//std::unique_ptr<wxBitmap> mGameBitmap;
-//	std::shared_ptr<wxBitmap> mGameBitmap;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
