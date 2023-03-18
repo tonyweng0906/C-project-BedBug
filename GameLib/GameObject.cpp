@@ -12,6 +12,8 @@
 
 bool mMirror = false;   ///< True mirrors the item image
 
+const int SpriteHeight= 100.0;
+
 using namespace std;
 
 /// Distance in pixels to how far away a bug can be clicked on
@@ -91,21 +93,30 @@ bool GameObject::HitTest(int x, int y)
 
 void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 {
-//	double wid = mGameBitmap->GetWidth();
-//	double hit = mGameBitmap->GetHeight();
-//	dc->DrawBitmap(*mGameBitmap,
-//				   int(GetX() - wid / 2),
-//				   int(GetY() - hit / 2));
+
 	if (mObjectBitmap.IsNull())
 	{
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
 	}
 	int objectWid = mObjectImage->GetWidth();
-	int objectHit = mObjectImage->GetHeight();
+	int objectHit = mObjectImage->GetHeight()/mNumOfSheets;
 
-	dc->DrawBitmap(mObjectBitmap, mX-(objectWid)/2, mY-(objectHit)/2, objectWid, objectHit);
+	auto currBitmap = dc->CreateSubBitmap(mObjectBitmap, 0, mSheetHeight, objectWid, objectHit);
+
+	dc->DrawBitmap(currBitmap, mX, mY, objectWid, objectHit);
 }
 
+/**
+ * Shifts sprite sheet
+ */
+ void GameObject::UpdateSpriteSheet()
+{
+	 mSheetHeight += SpriteHeight;
+	 if (mSheetHeight >= mNumOfSheets*SpriteHeight)
+	 {
+		 mSheetHeight = 0.0;
+	 }
+}
 
 /**
  * Load the attributes for an item node.

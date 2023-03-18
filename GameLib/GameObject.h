@@ -35,6 +35,14 @@ protected:
 	/// The item bitmap
 	wxGraphicsBitmap mObjectBitmap;
 
+	double mObjectWidth;
+
+	double mObjectHeight;
+
+	int mNumOfSheets = 0;
+
+	double mSheetHeight = 0.0;
+
 public:
 	virtual ~GameObject();
 
@@ -114,7 +122,7 @@ public:
  	 */
 	virtual void Accept(ObjectVisitor* visitor) {};
 
-
+	void UpdateSpriteSheet();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H
