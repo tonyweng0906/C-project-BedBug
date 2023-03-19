@@ -3,6 +3,7 @@
  * @author Xin Weng
  */
 
+#include "pch.h"
 #include "Program.h"
 
 /// Program image filename
