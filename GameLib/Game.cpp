@@ -51,8 +51,6 @@ const int ScoreLabelY = 100;
  {
 
  }
-
-
 /**
  * Draw the game area
  * @param graphics The graphics context to draw on

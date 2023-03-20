@@ -16,6 +16,9 @@ public:
     void AddFixed();
     void AddMissed();
     void AddOops();
+    int GetFixed();
+    int GetMissed();
+    int GetOops();
 
 private:
     /// fixed score
