@@ -11,7 +11,7 @@
 /*
  * class for game scoreboard
  */
-class ScoreBoard : public Game{
+class ScoreBoard : public GameObject{
 public:
     void AddFixed();
     void AddMissed();
