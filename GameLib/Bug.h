@@ -84,7 +84,7 @@ public:
 	//void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
-	void XmlLoad(wxXmlNode *node);
+	virtual void XmlLoad(wxXmlNode *node);
 
 
 	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
