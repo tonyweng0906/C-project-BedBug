@@ -38,13 +38,22 @@ void Bug::BugSpeed(double speedX, double speedY)
  */
 void Bug::Update(double elapsed)
 {
+	mStart -= elapsed;
+	if (mStart <= 0)
+	{
+		double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
+		mRotation = 3.1415+angle;
+		double newX = GetX() + elapsed * -mSpeed * cos(angle);
+		double newY = GetY() + elapsed * -mSpeed * sin(angle);
+		SetLocation(newX,newY);
+	}
 
-	double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
-	double newX = GetX() + elapsed * -mSpeed * cos(angle);
-	double newY = GetY() + elapsed * -mSpeed * sin(angle);
-	SetLocation(newX,newY);
 
 	// delete code goes here
+	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)
+	{
+
+	}
 
 }
 
@@ -70,21 +79,17 @@ void Bug::XmlLoad(wxXmlNode *node)
 */
 void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 {
-//	dc->PushState();  // Save the graphics state
-//	dc->Translate(GetX(), GetY());
-//	dc->Rotate(180);
 	if (mObjectBitmap.IsNull())
 	{
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
 	}
 
 	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
-
-	int objectWid = 100;
-	int objectHit = 100;
-
-	dc->DrawBitmap(mSubBugBitmap, mX-(objectWid)/2, mY-(objectHit)/2, 100, 100);
-
+	dc->PushState();
+	dc->Translate(mX,mY);
+	dc->Rotate(mRotation);
+	dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
+	dc->PopState();
 
 }
 

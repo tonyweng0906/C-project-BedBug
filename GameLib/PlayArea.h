@@ -26,7 +26,7 @@ class PlayArea
 private:
 
 	/// All of the game objects that make up the game
-	std::vector<std::shared_ptr<GameObject> > mObjects;
+	std::vector<std::shared_ptr<GameObject>> mObjects;
 
 	/// List of all the images
 	std::map<std::string,  wxGraphicsBitmap> mImages;

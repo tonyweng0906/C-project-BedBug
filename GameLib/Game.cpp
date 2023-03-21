@@ -218,8 +218,5 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
  */
 void Game::Update(double elapsed)
 {
-	for (auto item : mPlayArea.GetObject())
-	{
-		item->Update(elapsed);
-	}
+	mPlayArea.Update(elapsed);
 }

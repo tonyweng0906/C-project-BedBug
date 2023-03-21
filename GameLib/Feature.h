@@ -20,6 +20,9 @@ private:
 	/// start time
 	double mStart = 0;
 
+	/// rotate degree
+	double mRotation = 0;
+
 /// Program the bug will target
 	std::shared_ptr<Program> mProgram;
 
@@ -57,9 +60,9 @@ public:
 
 	void XmlLoad(wxXmlNode *node);
 
-	void Update(double elapsed);
+	void Update(double elapsed) override;
 
-	void Draw(std::shared_ptr<wxGraphicsContext> dc);
+	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
 	/**
 	 * Set the target program
 	  * @param program the target
