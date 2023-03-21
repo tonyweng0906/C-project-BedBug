@@ -20,6 +20,9 @@ private:
 	/// start time
 	double mStart = 0;
 
+	/// rotate degree
+	double mRotation = 0;
+
 /// Program the bug will target
 	std::shared_ptr<Program> mProgram;
 

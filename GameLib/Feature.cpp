@@ -50,6 +50,7 @@ void Feature::XmlLoad(wxXmlNode *node)
 void Feature::Update(double elapsed)
 {
 	double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
+	mRotation = 3.1415926+angle;
 	double newX = GetX() + elapsed * -mSpeed * cos(angle);
 	double newY = GetY() + elapsed * -mSpeed * sin(angle);
 	SetLocation(newX,newY);
@@ -71,10 +72,15 @@ void Feature::Draw(std::shared_ptr<wxGraphicsContext> dc)
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
 	}
 
+	if (mObjectBitmap.IsNull())
+	{
+		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
+	}
+
 	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
-
-	int objectWid = 100;
-	int objectHit = 100;
-
-	dc->DrawBitmap(mSubBugBitmap, mX-(objectWid)/2, mY-(objectHit)/2, 100, 100);
+	dc->PushState();
+	dc->Translate(mX,mY);
+	dc->Rotate(mRotation);
+	dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
+	dc->PopState();
 }
