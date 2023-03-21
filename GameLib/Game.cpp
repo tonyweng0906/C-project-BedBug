@@ -11,6 +11,7 @@
 #include "BugGarbage.h"
 #include "BugNull.h"
 #include "BugRedundancy.h"
+#include "FatGarbage.h"
 #include "Feature.h"
 #include "Program.h"
 
@@ -191,11 +192,11 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 	{
 		if(type == L"garbage")
 		{
-			// Need to change these to FatBug Classes
-			item = std::make_shared<BugGarbage>(this);
+			item = std::make_shared<FatGarbage>(this);
 		}
 		if(type == L"null")
 		{
+			// Need to change to FatBug Classes
 			item = std::make_shared<BugNull>(this);
 		}
 	}

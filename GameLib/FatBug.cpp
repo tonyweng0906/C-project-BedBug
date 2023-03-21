@@ -25,7 +25,22 @@ void FatBug::codeWindow(wxWindow* window)
  * @param pass solution for the coding challenge
  * @param code the text of the coding challenge
  */
-FatBug::FatBug(std::wstring pass, std::wstring code) : mPass(pass), mCode(code)
+FatBug::FatBug()
 {
+
+}
+
+/**
+ * Load the attributes for a fatbug node.
+ *
+ * This is the  derived class version that loads the attributes
+ * common to all fatbugs.
+ *
+ *
+ * @param node The Xml node we are loading the item from
+ */
+void FatBug::XmlLoad(wxXmlNode *node)
+{
+	auto child = node->GetChildren();
 
 }

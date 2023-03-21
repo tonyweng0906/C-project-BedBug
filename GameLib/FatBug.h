@@ -24,8 +24,9 @@ private:
 	std::wstring mCode;
 
 public:
-	FatBug(std::wstring pass, std::wstring code);
+	FatBug();
 	void codeWindow(wxWindow* window);
+	virtual void XmlLoad(wxXmlNode *node);
 
 
 };
