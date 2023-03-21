@@ -38,12 +38,16 @@ void Bug::BugSpeed(double speedX, double speedY)
  */
 void Bug::Update(double elapsed)
 {
+	mStart -= elapsed;
+	if (mStart <= 0)
+	{
+		double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
+		mRotation = 3.1415+angle;
+		double newX = GetX() + elapsed * -mSpeed * cos(angle);
+		double newY = GetY() + elapsed * -mSpeed * sin(angle);
+		SetLocation(newX,newY);
+	}
 
-	double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
-	mRotation = 3.1415+angle;
-	double newX = GetX() + elapsed * -mSpeed * cos(angle);
-	double newY = GetY() + elapsed * -mSpeed * sin(angle);
-	SetLocation(newX,newY);
 
 	// delete code goes here
 	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)

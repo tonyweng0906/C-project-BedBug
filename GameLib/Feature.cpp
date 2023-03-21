@@ -49,11 +49,16 @@ void Feature::XmlLoad(wxXmlNode *node)
  */
 void Feature::Update(double elapsed)
 {
-	double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
-	mRotation = 3.1415926+angle;
-	double newX = GetX() + elapsed * -mSpeed * cos(angle);
-	double newY = GetY() + elapsed * -mSpeed * sin(angle);
-	SetLocation(newX,newY);
+	mStart -= elapsed;
+	if (mStart <=0)
+	{
+		double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
+		mRotation = 3.1415926+angle;
+		double newX = GetX() + elapsed * -mSpeed * cos(angle);
+		double newY = GetY() + elapsed * -mSpeed * sin(angle);
+		SetLocation(newX,newY);
+	}
+
 	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)
 	{
 
