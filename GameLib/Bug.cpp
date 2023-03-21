@@ -40,12 +40,16 @@ void Bug::Update(double elapsed)
 {
 
 	double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
-	mRotation = 3.1415926+angle;
+	mRotation = 3.1415+angle;
 	double newX = GetX() + elapsed * -mSpeed * cos(angle);
 	double newY = GetY() + elapsed * -mSpeed * sin(angle);
 	SetLocation(newX,newY);
 
 	// delete code goes here
+	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)
+	{
+
+	}
 
 }
 
@@ -71,9 +75,6 @@ void Bug::XmlLoad(wxXmlNode *node)
 */
 void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 {
-//	dc->PushState();  // Save the graphics state
-//	dc->Translate(GetX(), GetY());
-//	dc->Rotate(180);
 	if (mObjectBitmap.IsNull())
 	{
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);

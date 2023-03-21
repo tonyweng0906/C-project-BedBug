@@ -72,10 +72,6 @@ void Feature::Draw(std::shared_ptr<wxGraphicsContext> dc)
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
 	}
 
-	if (mObjectBitmap.IsNull())
-	{
-		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
-	}
 
 	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
 	dc->PushState();

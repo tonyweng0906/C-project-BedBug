@@ -79,7 +79,7 @@ public:
 	  */
 	void SetProgram(std::shared_ptr<Program> program) {mProgram = program;}
 
-	void Update(double elapsed);
+	void Update(double elapsed) override;
 
 	//void XmlLoad(wxXmlNode *node);
 
@@ -87,8 +87,7 @@ public:
 	void XmlLoad(wxXmlNode *node);
 
 
-	void Draw(std::shared_ptr<wxGraphicsContext> dc);
-
+	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
 //	int GetWidth() const;
 //
 //	int GetHeight() const;
