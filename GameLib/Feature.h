@@ -10,6 +10,7 @@
 
 #include "GameObject.h"
 #include "Bug.h"
+#include "ScoreBoard.h"
 
 class Feature : public Bug
 {
@@ -47,6 +48,8 @@ private:
 
 	/// The item sub bitmap
 	wxGraphicsBitmap mSubMovingBugBitmap6;
+
+    ScoreBoard mScoreBoard;
 protected:
 
 
@@ -69,6 +72,8 @@ public:
 	  * @param program the target
 	  */
 	void SetProgram(std::shared_ptr<Program> program) {mProgram = program;}
+
+    void AddScore() override;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_FEATURE_H

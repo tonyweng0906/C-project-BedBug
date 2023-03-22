@@ -51,7 +51,7 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
 
-    void AddScore();
+    void AddScore() override;
 
 //	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };

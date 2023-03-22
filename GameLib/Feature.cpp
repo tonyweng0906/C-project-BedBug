@@ -85,3 +85,7 @@ void Feature::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
 	dc->PopState();
 }
+
+void Feature::AddScore() {
+    mScoreBoard.AddOops();
+}

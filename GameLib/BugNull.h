@@ -25,7 +25,7 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugNull(this);}
 
-    void AddScore();
+    void AddScore() override;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGNULL_H
