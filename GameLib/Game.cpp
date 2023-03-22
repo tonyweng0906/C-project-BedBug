@@ -226,6 +226,10 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		mPlayArea.Add(item);
 		item->XmlLoad(node);
 		item->SetProgram(program);
+		if(node->GetChildren())
+		{
+			// Create CodeDlg box here for this item, we need to pass it the mainframe?
+		}
 	}
 }
 
