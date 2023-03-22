@@ -34,6 +34,8 @@ public:
 
 	void XmlLoad(wxXmlNode *node);
 
+	void DoubleClick() override;
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_FATGARBAGE_H

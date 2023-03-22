@@ -29,7 +29,7 @@ public:
 	FatBug();
 	void showWindow();
 	virtual void XmlLoad(wxXmlNode *node);
-	void makeIDE(wxWindow* window);
+	void makeIDE();
 
 
 };

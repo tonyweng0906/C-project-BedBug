@@ -31,3 +31,11 @@ void FatGarbage::XmlLoad(wxXmlNode *node)
 	FatBug::XmlLoad(node);
 }
 
+/**
+ * Set behavior for when this bug is double clicked on
+ */
+void FatGarbage::DoubleClick()
+{
+	//FatBug::showWindow();
+}
+

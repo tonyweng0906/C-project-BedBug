@@ -30,3 +30,10 @@ void FatNull::XmlLoad(wxXmlNode *node)
 	FatBug::XmlLoad(node);
 }
 
+/**
+ * Set behavior for when this bug is double clicked on
+ */
+void FatNull::DoubleClick()
+{
+	//FatBug::showWindow();
+}

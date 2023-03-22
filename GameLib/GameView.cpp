@@ -120,7 +120,7 @@ void GameView::OnLeftDown(wxMouseEvent &event)
 void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 {
 	auto object = mGame.GetPlayArea().HitTest(event.GetX(), event.GetY());
-
+	object->DoubleClick();
 }
 
 /**

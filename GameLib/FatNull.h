@@ -34,6 +34,7 @@ public:
 
 	void XmlLoad(wxXmlNode *node);
 
+	void DoubleClick();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_FATNULL_H
