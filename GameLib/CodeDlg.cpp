@@ -25,6 +25,7 @@ CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring 
     okButton = new wxButton(this, wxID_ANY, "OK", wxDefaultPosition, wxDefaultSize);
 	//Bind(wxCloseEvent, &CodeDlg::OnClose, this, wxID_EXIT);
 
+
     auto sizer = new wxBoxSizer( wxVERTICAL );
 
     sizer->Add(textBox,1, wxEXPAND | wxALL );
