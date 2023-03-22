@@ -47,7 +47,7 @@ void Bug::Update(double elapsed)
 		double newY = GetY() + elapsed * -mSpeed * sin(angle);
 		SetLocation(newX,newY);
 	}
-	GameObject::UpdateSpriteSheet();
+	// GameObject::UpdateSpriteSheet();
 
 	// delete code goes here
 	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)

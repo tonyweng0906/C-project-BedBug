@@ -107,10 +107,11 @@ void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	dc->DrawBitmap(mObjectBitmap, mX, mY, objectWid, objectHit);
 
 }
+/**
+ *
 
 /**
  * Shifts sprite sheet
- */
  void GameObject::UpdateSpriteSheet()
 {
 	 mSheetHeight += SpriteHeight;
@@ -118,7 +119,7 @@ void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	 {
 		 mSheetHeight = 0.0;
 	 }
-}
+}*/
 
 /**
  * Load the attributes for an item node.
