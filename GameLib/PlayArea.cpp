@@ -106,13 +106,16 @@ void PlayArea::Update(double elapsed)
 {
 	for (auto object : mObjects)
 	{
-		object->Update(elapsed);
-		if (object->MoveFinish())
+		if (object != nullptr)
 		{
-		//	DeleteObject(object);
-			continue;
-		}
+			object->Update(elapsed);
+			if (object->MoveFinish())
+			{
+				DeleteObject(object);
+				continue;
 
+			}
+		}
 	}
 
 }
