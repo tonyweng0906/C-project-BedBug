@@ -103,8 +103,8 @@ public:
 	virtual void Update(double elapsed) {}
 
 	/**
- 	* Get the pointer to the Aquarium object
-	 * @return Pointer to Aquarium object
+ 	* Get the pointer to the game object
+	 * @return Pointer to game object
  	*/
 	Game *GetGame() { return mGame;  }
 

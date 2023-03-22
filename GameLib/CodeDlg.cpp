@@ -6,21 +6,24 @@
 #include "pch.h"
 #include "CodeDlg.h"
 #include "regex"
+#include "FatBug.h"
 
 /**
  * Constructor for the code dialog box
  * @param parent window to bind to as parent
  * @param code text to display for user to edit
  */
-CodeDlg::CodeDlg(wxWindow* parent, std::wstring code, std::wstring pass)
+CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring pass)
 {
 	wxDialog::Create(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition,
 					 wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxTRANSPARENT_WINDOW, L"Bug Squash IDE");
 	mCode = code;
 	mPass = pass;
-
+	mBug = Bug;
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
 							 wxTE_MULTILINE | wxTE_RICH, wxDefaultValidator, wxTextCtrlNameStr);
+
+	//Bind(wxCloseEvent, &CodeDlg::OnClose, this, wxID_EXIT);
 
 }
 
@@ -40,4 +43,21 @@ bool CodeDlg::testCode(std::wstring pass)
 	auto code = textBox->GetValue();
 	// Still need to build regex test to look for the pass value in the stored text
 	return false;
+}
+
+/**
+ * Function to set behavior on the dialog box closing
+ * @param event Close Event
+ */
+void CodeDlg::OnClose(wxCloseEvent& event)
+{
+	mBug->GetGame()->SetPaused(false);
+}
+
+/**
+* Function to pause the game on open
+*/
+void CodeDlg::OnOpen()
+{
+	//mBug->GetGame()->SetPaused(true);
 }
