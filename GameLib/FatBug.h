@@ -11,6 +11,7 @@
 #include <string>
 #include "GameObject.h"
 #include "Program.h"
+#include "CodeDlg.h"
 
 /**
  * Super class for fat bugs that have a coding challenge when double clicked
@@ -22,11 +23,13 @@ private:
 	std::wstring mPass;
 	/// String of the broken code to display
 	std::wstring mCode;
-
+	/// IDE window for this bug
+	std::unique_ptr<CodeDlg> mIDE = nullptr;
 public:
 	FatBug();
-	void codeWindow(wxWindow* window);
+	void showWindow();
 	virtual void XmlLoad(wxXmlNode *node);
+	void makeIDE(wxWindow* window);
 
 
 };

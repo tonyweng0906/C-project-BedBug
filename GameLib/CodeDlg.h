@@ -13,9 +13,10 @@ class CodeDlg : public wxDialog
 private:
 	wxTextCtrl *textBox;
 	std::wstring mCode;
+	std::wstring mPass;
 
 public:
-	CodeDlg(wxWindow* parent, std::wstring code);
+	CodeDlg(wxWindow* parent, std::wstring code, std::wstring pass);
 	bool testCode(std::wstring pass);
 };
 

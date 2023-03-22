@@ -5,19 +5,19 @@
 
 #include "pch.h"
 #include "FatBug.h"
-#include "CodeDlg.h"
+
 
 /**
  * define behavior for when the bug is double clicked
  * Code Window should be called from the FatBug on a double click
  */
-void FatBug::codeWindow(wxWindow* window)
+void FatBug::showWindow()
 {
-	CodeDlg dlg(window, mCode);
-	dlg.ShowModal();
+	//CodeDlg dlg(window, mCode);
+	mIDE->ShowModal();
 	// Function testCode not yet built
 	// once built, if true, we squish this bug
-	auto SquishBug = dlg.testCode(mPass);
+	auto SquishBug = mIDE->testCode(mPass);
 }
 
 /**
@@ -45,4 +45,14 @@ void FatBug::XmlLoad(wxXmlNode *node)
 	mPass = child->GetAttribute(L"pass", L"");
 	child = child->GetChildren();
 	mCode = child->GetContent();
+}
+
+/**
+ * Create the code window for the bug to display
+ * when double clicked
+ * @param window
+ */
+void FatBug::makeIDE(wxWindow *window)
+{
+	mIDE = std::make_unique<CodeDlg>(window, mCode, mPass);
 }

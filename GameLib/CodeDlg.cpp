@@ -12,11 +12,12 @@
  * @param parent window to bind to as parent
  * @param code text to display for user to edit
  */
-CodeDlg::CodeDlg(wxWindow* parent, std::wstring code)
+CodeDlg::CodeDlg(wxWindow* parent, std::wstring code, std::wstring pass)
 {
 	wxDialog::Create(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition,
 					 wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxTRANSPARENT_WINDOW, L"Bug Squash IDE");
 	mCode = code;
+	mPass = pass;
 
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
 							 wxTE_MULTILINE | wxTE_RICH, wxDefaultValidator, wxTextCtrlNameStr);
