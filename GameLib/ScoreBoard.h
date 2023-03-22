@@ -20,13 +20,13 @@ public:
 
 private:
     /// fixed score
-    int mFixed = 6;
+    int mFixed = 0;
 
     /// Missed score
-    int mMissed = 2;
+    int mMissed = 0;
 
     /// oops score
-    int mOops = 2;
+    int mOops = 0;
 
     double mXOffset = 0;
     double mYOffset = 0;

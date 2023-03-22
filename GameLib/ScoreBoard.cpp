@@ -65,6 +65,7 @@ void ScoreBoard::Draw(std::shared_ptr<wxGraphicsContext> graphics, int width, in
     graphics->DrawText(L"Fixed",LeftScoreX-30,ScoreLabelY);
     graphics->DrawText(L"Missed",Width/2-40,ScoreLabelY);
     graphics->DrawText(L"Oops",Width-LeftScoreX-25,ScoreLabelY);
+
     wxFont ScoreFont(wxSize(0,ScoreSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
     graphics->SetFont(ScoreFont,FontColor);
     graphics->DrawText(to_string(mFixed),LeftScoreX,ScoreY);

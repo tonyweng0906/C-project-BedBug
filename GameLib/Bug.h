@@ -11,7 +11,6 @@
 #include "GameObject.h"
 #include "ObjectVisitor.h"
 #include "Program.h"
-#include "ScoreBoard.h"
 
 /**
  * Base class for a bug
@@ -38,8 +37,6 @@ private:
 	wxGraphicsBitmap mSubBugBitmap;
 
 
-
-    ScoreBoard mScoreboard;
 
 public:
 	/// Default constructor (disabled)
