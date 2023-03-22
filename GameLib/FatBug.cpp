@@ -16,6 +16,9 @@ void FatBug::showWindow()
 	//CodeDlg dlg(window, mCode);
 	mIDE->OnOpen();
 	mIDE->ShowModal();
+	mGame->SetResumed(true);
+	mGame->SetPaused(false);
+
 	// Function testCode not yet built
 	// once built, if true, we squish this bug
 	auto SquishBug = mIDE->testCode(mPass);

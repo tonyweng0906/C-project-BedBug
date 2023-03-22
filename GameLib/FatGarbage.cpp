@@ -3,6 +3,7 @@
  * @author Aron DuBois
  */
 
+#include "pch.h"
 #include "FatGarbage.h"
 
 /**
