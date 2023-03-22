@@ -24,6 +24,9 @@ private:
 	double mScale = 0;
 	bool mShrinked = false;
 
+	/// bool to see if game is paused or not
+	bool mPaused = false;
+
 	/// play area we create
 	PlayArea mPlayArea;
 	/// Main Window Frame
@@ -57,6 +60,11 @@ public:
 	double GetScale(){return mScale;}
 	///Setter for mainframe of the game
 	void SetMainFrame(wxWindow* window){mMainFrame = window;}
+	///Setter for game Paused state
+	void SetPaused(bool state){mPaused = state;}
+	///Getter for game Paused state
+	bool GetPaused(){return mPaused;}
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H
