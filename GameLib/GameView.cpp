@@ -58,12 +58,11 @@ void GameView::OnPaint(wxPaintEvent& event)
 	dc.SetBackground(background);
 	dc.Clear();
 
-	// Compute the time that has elapsed
+	// Compute the time that has elapsed if not paused
 	// since the last call to OnPaint.
 	auto newTime = mStopWatch.Time();
 	auto elapsed = (double)(newTime - mTime) * 0.001;
 	mTime = newTime;
-
 
 
 	// Create a graphics context
@@ -72,6 +71,11 @@ void GameView::OnPaint(wxPaintEvent& event)
 
 	// Tell the game class to draw
 	wxRect rect = GetRect();
+	if(mGame.GetResumed())
+	{
+		elapsed = 0;
+		mGame.SetResumed(false);
+	}
 	mGame.Update(elapsed);
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
     mScoreBoard.Draw(gc, rect.GetWidth(), rect.GetHeight());

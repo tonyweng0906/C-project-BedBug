@@ -26,6 +26,8 @@ private:
 
 	/// bool to see if game is paused or not
 	bool mPaused = false;
+	/// bool lto track if the game has just resumed
+	bool mResumed = false;
 
 	/// play area we create
 	PlayArea mPlayArea;
@@ -64,6 +66,10 @@ public:
 	void SetPaused(bool state){mPaused = state;}
 	///Getter for game Paused state
 	bool GetPaused(){return mPaused;}
+	///Setter for game Resumed state
+	void SetResumed(bool state){mResumed = state;}
+	///Getter for game Resumed state
+	bool GetResumed(){return mResumed;}
 
 };
 
