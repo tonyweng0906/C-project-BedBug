@@ -55,7 +55,7 @@ BugRedundancy::BugRedundancy(Game *game) : Bug(game,RedundancyFlyTopImageName)
 
 }
 
-void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> graphics)
-{
-
-}
+//void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> graphics)
+//{
+//
+//}

@@ -9,6 +9,7 @@
 #define PROJECT1BEDBUG_GAMELIB_GAMEVIEW_H
 
 #include "Game.h"
+#include "ScoreBoard.h"
 
 /**
  * View class for our game
@@ -18,6 +19,8 @@ class GameView  : public wxWindow
 private:
 	/// An object that describes our game
 	Game  mGame;
+
+    ScoreBoard mScoreBoard;
 
 	/// The timer that allows for animation
 	wxTimer mTimer;

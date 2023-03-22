@@ -7,28 +7,34 @@
 #define PROJECT1BEDBUG_SCOREBOARD_H
 
 #include "GameObject.h"
-
 /*
  * class for game scoreboard
  */
-class ScoreBoard : public GameObject{
+class ScoreBoard{
 public:
     void AddFixed();
     void AddMissed();
     void AddOops();
-    int GetFixed();
-    int GetMissed();
-    int GetOops();
+    int GetFixed() const {return mFixed;};
+    int GetMissed() const {return mMissed;};
+    int GetOops() const {return mOops;}
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+
 
 private:
     /// fixed score
-    int mFixed = 0;
+    int mFixed = 3;
 
     /// Missed score
     int mMissed = 0;
 
     /// oops score
     int mOops = 0;
+
+    double mXOffset = 0;
+    double mYOffset = 0;
+    double mScale = 0;
+    bool mShrinked = false;
 
 
 };

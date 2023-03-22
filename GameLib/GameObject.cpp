@@ -104,7 +104,7 @@ void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	}
 	int objectWid = mObjectImage->GetWidth();
 	int objectHit = mObjectImage->GetHeight();
-	dc->DrawBitmap(mObjectBitmap, mX, mY, objectWid, objectHit);
+	dc->DrawBitmap(mObjectBitmap, mX-(objectWid/2), mY-(objectHit/2), objectWid, objectHit);
 
 }
 /**

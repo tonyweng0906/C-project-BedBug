@@ -48,7 +48,7 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
 
-	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
+//	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H
