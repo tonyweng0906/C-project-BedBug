@@ -93,13 +93,22 @@ bool GameObject::HitTest(int x, int y)
 
 void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 {
+	int objectHit = 0;
 
 	if (mObjectBitmap.IsNull())
 	{
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
 	}
 	int objectWid = mObjectImage->GetWidth();
-	int objectHit = mObjectImage->GetHeight()/mNumOfSheets;
+	if(mNumOfSheets)
+	{
+		objectHit = mObjectImage->GetHeight()/mNumOfSheets;
+	}
+	else
+	{
+		objectHit = mObjectImage->GetHeight();
+	}
+
 
 	auto currBitmap = dc->CreateSubBitmap(mObjectBitmap, 0, mSheetHeight, objectWid, objectHit);
 
