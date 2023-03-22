@@ -21,9 +21,19 @@ CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring 
 	mPass = pass;
 	mBug = Bug;
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
-							 wxTE_MULTILINE | wxTE_RICH, wxDefaultValidator, wxTextCtrlNameStr);
-
+							 wxTE_MULTILINE | wxTE_RICH | wxScrolledWindowStyle, wxDefaultValidator, wxTextCtrlNameStr);
+    okButton = new wxButton(this, wxID_ANY, "OK", wxDefaultPosition, wxDefaultSize);
 	//Bind(wxCloseEvent, &CodeDlg::OnClose, this, wxID_EXIT);
+
+    auto sizer = new wxBoxSizer( wxVERTICAL );
+
+    sizer->Add(textBox,1, wxEXPAND | wxALL );
+    sizer->Add(okButton,1, wxALIGN_CENTER | wxALL );
+    // Set the sizer for this frame
+    SetSizer( sizer );
+
+    // Layout (place) the child windows.
+    Layout();
 	Bind(wxEVT_CLOSE_WINDOW, &CodeDlg::OnClose, this, wxID_EXIT);
 
 }
@@ -42,6 +52,7 @@ bool CodeDlg::testCode(std::wstring pass)
 
 	// This will return the text stored in the text box
 	auto code = textBox->GetValue();
+
 	// Still need to build regex test to look for the pass value in the stored text
 	return false;
 }
