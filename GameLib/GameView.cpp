@@ -90,7 +90,11 @@ void GameView::OnShrink(wxCommandEvent& event)
  */
 void GameView::OnTimerEvent(wxTimerEvent & event)
 {
-	Refresh();
+	if(!mGame.GetPaused())
+	{
+		Refresh();
+	}
+
 }
 
 
