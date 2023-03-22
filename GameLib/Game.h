@@ -56,7 +56,7 @@ public:
 	double GetXOffset(){return mXOffset;}
 	///Getter for Y offset @return mYOffset
 	double GetYOffset(){return mYOffset;}
-	///Getter for scale @reutrn scale
+	///Getter for scale @return scale
 	double GetScale(){return mScale;}
 	///Setter for mainframe of the game
 	void SetMainFrame(wxWindow* window){mMainFrame = window;}

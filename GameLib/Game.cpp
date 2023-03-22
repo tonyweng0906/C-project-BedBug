@@ -101,19 +101,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 		graphics->DrawRectangle(-300, -300, 300, Height+300);
 		graphics->DrawRectangle(Width, -300, 300, Height+300);
 	}
-    /****Drawing ScoreBoard stuff****/
-    wxFont LabelFont(wxSize(0,LabelSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
-    graphics->SetFont(LabelFont,FontColor);
-    graphics->DrawText(L"Fixed",LeftScoreX-30,ScoreLabelY);
-    graphics->DrawText(L"Missed",Width/2-40,ScoreLabelY);
-    graphics->DrawText(L"Oops",Width-LeftScoreX-25,ScoreLabelY);
 
-    wxFont ScoreFont(wxSize(0,ScoreSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
-    graphics->SetFont(ScoreFont,FontColor);
-    graphics->DrawText(L"6",LeftScoreX,ScoreY);
-    graphics->DrawText(L"1",Width/2,ScoreY);
-    graphics->DrawText(L"0",Width-LeftScoreX,ScoreY);
-    /*****End Scoreboard Stuff*********/
 
 
 	graphics->PopState();

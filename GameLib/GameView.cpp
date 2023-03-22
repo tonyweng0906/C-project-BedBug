@@ -74,6 +74,7 @@ void GameView::OnPaint(wxPaintEvent& event)
 	wxRect rect = GetRect();
 	mGame.Update(elapsed);
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
+    mScoreBoard.Draw(gc, rect.GetWidth(), rect.GetHeight());
 
 
 }
