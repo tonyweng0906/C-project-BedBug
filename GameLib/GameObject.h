@@ -99,6 +99,7 @@ public:
 	 */
 	virtual void DoubleClick(){};
 
+    virtual void AddScore(){};
 	/**
 	 * Set the target program
 	  * @param program the target

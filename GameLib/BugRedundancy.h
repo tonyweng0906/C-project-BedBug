@@ -10,6 +10,7 @@
 
 #include <wx/graphics.h>
 #include "Bug.h"
+#include "ScoreBoard.h"
 
 class BugRedundancy : public Bug
 {
@@ -27,6 +28,8 @@ private:
 	wxGraphicsBitmap mRightWingBitmap;
 	/// top bitmap
 	wxGraphicsBitmap mTopBitmap;
+
+    ScoreBoard mScoreBoard;
 
 public:
 	/// constructor
@@ -47,6 +50,8 @@ public:
      * @param visitor The visitor we accept
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
+
+    void AddScore() override;
 
 //	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };

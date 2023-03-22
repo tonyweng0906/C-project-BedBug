@@ -71,6 +71,7 @@ public:
 	//void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
+
 	virtual void XmlLoad(wxXmlNode *node);
 
 	bool MoveFinish();
