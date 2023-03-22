@@ -5,19 +5,19 @@
 
 #include "pch.h"
 #include "FatBug.h"
-#include "CodeDlg.h"
+
 
 /**
  * define behavior for when the bug is double clicked
  * Code Window should be called from the FatBug on a double click
  */
-void FatBug::codeWindow(wxWindow* window)
+void FatBug::showWindow()
 {
-	CodeDlg dlg(window, mCode);
-	dlg.ShowModal();
+	//CodeDlg dlg(window, mCode);
+	mIDE->ShowModal();
 	// Function testCode not yet built
 	// once built, if true, we squish this bug
-	auto SquishBug = dlg.testCode(mPass);
+	auto SquishBug = mIDE->testCode(mPass);
 }
 
 /**
@@ -25,7 +25,34 @@ void FatBug::codeWindow(wxWindow* window)
  * @param pass solution for the coding challenge
  * @param code the text of the coding challenge
  */
-FatBug::FatBug(std::wstring pass, std::wstring code) : mPass(pass), mCode(code)
+FatBug::FatBug()
 {
 
+}
+
+/**
+ * Load the attributes for a fatbug node.
+ *
+ * This is the  derived class version that loads the attributes
+ * common to all fatbugs.
+ *
+ *
+ * @param node The Xml node we are loading the item from
+ */
+void FatBug::XmlLoad(wxXmlNode *node)
+{
+	auto child = node->GetChildren();
+	mPass = child->GetAttribute(L"pass", L"");
+	child = child->GetChildren();
+	mCode = child->GetContent();
+}
+
+/**
+ * Create the code window for the bug to display
+ * when double clicked
+ * @param window wxWindow *window
+ */
+void FatBug::makeIDE(wxWindow* window)
+{
+	mIDE = std::make_unique<CodeDlg>(window, mCode, mPass);
 }

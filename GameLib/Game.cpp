@@ -11,6 +11,8 @@
 #include "BugGarbage.h"
 #include "BugNull.h"
 #include "BugRedundancy.h"
+#include "FatGarbage.h"
+#include "FatNull.h"
 #include "Feature.h"
 #include "Program.h"
 
@@ -49,7 +51,6 @@ const int ScoreLabelY = 100;
  */
  Game::Game()
  {
-
  }
 /**
  * Draw the game area
@@ -187,21 +188,36 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 	std::shared_ptr<GameObject> item;
 	// We have an item. What type?
 	auto type = node->GetAttribute(L"type");
-	if (type == L"garbage")
+	// Check if node has child (is a fatbug)
+	if (node->GetChildren())
 	{
-		item = std::make_shared<BugGarbage>(this);
+		if(type == L"garbage")
+		{
+			item = std::make_shared<FatGarbage>(this);
+		}
+		if(type == L"null")
+		{
+			item = std::make_shared<FatNull>(this);
+		}
 	}
-	if (type == L"redundancy")
+	else
 	{
-		item = std::make_shared<BugRedundancy>(this);
-	}
-	if (type == L"null")
-	{
-		item = std::make_shared<BugNull>(this);
-	}
-	if (node->GetName() == "feature")
-	{
-		item = std::make_shared<Feature>(this);
+		if(type == L"garbage")
+		{
+			item = std::make_shared<BugGarbage>(this);
+		}
+		if(type == L"redundancy")
+		{
+			item = std::make_shared<BugRedundancy>(this);
+		}
+		if(type == L"null")
+		{
+			item = std::make_shared<BugNull>(this);
+		}
+		if(node->GetName() == "feature")
+		{
+			item = std::make_shared<Feature>(this);
+		}
 	}
 
 	if (item != nullptr)
@@ -209,6 +225,11 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		mPlayArea.Add(item);
 		item->XmlLoad(node);
 		item->SetProgram(program);
+		if(node->GetChildren())
+		{
+			item->makeIDE(mMainFrame);
+			// Create CodeDlg box here for this item, we need to pass it the mainframe?
+		}
 	}
 }
 
