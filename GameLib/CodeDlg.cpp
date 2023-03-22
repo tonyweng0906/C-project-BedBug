@@ -24,6 +24,7 @@ CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring 
 							 wxTE_MULTILINE | wxTE_RICH, wxDefaultValidator, wxTextCtrlNameStr);
 
 	//Bind(wxCloseEvent, &CodeDlg::OnClose, this, wxID_EXIT);
+	Bind(wxEVT_CLOSE_WINDOW, &CodeDlg::OnClose, this, wxID_EXIT);
 
 }
 
@@ -59,5 +60,5 @@ void CodeDlg::OnClose(wxCloseEvent& event)
 */
 void CodeDlg::OnOpen()
 {
-	//mBug->GetGame()->SetPaused(true);
+	mBug->GetGame()->SetPaused(true);
 }
