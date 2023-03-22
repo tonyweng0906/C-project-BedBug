@@ -36,20 +36,7 @@ private:
 	/// The item sub bitmap
 	wxGraphicsBitmap mSubBugBitmap;
 
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap1;
 
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap2;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap3;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap4;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap5;
 
 public:
 	/// Default constructor (disabled)
@@ -86,6 +73,7 @@ public:
 	void BugSpeed(double speedX, double speedY);
 	virtual void XmlLoad(wxXmlNode *node);
 
+	bool MoveFinish();
 
 	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
 //	int GetWidth() const;

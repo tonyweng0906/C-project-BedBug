@@ -49,13 +49,10 @@ void Bug::Update(double elapsed)
 	}
 	GameObject::UpdateSpriteSheet();
 
-	// delete code goes here
-	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)
-	{
 
-	}
 
 }
+
 
 /**
  * Load the attributes for a bug node.
@@ -91,6 +88,21 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
 	dc->PopState();
 
+
+}
+
+/**
+* Determine the bug done the moving
+* @return On the program or not
+*/
+bool Bug::MoveFinish()
+{
+
+	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)
+	{
+		return true;
+	}
+	return false;
 }
 
 
