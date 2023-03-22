@@ -22,9 +22,7 @@ CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring 
 	mBug = Bug;
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
 							 wxTE_MULTILINE | wxTE_RICH | wxScrolledWindowStyle, wxDefaultValidator, wxTextCtrlNameStr);
-    okButton = new wxButton(this, wxID_ANY, "OK", wxDefaultPosition, wxDefaultSize);
-	//Bind(wxCloseEvent, &CodeDlg::OnClose, this, wxID_EXIT);
-
+    okButton = new wxButton(this, wxID_OK, "OK");
     auto sizer = new wxBoxSizer( wxVERTICAL );
 
     sizer->Add(textBox,1, wxEXPAND | wxALL );
