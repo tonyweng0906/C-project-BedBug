@@ -45,7 +45,11 @@ protected:
 
 public:
 	virtual ~GameObject();
-
+	/**
+	* Determine the bug done the moving
+	* @return On the program or not
+	*/
+	virtual bool MoveFinish() {return false;}
 	/**
      * The X location of the item
      * @return X location in pixels

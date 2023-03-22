@@ -107,6 +107,12 @@ void PlayArea::Update(double elapsed)
 	for (auto object : mObjects)
 	{
 		object->Update(elapsed);
+		if (object->MoveFinish())
+		{
+		//	DeleteObject(object);
+			continue;
+		}
+
 	}
 
 }

@@ -99,7 +99,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 		wxBrush rectBrush(*wxBLACK);
 		graphics->SetBrush(rectBrush);
 		graphics->DrawRectangle(-300, -300, 300, Height+300);
-		graphics->DrawRectangle(Width, -300, 300, Height+300);
+		graphics->DrawRectangle(Width, -300, 500, Height+300);
 	}
 
 
@@ -123,6 +123,7 @@ void Game::SetShrinked()
  */
 void Game::Load(const wxString &filename)
 {
+	std::vector<std::shared_ptr<Program>> programList;
 	wxXmlDocument xmlDoc;
 	if(!xmlDoc.Load(filename))
 	{
@@ -143,7 +144,7 @@ void Game::Load(const wxString &filename)
 	{
 		// program
 		std::shared_ptr<Program> program = std::make_shared<Program>(this);
-		mPlayArea.Add(program);
+		programList.push_back(program);
 		program->XmlLoad(rootChild);
 
 		//Bugs
@@ -163,6 +164,11 @@ void Game::Load(const wxString &filename)
 		}
 
 	}
+	for(auto program : programList)
+	{
+		mPlayArea.Add(program);
+	}
+	mPlayArea.ReverseOrder();
 
 }
 
