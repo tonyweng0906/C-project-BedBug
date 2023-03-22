@@ -99,7 +99,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 		wxBrush rectBrush(*wxBLACK);
 		graphics->SetBrush(rectBrush);
 		graphics->DrawRectangle(-300, -300, 300, Height+300);
-		graphics->DrawRectangle(Width, -300, 300, Height+300);
+		graphics->DrawRectangle(Width, -300, 500, Height+300);
 	}
 
 
