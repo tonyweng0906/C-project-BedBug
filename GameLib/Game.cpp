@@ -12,6 +12,7 @@
 #include "BugNull.h"
 #include "BugRedundancy.h"
 #include "FatGarbage.h"
+#include "FatNull.h"
 #include "Feature.h"
 #include "Program.h"
 
@@ -188,6 +189,7 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 	std::shared_ptr<GameObject> item;
 	// We have an item. What type?
 	auto type = node->GetAttribute(L"type");
+	// Check if node has child (is a fatbug)
 	if (node->GetChildren())
 	{
 		if(type == L"garbage")
@@ -196,8 +198,7 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		}
 		if(type == L"null")
 		{
-			// Need to change to FatBug Classes
-			item = std::make_shared<BugNull>(this);
+			item = std::make_shared<FatNull>(this);
 		}
 	}
 	else
