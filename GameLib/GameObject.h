@@ -72,6 +72,12 @@ public:
 	*/
 	virtual void Draw(std::shared_ptr<wxGraphicsContext> dc);
 
+	/**
+	 * stub function for creating an IDE for Fatbugs
+	 * @param window a wxwindow pointer
+	 */
+	virtual void makeIDE(wxWindow* window){};
+
 	bool HitTest(int x, int y);
 
 	double DistanceTo(std::shared_ptr<GameObject> gameObject);

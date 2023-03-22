@@ -26,6 +26,8 @@ private:
 
 	/// play area we create
 	PlayArea mPlayArea;
+	/// Main Window Frame
+	wxWindow* mMainFrame = nullptr;
 
 public:
 
@@ -53,6 +55,8 @@ public:
 	double GetYOffset(){return mYOffset;}
 	///Getter for scale @reutrn scale
 	double GetScale(){return mScale;}
+	///Setter for mainframe of the game
+	void SetMainFrame(wxWindow* window){mMainFrame = window;}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAME_H

@@ -40,6 +40,8 @@ void GameView::Initialize(wxFrame* parent)
 	mTimer.SetOwner(this);
 	mTimer.Start(FrameDuration);
 	mStopWatch.Start();
+
+	mGame.SetMainFrame(parent);
 }
 
 /**
@@ -120,7 +122,12 @@ void GameView::OnLeftDown(wxMouseEvent &event)
 void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 {
 	auto object = mGame.GetPlayArea().HitTest(event.GetX(), event.GetY());
-	object->DoubleClick();
+	if (object)
+	{
+		object->DoubleClick();
+	}
+
+
 }
 
 /**

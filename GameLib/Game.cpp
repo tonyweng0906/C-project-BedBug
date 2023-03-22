@@ -51,7 +51,6 @@ const int ScoreLabelY = 100;
  */
  Game::Game()
  {
-
  }
 /**
  * Draw the game area
@@ -228,6 +227,7 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		item->SetProgram(program);
 		if(node->GetChildren())
 		{
+			item->makeIDE(mMainFrame);
 			// Create CodeDlg box here for this item, we need to pass it the mainframe?
 		}
 	}

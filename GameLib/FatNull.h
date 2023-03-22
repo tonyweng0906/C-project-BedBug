@@ -35,6 +35,7 @@ public:
 	void XmlLoad(wxXmlNode *node);
 
 	void DoubleClick();
+	void makeIDE(wxWindow *window);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_FATNULL_H

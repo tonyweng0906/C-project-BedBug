@@ -36,6 +36,14 @@ void FatGarbage::XmlLoad(wxXmlNode *node)
  */
 void FatGarbage::DoubleClick()
 {
-	//FatBug::showWindow();
+	FatBug::showWindow();
 }
 
+/**
+* calls the make ide function in fatbug class
+ * @param wxWindow parent window for the ide
+*/
+void FatGarbage::makeIDE(wxWindow* window)
+{
+	FatBug::makeIDE(window);
+}

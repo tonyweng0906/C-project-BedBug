@@ -36,6 +36,7 @@ public:
 
 	void DoubleClick() override;
 
+	void makeIDE(wxWindow *window);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_FATGARBAGE_H

@@ -13,10 +13,6 @@
  */
 void FatBug::showWindow()
 {
-	if(!mIDE)
-	{
-		this->makeIDE();
-	}
 	//CodeDlg dlg(window, mCode);
 	mIDE->ShowModal();
 	// Function testCode not yet built
@@ -56,8 +52,7 @@ void FatBug::XmlLoad(wxXmlNode *node)
  * when double clicked
  * @param window wxWindow *window
  */
-void FatBug::makeIDE()
+void FatBug::makeIDE(wxWindow* window)
 {
-	// Nullptr might be temporary
-	mIDE = std::make_unique<CodeDlg>(nullptr, mCode, mPass);
+	mIDE = std::make_unique<CodeDlg>(window, mCode, mPass);
 }
