@@ -59,6 +59,10 @@ public:
 	///@return vector of the object
 	std::vector<std::shared_ptr<GameObject>> GetObject() {return mObjects;}
 
+	/**
+	 * reverse the order of the game objects in the play area
+	 */
+	 void ReverseOrder(){ std::reverse(mObjects.begin(), mObjects.end());}
 
 };
 

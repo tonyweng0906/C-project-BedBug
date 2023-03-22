@@ -123,6 +123,7 @@ void Game::SetShrinked()
  */
 void Game::Load(const wxString &filename)
 {
+	std::vector<std::shared_ptr<Program>> programList;
 	wxXmlDocument xmlDoc;
 	if(!xmlDoc.Load(filename))
 	{
@@ -143,7 +144,7 @@ void Game::Load(const wxString &filename)
 	{
 		// program
 		std::shared_ptr<Program> program = std::make_shared<Program>(this);
-		mPlayArea.Add(program);
+		programList.push_back(program);
 		program->XmlLoad(rootChild);
 
 		//Bugs
@@ -163,6 +164,11 @@ void Game::Load(const wxString &filename)
 		}
 
 	}
+	for(auto program : programList)
+	{
+		mPlayArea.Add(program);
+	}
+	mPlayArea.ReverseOrder();
 
 }
 
