@@ -12,6 +12,7 @@
 #include "GameObject.h"
 #include "Program.h"
 #include "CodeDlg.h"
+#include "Game.h"
 
 /**
  * Super class for fat bugs that have a coding challenge when double clicked
@@ -25,11 +26,20 @@ private:
 	std::wstring mCode;
 	/// IDE window for this bug
 	std::unique_ptr<CodeDlg> mIDE = nullptr;
+	/// Pointer to the game this bug is in
+	Game* mGame;
+
 public:
-	FatBug();
+	FatBug(Game* game);
 	void showWindow();
 	virtual void XmlLoad(wxXmlNode *node);
 	void makeIDE(wxWindow* window);
+
+	/**
+ 	* Get the pointer to the game object
+ 	* @return Pointer to game object
+ 	*/
+	Game *GetGame() { return mGame;  }
 
 
 };

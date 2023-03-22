@@ -10,7 +10,7 @@
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-FatGarbage::FatGarbage(Game *game) : BugGarbage(game)
+FatGarbage::FatGarbage(Game *game) : BugGarbage(game), FatBug(game)
 {
 
 }

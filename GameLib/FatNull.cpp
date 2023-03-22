@@ -9,7 +9,7 @@
 * Constructor
  * @param game the game this is a member of
 */
-FatNull::FatNull(Game *game) : BugNull(game)
+FatNull::FatNull(Game *game) : BugNull(game), FatBug(game)
 {
 
 }

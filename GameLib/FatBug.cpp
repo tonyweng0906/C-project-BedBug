@@ -14,6 +14,7 @@
 void FatBug::showWindow()
 {
 	//CodeDlg dlg(window, mCode);
+	mIDE->OnOpen();
 	mIDE->ShowModal();
 	// Function testCode not yet built
 	// once built, if true, we squish this bug
@@ -23,11 +24,10 @@ void FatBug::showWindow()
 /**
  * constructor for this fatbug
  * @param pass solution for the coding challenge
- * @param code the text of the coding challenge
  */
-FatBug::FatBug()
+FatBug::FatBug(Game* game)
 {
-
+	mGame = game;
 }
 
 /**
@@ -54,5 +54,5 @@ void FatBug::XmlLoad(wxXmlNode *node)
  */
 void FatBug::makeIDE(wxWindow* window)
 {
-	mIDE = std::make_unique<CodeDlg>(window, mCode, mPass);
+	mIDE = std::make_unique<CodeDlg>(this, window, mCode, mPass);
 }
