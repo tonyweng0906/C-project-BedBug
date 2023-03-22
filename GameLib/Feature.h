@@ -9,8 +9,9 @@
 #define PROJECT1BEDBUG_GAMELIB_FEATURE_H
 
 #include "GameObject.h"
+#include "Bug.h"
 
-class Feature : public GameObject
+class Feature : public Bug
 {
 private:
 	/// Bug speed in the X direction

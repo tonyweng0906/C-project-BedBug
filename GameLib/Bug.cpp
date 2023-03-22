@@ -93,6 +93,8 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 
 }
 
+
+
 ///**
 //* Get the width of image
 // * @return width of the fish

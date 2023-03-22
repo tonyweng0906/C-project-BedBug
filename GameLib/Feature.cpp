@@ -21,7 +21,7 @@ const int FeatureNumSpriteImages = 7;
  * Constructor
  * @param game The game we are in
  */
-Feature::Feature(Game *game) : GameObject(game, FeatureImageName)
+Feature::Feature(Game *game) : Bug(game, FeatureImageName)
 {
 
 }
@@ -37,7 +37,7 @@ void Feature::XmlLoad(wxXmlNode *node)
 {
 	node->GetAttribute(L"speed", L"0").ToDouble(&mSpeed);
 	node->GetAttribute(L"start", L"0").ToDouble(&mStart);
-	GameObject::XmlLoad(node);
+	Bug::XmlLoad(node);
 }
 
 /**
