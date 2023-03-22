@@ -18,6 +18,10 @@ const std::wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
 /// Number of sprite images
 const int GarbageBugNumSpriteImages = 5;
 
+void BugGarbage::AddScore() {
+    mScoreBoard.AddFixed();
+}
+
 /**
 * Constructor
  * @param game the game this is a member of

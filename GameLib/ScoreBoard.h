@@ -15,21 +15,18 @@ public:
     void AddFixed();
     void AddMissed();
     void AddOops();
-    int GetFixed() const {return mFixed;};
-    int GetMissed() const {return mMissed;};
-    int GetOops() const {return mOops;}
     void Draw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
 
 private:
     /// fixed score
-    int mFixed = 3;
+    int mFixed = 6;
 
     /// Missed score
-    int mMissed = 0;
+    int mMissed = 2;
 
     /// oops score
-    int mOops = 0;
+    int mOops = 2;
 
     double mXOffset = 0;
     double mYOffset = 0;

@@ -11,6 +11,7 @@
 #include "GameObject.h"
 #include "ObjectVisitor.h"
 #include "Program.h"
+#include "ScoreBoard.h"
 
 /**
  * Base class for a bug
@@ -37,6 +38,8 @@ private:
 	wxGraphicsBitmap mSubBugBitmap;
 
 
+
+    ScoreBoard mScoreboard;
 
 public:
 	/// Default constructor (disabled)
@@ -71,6 +74,7 @@ public:
 	//void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
+
 	virtual void XmlLoad(wxXmlNode *node);
 
 	bool MoveFinish();

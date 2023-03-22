@@ -59,3 +59,7 @@ BugRedundancy::BugRedundancy(Game *game) : Bug(game,RedundancyFlyTopImageName)
 //{
 //
 //}
+
+void BugRedundancy::AddScore() {
+    mScoreBoard.AddFixed();
+}
