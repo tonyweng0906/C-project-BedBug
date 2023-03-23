@@ -36,6 +36,9 @@ private:
 	/// The item sub bitmap
 	wxGraphicsBitmap mSubBugBitmap;
 
+	/// Image of the squished bug
+	wxGraphicsBitmap mSquishedBitmap;
+
 
 
 public:
