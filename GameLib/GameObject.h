@@ -90,7 +90,7 @@ public:
 	 */
 	virtual void makeIDE(wxWindow* window){};
 
-	bool HitTest(int x, int y);
+	virtual bool HitTest(int x, int y);
 
 	double DistanceTo(std::shared_ptr<GameObject> gameObject);
 

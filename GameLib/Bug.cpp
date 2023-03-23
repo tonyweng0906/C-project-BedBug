@@ -137,6 +137,22 @@ bool Bug::MoveFinish()
 	 mSplat = true;
  }
 
+/**
+* Test to see if we hit near this object with a mouse.
+ *
+* @param x X position to test
+* @param y Y position to test
+* @return true if hit. False if this is a splat bug.
+*/
+bool Bug::HitTest(int x, int y)
+{
+	if(!mSplat)
+	{
+		return GameObject::HitTest(x, y);
+	}
+	return false;
+}
+
 
 ///**
 //* Get the width of image

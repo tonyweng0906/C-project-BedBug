@@ -35,8 +35,6 @@ protected:
 	/// Bug is splat
 	bool mSplat = false;
 
-
-
 	/// The item sub bitmap
 	wxGraphicsBitmap mSubBugBitmap;
 
@@ -92,6 +90,8 @@ public:
 	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
 
 	void Squish();
+
+	bool HitTest(int x, int y) override;
 
 	void SingleClick();
 
