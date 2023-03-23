@@ -40,6 +40,8 @@ public:
 
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
 
+	int BugCount();
+
 	/// Set the Shrinked when click on view
 	void SetShrinked();
 
@@ -72,6 +74,7 @@ public:
 	void SetResumed(bool state){mResumed = state;}
 	///Getter for game Resumed state
 	bool GetResumed(){return mResumed;}
+
 
 };
 
