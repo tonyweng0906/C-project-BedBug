@@ -46,27 +46,6 @@ const int GarbageBugNumSpriteImages = 5;
 
 PlayArea::PlayArea()
 {
-//	// Adding the GarbageBug bitmap
-//	std::shared_ptr<wxImage> mGarbageBugImage = std::make_shared<wxImage>(GarbageBugSpriteImageName);
-//	wxGraphicsBitmap GarbageBugBitmap = CreateBitmapFromImage(*mGarbageBugImage);
-//	mImages.insert({"garbage", GarbageBugBitmap});
-//
-//	std::shared_ptr<wxImage> FeatureBugImage =
-//		std::make_unique<wxImage>(FeatureBugImageName, wxBITMAP_TYPE_ANY);
-//	wxGraphicsBitmap FeatureBugBitmap = std::make_unique<wxBitmap>(*FeatureBugImage);
-//	mImages.insert({"feature", FeatureBugBitmap});
-//
-//	std::shared_ptr<wxImage> RedundancyFlyImage =
-//		std::make_unique<wxImage>(RedundancyFlyImageName, wxBITMAP_TYPE_ANY);
-//	wxGraphicsBitmap RedundancyFlyBitmap = std::make_unique<wxBitmap>(*RedundancyFlyImage);
-//	mImages.insert({"redundancy", RedundancyFlyBitmap});
-//
-//	std::shared_ptr<wxImage> NullBugImage =
-//		std::make_unique<wxImage>(NullBugImageName, wxBITMAP_TYPE_ANY);
-//	wxGraphicsBitmap NullBugBitmap = std::make_unique<wxBitmap>(*NullBugImage);
-//	mImages.insert({"null", NullBugBitmap});
-
-
 	// Adding the GarbageBug image
 	std::shared_ptr<wxImage> GarbageBugImage = std::make_shared<wxImage>(GarbageBugImageName);
 	mImages.insert({"garbage", GarbageBugImage});
