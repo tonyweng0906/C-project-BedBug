@@ -71,6 +71,12 @@ public:
 	* @param program Program we are visiting
 	*/
 	virtual void VisitProgram(Program * program) {}
+
+	/**
+	* Visit a  object
+	* @param program Program we are visiting
+	*/
+	virtual void VisitObject(GameObject * gameObject) {}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H

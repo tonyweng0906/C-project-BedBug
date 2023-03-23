@@ -72,35 +72,23 @@ TEST_F(GameTest, Load) {
 	TestAllTypesWithSpeed(L"Level/level0.xml");
 
 	game.Load(L"Level/level0.xml");
-	int numOfItem = 0;
-	for (auto i: game.GetPlayArea().GetObject())
-	{
-		numOfItem ++;
-	}
-	cout << numOfItem << endl;
 
-	ASSERT_TRUE(numOfItem == 3);
+
+	cout <<game.GetPlayArea().NumberOfObject() << endl;
+
+	ASSERT_TRUE(game.GetPlayArea().NumberOfObject() == 3);
 
 	game2.Load(L"Level/level1.xml");
 
-	int numOfItem2 = 0;
-	for (auto i: game2.GetPlayArea().GetObject())
-	{
-		numOfItem2 ++;
-	}
-	cout << numOfItem2 << endl;
+	cout << game2.GetPlayArea().NumberOfObject() << endl;
 
-	ASSERT_TRUE(numOfItem2 == 13);
+	ASSERT_TRUE(game2.GetPlayArea().NumberOfObject() == 13);
+
 
 	game3.Load(L"Level/level2.xml");
 
-	int numOfItem3 = 0;
-	for (auto i: game3.GetPlayArea().GetObject())
-	{
-		numOfItem3 ++;
-	}
-	cout << numOfItem3 << endl;
-	ASSERT_TRUE(numOfItem3 == 27);
+	cout << game3.GetPlayArea().NumberOfObject() << endl;
+	ASSERT_TRUE(game3.GetPlayArea().NumberOfObject() == 27);
 
 //	TestAllTypesWithSpeed(L"Level/level1.xml");
 

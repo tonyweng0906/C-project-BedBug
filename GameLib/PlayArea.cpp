@@ -204,3 +204,15 @@ std::shared_ptr<wxImage> PlayArea::GetImage(std::string name)
 }
 
 
+/**
+ * Draw all the item
+ * @param dc wxGraphicsContext
+ *
+ */
+void PlayArea::Draw(std::shared_ptr<wxGraphicsContext> dc)
+{
+	for (auto item : mObjects)
+	{
+		item->Draw(dc);
+	}
+}
