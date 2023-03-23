@@ -37,6 +37,10 @@ void FatNull::XmlLoad(wxXmlNode *node)
 void FatNull::DoubleClick()
 {
 	FatBug::showWindow();
+	if(FatBug::TestCode())
+	{
+		Squish();
+	}
 }
 
 /**

@@ -56,7 +56,7 @@ bool CodeDlg::testCode(std::string pass)
 	// Still need to build regex test to look for the pass value in the stored text
 	std::regex key;
 	key.assign(pass);
-	return std::regex_match(code, key);
+	return std::regex_search(code, key);
 
 }
 

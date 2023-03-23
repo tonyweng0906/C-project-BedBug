@@ -36,6 +36,12 @@ public:
 	void makeIDE(wxWindow* window);
 
 	/**
+	 * Check if Code in CodeDlg has been correct
+	 * @return Bool true if code is corrected
+	 */
+	 bool TestCode() {return mIDE->testCode(mPass);}
+
+	/**
  	* Get the pointer to the game object
  	* @return Pointer to game object
  	*/
