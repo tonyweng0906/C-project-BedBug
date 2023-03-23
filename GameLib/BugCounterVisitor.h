@@ -24,41 +24,23 @@ public:
 	*/
 	int GetNumBugs() {return mNumBugs;}
 
-	/**
-	* visit a BugGarbage object
-	* @param BugGarbage object we are visiting
-	*/
-	void VisitBugGarbage(BugGarbage* bug) override{ mNumBugs++;}
 
-	/**
-	* visit a BugNull object
-	* @param BugNull object we are visiting
-	*/
-	void VisitBugNull(BugNull* bug) override{ mNumBugs++;}
+	void VisitBugGarbage(BugGarbage* bug) override;
 
-	/**
-	* visit a BugRedundancy object
-	* @param BugRedundancy object we are visiting
-	*/
-	void VisitBugRedundancy(BugRedundancy* bug) override{ mNumBugs++;}
 
-	/**
-	* visit a FatGarbage object
-	* @param FatGarbage object we are visiting
-	*/
-	void VisitFatGarbage(FatGarbage* bug) override{ mNumBugs++;}
+	void VisitBugNull(BugNull* bug) override;
 
-	/**
-	* visit a FatNull object
-	* @param FatNull object we are visiting
-	*/
-	void VisitFatNull(FatNull* bug) override{ mNumBugs++;}
 
-	/**
-	* visit a Feature object
-	* @param Feature object we are visiting
-	*/
-	void VisitFeature(Feature* bug) override{ mNumBugs++;}
+	void VisitBugRedundancy(BugRedundancy* bug) override;
+
+
+	void VisitFatGarbage(FatGarbage* bug) override;
+
+
+	void VisitFatNull(FatNull* bug) override;
+
+
+	void VisitFeature(Feature* bug) override;
 
 };
 

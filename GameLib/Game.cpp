@@ -214,7 +214,7 @@ void Game::Update(double elapsed)
 	mPlayArea.Update(elapsed);
 	if(!BugCount())
 	{
-
+		Load(L"Level/level0.xml");
 	}
 }
 

@@ -70,6 +70,9 @@ public:
 	 */
 	double GetSpeed() const { return mSpeed; }
 
+	/// Getter to check if bug is spatted
+	bool GetSplat() const {return mSplat;}
+
 	/// Set the size for fat bugs
 	void SetFatSize() {mBugSize = 125;}
 
