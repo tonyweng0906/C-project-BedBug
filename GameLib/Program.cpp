@@ -21,3 +21,31 @@ Program::Program(Game *game) : GameObject(game,ProgramName)
 {
 
 }
+
+/**
+ * Load the attributes for an item node.
+ * This is the  base class version that loads the attributes
+ * common to all items. Override this to load custom attributes
+ * for specific items.
+ *
+ * @param node The Xml node we are loading the item from
+*/
+void Program::XmlLoad(wxXmlNode *node)
+{
+	GameObject::XmlLoad(node);
+	mName = node->GetAttribute(L"name", L"");
+}
+
+
+void Program::Draw(std::shared_ptr<wxGraphicsContext> dc)
+{
+	GameObject::Draw(dc);
+	wxFont font(wxSize(0, ProgramNameFontSize),
+				wxFONTFAMILY_SWISS,
+				wxFONTSTYLE_NORMAL,
+				wxFONTWEIGHT_BOLD);
+	dc->SetFont(font, *wxWHITE);
+	double wid, hit;
+	dc->GetTextExtent(mName, &wid, &hit);
+	dc->DrawText(mName,GetX()- wid/2, GetY() - hit/2);
+}
