@@ -97,10 +97,12 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 */
 bool Bug::MoveFinish()
 {
-
-	if (abs(GetY()-mProgram->GetY()) <= 5 && abs(GetX()-mProgram->GetX()) <= 5)
+	if(mProgram)
 	{
-		return true;
+		if (abs(GetY()-mProgram->GetY()) <= 5 && abs(GetX()-mProgram->GetX()) <= 5)
+		{
+			return true;
+		}
 	}
 	return false;
 }
