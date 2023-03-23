@@ -33,7 +33,6 @@ public:
 
 	void Update(double elapsed) override;
 
-	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
 	/**
 	 * Set the target program
 	  * @param program the target

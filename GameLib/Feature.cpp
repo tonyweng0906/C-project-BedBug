@@ -63,27 +63,6 @@ void Feature::Update(double elapsed)
 	}
 }
 
-/**
-* Draw this GameObject
-* @param dc Device context to draw on
-*/
-
-void Feature::Draw(std::shared_ptr<wxGraphicsContext> dc)
-{
-	if (mObjectBitmap.IsNull())
-	{
-		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
-	}
-
-
-	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
-	dc->PushState();
-	dc->Translate(mX,mY);
-	dc->Rotate(mRotation);
-	dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
-	dc->PopState();
-}
-
 void Feature::AddScore() {
     mScoreBoard.AddOops();
 }
