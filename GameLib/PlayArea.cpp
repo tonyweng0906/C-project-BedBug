@@ -10,7 +10,7 @@
 
 
 /// The garbage bug image
-const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
+const std::wstring GarbageBugImageName = L"images/blue-maize-bug.png";
 
 /// The garbage bug splat image
 const std::wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
@@ -32,6 +32,9 @@ const std::wstring NullBugImageName = L"images/scarlet-gray-bug.png";
 
 /// The Null Bug splat image
 const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
+
+/// The Program image
+const std::wstring ProgramImageName = L"images/laptop.png";
 
 /// Number of sprite images
 const int GarbageBugNumSpriteImages = 5;
@@ -63,10 +66,43 @@ PlayArea::PlayArea()
 //	wxGraphicsBitmap NullBugBitmap = std::make_unique<wxBitmap>(*NullBugImage);
 //	mImages.insert({"null", NullBugBitmap});
 
-//	// Adding the squished GarbageBug bitmap
-//	std::shared_ptr<wxImage> mGarbageBugImage = std::make_shared<wxImage>(GarbageBugSpriteImageName);
-//	wxGraphicsBitmap GarbageBugBitmap = CreateBitmapFromImage(*mGarbageBugImage);
-//	mImages.insert({"garbage", GarbageBugBitmap});
+
+	// Adding the GarbageBug image
+	std::shared_ptr<wxImage> GarbageBugImage = std::make_shared<wxImage>(GarbageBugImageName);
+	mImages.insert({"garbage", GarbageBugImage});
+
+	// Adding the splat GarbageBug image
+	std::shared_ptr<wxImage> GarbageBugSplatImage = std::make_shared<wxImage>(GarbageBugSplatImageName);
+	mImages.insert({"garbageSplat", GarbageBugSplatImage});
+
+	// Adding the NullBug image
+	std::shared_ptr<wxImage> NullBugImage = std::make_shared<wxImage>(NullBugImageName);
+	mImages.insert({"null", NullBugImage});
+
+	// Adding Nullbug splat image
+	std::shared_ptr<wxImage> NullBugSplatImage = std::make_shared<wxImage>(NullBugSplatImageName);
+	mImages.insert({"nullSplat", NullBugSplatImage});
+
+	// Adding FeatureBug Image
+	std::shared_ptr<wxImage> FeatureBugImage = std::make_shared<wxImage>(FeatureBugImageName);
+	mImages.insert({"feature", FeatureBugImage});
+
+	// Adding FeatureBug Splat Image
+	std::shared_ptr<wxImage> FeatureBugSplatImage = std::make_shared<wxImage>(FeatureBugSplatImageName);
+	mImages.insert({"featureSplat", FeatureBugSplatImage});
+
+	// Adding RedundancyFly Image
+	std::shared_ptr<wxImage> RedundancyFlyImage = std::make_shared<wxImage>(RedundancyFlyImageName);
+	mImages.insert({"redundancy", RedundancyFlyImage});
+
+	// Adding RedundancyFly Splat Image
+	std::shared_ptr<wxImage> RedundancyFlySplatImage = std::make_shared<wxImage>(RedundancyFlySplatImageName);
+	mImages.insert({"redundancySplat", RedundancyFlySplatImage});
+
+	// Adding Program Image
+	std::shared_ptr<wxImage> ProgramImage = std::make_shared<wxImage>(ProgramImageName);
+	mImages.insert({"program", ProgramImage});
+
 
 }
 
@@ -160,12 +196,12 @@ void PlayArea::ClearObject()
  * @param name name of the object
  * @return  the bitmap
  */
-wxGraphicsBitmap PlayArea::GetBitmap(std::string name)
+std::shared_ptr<wxImage> PlayArea::GetImage(std::string name)
 {
-	auto bitMap = mImages.find(name);
-	if (bitMap!=mImages.end())
+	auto image = mImages.find(name);
+	if (image!=mImages.end())
 	{
-		return bitMap->second;
+		return image->second;
 	}
 }
 
