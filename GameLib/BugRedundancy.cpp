@@ -8,6 +8,9 @@
 
 using namespace std;
 
+/// Bug Name
+const std::wstring BugName = L"redundancy";
+
 /// The bug base image
 const std::wstring RedundancyFlyImageName = L"images/redundancy-fly-base.png";
 

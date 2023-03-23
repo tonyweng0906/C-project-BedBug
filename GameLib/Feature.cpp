@@ -8,6 +8,9 @@
 #include "Program.h"
 #include "Game.h"
 
+/// Bug Name
+const std::wstring BugName = L"feature";
+
 /// The feature sprite image
 const std::wstring FeatureImageName = L"images/feature.png";
 

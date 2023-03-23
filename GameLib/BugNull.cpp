@@ -7,6 +7,9 @@
 #include "pch.h"
 #include "BugNull.h"
 
+/// Bug Name
+const std::wstring BugName = L"null";
+
 /// The bug sprite image
 const std::wstring NullBugSpriteImageName = L"images/scarlet-gray-bug.png";
 

@@ -8,6 +8,8 @@
 #include <iostream>
 #include "BugGarbage.h"
 
+/// Bug Name
+const std::wstring BugName = L"garbage";
 
 /// The bug sprite image
 const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
