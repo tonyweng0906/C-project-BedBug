@@ -15,39 +15,6 @@
 class Feature : public Bug
 {
 private:
-	/// Bug speed in the X direction
-	/// in pixels per second
-	double mSpeed = 0;
-
-	/// start time
-	double mStart = 0;
-
-	/// rotate degree
-	double mRotation = 0;
-
-/// Program the bug will target
-	std::shared_ptr<Program> mProgram;
-
-	/// The item bitmap
-	wxGraphicsBitmap mSubBugBitmap;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap1;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap2;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap3;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap4;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap5;
-
-	/// The item sub bitmap
-	wxGraphicsBitmap mSubMovingBugBitmap6;
 
     ScoreBoard mScoreBoard;
 protected:
