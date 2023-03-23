@@ -11,12 +11,6 @@
 /// Bug Name
 const std::string BugName = "garbage";
 
-/// The bug sprite image
-const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
-
-/// The splat image
-const std::wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
-
 /// Number of sprite images
 const int GarbageBugNumSpriteImages = 5;
 

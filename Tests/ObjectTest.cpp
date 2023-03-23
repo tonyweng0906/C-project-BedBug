@@ -10,14 +10,14 @@
 #include <FatGarbage.h>
 
 
-/// The bug sprite image
-const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
+/// Bug Name
+const std::string BugName = "garbage";
 
 /** Mock Class for testing the class object */
 class ObjectMock : public GameObject {
 public:
 
-	ObjectMock(Game *game) : GameObject(game, GarbageBugSpriteImageName) {}
+	ObjectMock(Game *game) : GameObject(game, BugName) {}
 };
 
 TEST(ObjectTest, Construct)
