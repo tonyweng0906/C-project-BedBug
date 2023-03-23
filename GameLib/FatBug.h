@@ -21,7 +21,7 @@ class FatBug
 {
 private:
 	/// String we search for to pass the test
-	std::wstring mPass;
+	std::string mPass;
 	/// String of the broken code to display
 	std::wstring mCode;
 	/// IDE window for this bug

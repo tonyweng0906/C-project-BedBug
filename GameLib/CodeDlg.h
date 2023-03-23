@@ -19,12 +19,12 @@ private:
 	wxTextCtrl *textBox;
     wxButton *okButton;
 	std::wstring mCode;
-	std::wstring mPass;
+	std::string mPass;
 	FatBug* mBug;
 
 public:
-	CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring pass);
-	bool testCode(std::wstring pass);
+	CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::string pass);
+	bool testCode(std::string pass);
 	void OnClose(wxCloseEvent &event);
 	void OnOpen();
 };

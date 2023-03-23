@@ -45,7 +45,7 @@ FatBug::FatBug(Game* game)
 void FatBug::XmlLoad(wxXmlNode *node)
 {
 	auto child = node->GetChildren();
-	mPass = child->GetAttribute(L"pass", L"");
+	mPass = child->GetAttribute(L"pass", "");
 	child = child->GetChildren();
 	mCode = child->GetContent();
 }
