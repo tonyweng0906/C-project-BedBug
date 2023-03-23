@@ -214,7 +214,25 @@ void Game::Update(double elapsed)
 	mPlayArea.Update(elapsed);
 	if(!BugCount())
 	{
-		Load(L"Level/level0.xml");
+		switch(mLevel)
+		{
+			case 0:
+				Load(L"Level/level1.xml");
+				mLevel = 1;
+				break;
+			case 1:
+				Load(L"Level/level2.xml");
+				mLevel = 2;
+				break;
+			case 2:
+				Load(L"Level/level3.xml");
+				mLevel = 3;
+				break;
+			case 3:
+				Load(L"Level/level3.xml");
+				break;
+		}
+
 	}
 }
 
