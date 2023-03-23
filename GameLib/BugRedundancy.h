@@ -29,7 +29,10 @@ private:
 	/// top bitmap
 	wxGraphicsBitmap mTopBitmap;
 
+
     ScoreBoard mScoreBoard;
+
+	double mWingRotation = 0;
 
 public:
 	/// constructor
@@ -53,7 +56,8 @@ public:
 
     void AddScore() override;
 
-//	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
+	void Update(double elapsed);
+	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H

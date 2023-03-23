@@ -51,7 +51,6 @@ void Bug::Update(double elapsed)
 	GameObject::UpdateSpriteSheet();
 
 
-
 }
 
 

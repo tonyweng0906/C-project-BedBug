@@ -55,13 +55,117 @@ const int WingSetY = 5;
 */
 BugRedundancy::BugRedundancy(Game *game) : Bug(game,BugName)
 {
-
+	mImageLeftWing = std::make_shared<wxImage>(RedundancyFlyLeftWingImageName);
+	mImageRightWing =  std::make_shared<wxImage>(RedundancyFlyRightWingImageName);
+	mImageTop = std::make_shared<wxImage>(RedundancyFlyTopImageName);
 }
 
-//void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> graphics)
-//{
-//
-//}
+
+void BugRedundancy::Update(double elapsed)
+{
+	Bug::Update(elapsed);
+}
+
+void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> dc)
+{
+	if (mObjectBitmap.IsNull())
+	{
+		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
+	}
+	if (mSplatBitmap.IsNull())
+	{
+		mSplatBitmap = dc->CreateBitmapFromImage(*mSplatImage);
+	}
+	if (mLeftWingBitmap.IsNull())
+	{
+		mLeftWingBitmap = dc->CreateBitmapFromImage(*mImageLeftWing);
+	}
+	if (mRightWingBitmap.IsNull())
+	{
+		mRightWingBitmap = dc->CreateBitmapFromImage(*mImageRightWing);
+	}
+	if (mTopBitmap.IsNull())
+	{
+		mTopBitmap = dc->CreateBitmapFromImage(*mImageTop);
+	}
+
+
+	if(!mSplat){
+		dc->PushState();
+
+		dc->Translate(mX,mY);
+		dc->Rotate(mRotation);
+		dc->DrawBitmap(mObjectBitmap, -50, -50, 100, 100);
+
+
+		//left wing
+		dc->PushState();
+		dc->Translate(FirstWingSetX ,-WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mLeftWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		dc->PushState();
+		dc->Translate(FirstWingSetX+WingSetXOffset ,-WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mLeftWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		dc->PushState();
+		dc->Translate(2*WingSetXOffset +FirstWingSetX ,-WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mLeftWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		dc->PushState();
+		dc->Translate(3*WingSetXOffset +FirstWingSetX ,-WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mLeftWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		//right wing
+		dc->PushState();
+		dc->Translate(FirstWingSetX ,WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		dc->PushState();
+		dc->Translate(FirstWingSetX+WingSetXOffset ,WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		dc->PushState();
+		dc->Translate(2*WingSetXOffset +FirstWingSetX ,WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		dc->PushState();
+		dc->Translate(3*WingSetXOffset +FirstWingSetX ,WingSetY );
+		dc->Rotate(mWingRotation);
+		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		// draw the top
+		dc->PushState();
+		dc->DrawBitmap(mTopBitmap, -50, -50, 100, 100);
+		dc->PopState();
+
+		dc->PopState();
+	}
+	else{
+		int objectWid = mSplatImage->GetWidth();
+		int objectHit = mSplatImage->GetHeight();
+		dc->DrawBitmap(mSplatBitmap, mX-(objectWid/2), mY-(objectHit/2), objectWid, objectHit);
+	}
+
+
+
+
+
+}
 
 void BugRedundancy::AddScore() {
     mScoreBoard.AddFixed();

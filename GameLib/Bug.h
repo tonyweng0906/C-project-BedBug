@@ -20,6 +20,8 @@
 class Bug : public GameObject
 {
 private:
+
+protected:
 	/// Bug speed in the X direction
 	/// in pixels per second
 	double mSpeed = 0;
@@ -33,8 +35,7 @@ private:
 	/// Bug is splat
 	bool mSplat = false;
 
-	/// Program the bug will target
-	std::shared_ptr<Program> mProgram;
+
 
 	/// The item sub bitmap
 	wxGraphicsBitmap mSubBugBitmap;
@@ -45,8 +46,8 @@ private:
 	/// Bitmap of the splat bug
 	wxGraphicsBitmap mSplatBitmap;
 
-
-
+	/// Program the bug will target
+	std::shared_ptr<Program> mProgram;
 public:
 	/// Default constructor (disabled)
 	Bug() = delete;

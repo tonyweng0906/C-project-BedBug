@@ -144,11 +144,9 @@ void PlayArea::Update(double elapsed)
 			{
 				DeleteObject(object);
 				continue;
-
 			}
 		}
 	}
-
 }
 
 /**
