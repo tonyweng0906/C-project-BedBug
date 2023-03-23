@@ -36,8 +36,11 @@ private:
 	/// The item sub bitmap
 	wxGraphicsBitmap mSubBugBitmap;
 
-	/// Image of the squished bug
-	wxGraphicsBitmap mSquishedBitmap;
+	/// Image of the splat bug
+	std::shared_ptr<wxImage> mSplatImage;
+
+	/// Bitmap of the splat bug
+	wxGraphicsBitmap mSplatBitmap;
 
 
 

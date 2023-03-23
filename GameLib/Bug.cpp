@@ -15,6 +15,7 @@
  */
 Bug::Bug(Game *game, const std::string & name ) : GameObject(game, name)
 {
+	mSplatImage = game->GetPlayArea().GetImage(name+"Splat");
 }
 
 /**
