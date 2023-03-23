@@ -63,7 +63,24 @@ BugRedundancy::BugRedundancy(Game *game) : Bug(game,BugName)
 
 void BugRedundancy::Update(double elapsed)
 {
+	if (mClockwise)
+	{
+		mWingRotation += WingPeriod/(WingRotateEnd/4);
+		if (mWingRotation >= 1.5)
+		{
+			mClockwise = false;
+		}
+	}
+	else
+	{
+		mWingRotation -= WingPeriod/(WingRotateEnd/4);
+		if (mWingRotation <= 0)
+		{
+			mClockwise = true;
+		}
+	}
 	Bug::Update(elapsed);
+
 }
 
 void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> dc)
@@ -126,25 +143,25 @@ void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> dc)
 		//right wing
 		dc->PushState();
 		dc->Translate(FirstWingSetX ,WingSetY );
-		dc->Rotate(mWingRotation);
+		dc->Rotate(-mWingRotation);
 		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
 		dc->PopState();
 
 		dc->PushState();
 		dc->Translate(FirstWingSetX+WingSetXOffset ,WingSetY );
-		dc->Rotate(mWingRotation);
+		dc->Rotate(-mWingRotation);
 		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
 		dc->PopState();
 
 		dc->PushState();
 		dc->Translate(2*WingSetXOffset +FirstWingSetX ,WingSetY );
-		dc->Rotate(mWingRotation);
+		dc->Rotate(-mWingRotation);
 		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
 		dc->PopState();
 
 		dc->PushState();
 		dc->Translate(3*WingSetXOffset +FirstWingSetX ,WingSetY );
-		dc->Rotate(mWingRotation);
+		dc->Rotate(-mWingRotation);
 		dc->DrawBitmap(mRightWingBitmap, -50, -50, 100, 100);
 		dc->PopState();
 

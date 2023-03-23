@@ -31,8 +31,11 @@ private:
 
 
     ScoreBoard mScoreBoard;
-
+	/// wing rotation rate
 	double mWingRotation = 0;
+
+	/// wing rotate clockwise or not
+	bool mClockwise = true;
 
 public:
 	/// constructor
