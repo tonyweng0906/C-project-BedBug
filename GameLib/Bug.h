@@ -89,7 +89,7 @@ public:
 //
 //	int GetHeight() const;
 protected:
-	Bug(Game *game, const std::wstring & name );
+	Bug(Game *game, const std::string & name );
 
 
 };

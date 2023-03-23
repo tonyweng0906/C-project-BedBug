@@ -9,7 +9,7 @@
 #include "BugGarbage.h"
 
 /// Bug Name
-const std::wstring BugName = L"garbage";
+const std::string BugName = "garbage";
 
 /// The bug sprite image
 const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
@@ -29,7 +29,7 @@ void BugGarbage::AddScore() {
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugGarbage::BugGarbage(Game *game) : Bug(game, GarbageBugSpriteImageName )
+BugGarbage::BugGarbage(Game *game) : Bug(game, BugName )
 {
 
 }

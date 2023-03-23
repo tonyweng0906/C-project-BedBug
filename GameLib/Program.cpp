@@ -6,6 +6,9 @@
 #include "pch.h"
 #include "Program.h"
 
+/// Program Name
+const std::string ProgramName = "program";
+
 /// Program image filename
 const std::wstring ProgramImage = L"images/laptop.png";
 
@@ -17,7 +20,7 @@ const int ProgramNameFontSize = 22;
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-Program::Program(Game *game) : GameObject(game,ProgramImage)
+Program::Program(Game *game) : GameObject(game,ProgramName)
 {
 
 }

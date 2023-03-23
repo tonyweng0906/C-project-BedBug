@@ -8,7 +8,7 @@
 #include "BugNull.h"
 
 /// Bug Name
-const std::wstring BugName = L"null";
+const std::string BugName = "null";
 
 /// The bug sprite image
 const std::wstring NullBugSpriteImageName = L"images/scarlet-gray-bug.png";
@@ -24,7 +24,7 @@ const int NullBugNumSpriteImages = 6;
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugNull::BugNull(Game *game) : Bug(game,NullBugSpriteImageName)
+BugNull::BugNull(Game *game) : Bug(game,BugName)
 {
 
 }

@@ -9,7 +9,7 @@
 #include "Game.h"
 
 /// Bug Name
-const std::wstring BugName = L"feature";
+const std::string BugName = "feature";
 
 /// The feature sprite image
 const std::wstring FeatureImageName = L"images/feature.png";
@@ -24,7 +24,7 @@ const int FeatureNumSpriteImages = 7;
  * Constructor
  * @param game The game we are in
  */
-Feature::Feature(Game *game) : Bug(game, FeatureImageName)
+Feature::Feature(Game *game) : Bug(game, BugName)
 {
 
 }

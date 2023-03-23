@@ -9,7 +9,7 @@
 using namespace std;
 
 /// Bug Name
-const std::wstring BugName = L"redundancy";
+const std::string BugName = "redundancy";
 
 /// The bug base image
 const std::wstring RedundancyFlyImageName = L"images/redundancy-fly-base.png";
@@ -53,7 +53,7 @@ const int WingSetY = 5;
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugRedundancy::BugRedundancy(Game *game) : Bug(game,RedundancyFlyTopImageName)
+BugRedundancy::BugRedundancy(Game *game) : Bug(game,BugName)
 {
 
 }

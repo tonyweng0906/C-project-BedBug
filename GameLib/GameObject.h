@@ -23,7 +23,7 @@ private:
 	Game  *mGame;
 
 protected:
-	GameObject(Game *game, const std::wstring & name );
+	GameObject(Game *game, const std::string & name );
 
 	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item
