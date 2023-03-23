@@ -77,6 +77,9 @@ public:
 	bool MoveFinish();
 
 	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
+
+	void SingleClick();
+
 //	int GetWidth() const;
 //
 //	int GetHeight() const;

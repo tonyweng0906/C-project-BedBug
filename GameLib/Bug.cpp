@@ -107,6 +107,13 @@ bool Bug::MoveFinish()
 	return false;
 }
 
+/**
+ * Single click changes the bug to a squished bug image and stops animation
+ */
+ void Bug::SingleClick()
+{
+	 // Change to squashed image
+}
 
 
 ///**

@@ -95,10 +95,14 @@ public:
 	double DistanceTo(std::shared_ptr<GameObject> gameObject);
 
 	/**
-	 * Double Click checks if image is double clicked
+	 * Double Click executes actions for being double clicked
 	 */
 	virtual void DoubleClick(){};
 
+	/**
+	 * single Click executes actions for being double clicked
+	 */
+	virtual void SingleClick(){};
     virtual void AddScore(){};
 	/**
 	 * Set the target program
