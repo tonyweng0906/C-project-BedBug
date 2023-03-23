@@ -5,6 +5,7 @@
 
 #include "pch.h"
 #include "BugRedundancy.h"
+#include "Game.h"
 
 using namespace std;
 
@@ -186,4 +187,37 @@ void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> dc)
 
 void BugRedundancy::AddScore() {
     mScoreBoard.AddFixed();
+}
+
+/**
+ * Set Redundancy Bug behavior on single click
+ */
+void BugRedundancy::SingleClick()
+{
+	if(mOriginal)
+	{
+		this->PopBug();
+	}
+
+}
+void BugRedundancy::PopBug()
+{
+	mPopped = true;
+}
+
+/**
+* Determine if we should remove the bug
+* @return bool true if we should remove false otherwise
+*/
+bool BugRedundancy::MoveFinish()
+{
+	if(mPopped)
+	{
+		return true;
+	}
+	else
+	{
+		Bug::MoveFinish();
+	}
+
 }

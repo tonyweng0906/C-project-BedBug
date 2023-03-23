@@ -31,11 +31,14 @@ private:
 
 
     ScoreBoard mScoreBoard;
-	/// wing rotation rate
+
 	double mWingRotation = 0;
 
-	/// wing rotate clockwise or not
-	bool mClockwise = true;
+	/// Track if this Redundancy fly is an original
+	bool mOriginal = true;
+
+	/// Track if this bug has been popped
+	bool mPopped = false;
 
 public:
 	/// constructor
@@ -61,6 +64,16 @@ public:
 
 	void Update(double elapsed);
 	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
+	void SingleClick() override;
+
+	void PopBug();
+
+	bool MoveFinish() override;
+
+	/// Setter for if this bug is an original
+	void SetOriginal(bool state){mOriginal = state;}
+
+//	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H

@@ -46,8 +46,8 @@ protected:
 public:
 	virtual ~GameObject();
 	/**
-	* Determine the bug done the moving
-	* @return On the program or not
+	* Determine if we should remove the bug
+	* @return bool true if we should remove false otherwise
 	*/
 	virtual bool MoveFinish() {return false;}
 	/**
@@ -124,7 +124,6 @@ public:
 	 * @return Pointer to game object
  	*/
 	Game *GetGame() { return mGame;  }
-
 
 
 	virtual int GetWidth() const;
