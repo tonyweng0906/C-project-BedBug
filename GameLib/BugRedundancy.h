@@ -29,10 +29,11 @@ private:
 	/// top bitmap
 	wxGraphicsBitmap mTopBitmap;
 
-
     ScoreBoard mScoreBoard;
-
+	/// wing rotation rate
 	double mWingRotation = 0;
+	/// rotate clockwise or not
+	double mClockwise = true;
 
 	/// Track if this Redundancy fly is an original
 	bool mOriginal = true;
