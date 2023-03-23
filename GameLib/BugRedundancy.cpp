@@ -9,6 +9,12 @@
 
 using namespace std;
 
+/// Avg distance for new bugs to generate at
+const int Distance = 201;
+
+/// Number of bugs to generate on death
+const int NewBugs = rand() % 4 + 3;
+
 /// Bug Name
 const std::string BugName = "redundancy";
 
@@ -193,16 +199,13 @@ void BugRedundancy::SingleClick()
 }
 void BugRedundancy::PopBug()
 {
-//	auto item = std::make_shared<BugRedundancy>(this->GetGame());
-//	this->GetGame()->GetPlayArea().Add(item);
-//	item->SetProgram(mProgram);
-//	item->SetLocation(this->GetX()-15, this->GetY());
-//	item->SetOriginal(false);
-//	item->SetSpeed(this->GetSpeed());
-	auto locX = this->GetX();
-	auto locY = this->GetY();
-	auto speed = this->GetSpeed();
-	this->GetGame()->CreateRedundancyFly(mProgram, locX, locY, speed);
+	for (int i = 0; i < NewBugs; i++)
+	{
+		auto locX = this->GetX() + rand() % Distance;
+		auto locY = this->GetY() + rand() % Distance;
+		auto speed = this->GetSpeed();
+		this->GetGame()->CreateRedundancyFly(mProgram, locX, locY, speed);
+	}
 	mPopped = true;
 }
 
