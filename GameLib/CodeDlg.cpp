@@ -22,7 +22,7 @@ CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring 
 	mBug = Bug;
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
 							 wxTE_MULTILINE | wxTE_RICH | wxScrolledWindowStyle, wxDefaultValidator, wxTextCtrlNameStr);
-    okButton = new wxButton(this, wxID_ANY, "OK", wxDefaultPosition, wxDefaultSize);
+    okButton = new wxButton(this, wxID_OK , "OK", wxDefaultPosition, wxDefaultSize);
 
 
 

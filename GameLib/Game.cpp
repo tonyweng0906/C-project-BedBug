@@ -200,7 +200,6 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		if(node->GetChildren())
 		{
 			item->makeIDE(mMainFrame);
-			// Create CodeDlg box here for this item, we need to pass it the mainframe?
 		}
 	}
 }
