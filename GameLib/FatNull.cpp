@@ -12,7 +12,7 @@
 */
 FatNull::FatNull(Game *game) : BugNull(game), FatBug(game)
 {
-
+	Bug::SetFatSize();
 }
 
 

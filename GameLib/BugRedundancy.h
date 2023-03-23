@@ -64,6 +64,7 @@ public:
     void AddScore() override;
 
 	void Update(double elapsed);
+
 	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 	void SingleClick() override;
 

@@ -48,6 +48,7 @@ public:
 
 	 void Accept(ObjectVisitor * visitor);
 
+	 
 	 void OnDraw(wxDC* graphics);
 
 	// Loading and saving functions go here?

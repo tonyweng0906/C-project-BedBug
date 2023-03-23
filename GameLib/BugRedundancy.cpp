@@ -221,7 +221,6 @@ bool BugRedundancy::MoveFinish()
 	}
 	else
 	{
-		Bug::MoveFinish();
+		return Bug::MoveFinish();
 	}
-
 }

@@ -90,7 +90,7 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 		dc->PushState();
 		dc->Translate(mX,mY);
 		dc->Rotate(mRotation);
-		dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
+		dc->DrawBitmap(mSubBugBitmap, -50, -50, mBugSize, mBugSize);
 		dc->PopState();
 	}
 	else{

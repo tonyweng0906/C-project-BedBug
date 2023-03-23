@@ -20,6 +20,8 @@
 class Bug : public GameObject
 {
 private:
+	/// Bug size
+	double mBugSize = 100;
 
 protected:
 	/// Bug speed in the X direction
@@ -67,6 +69,9 @@ public:
 	 * @return The starting X position
 	 */
 	double GetSpeed() const { return mSpeed; }
+
+	/// Set the size for fat bugs
+	void SetFatSize() {mBugSize = 125;}
 
 	/**
 	 * Set the target program

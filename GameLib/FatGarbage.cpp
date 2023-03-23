@@ -13,7 +13,7 @@
 */
 FatGarbage::FatGarbage(Game *game) : BugGarbage(game), FatBug(game)
 {
-
+	Bug::SetFatSize();
 }
 
 
