@@ -82,6 +82,9 @@ public:
 
 	void BugSpeed(double speedX, double speedY);
 
+	/// Setter for bug speed
+	void SetSpeed(double speed){mSpeed = speed;}
+
 	virtual void XmlLoad(wxXmlNode *node);
 
 	bool MoveFinish();

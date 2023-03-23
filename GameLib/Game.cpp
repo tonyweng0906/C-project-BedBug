@@ -214,3 +214,14 @@ void Game::Update(double elapsed)
 {
 	mPlayArea.Update(elapsed);
 }
+
+
+void Game::CreateRedundancyFly(std::shared_ptr<Program> program, double locX, double locY, double speed)
+{
+	auto item = std::make_shared<BugRedundancy>(this);
+	mPlayArea.Add(item);
+	item->SetProgram(program);
+	item->SetLocation(locX, locY);
+	item->SetOriginal(false);
+	item->SetSpeed(speed);
+}

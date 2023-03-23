@@ -47,6 +47,8 @@ public:
 	/// @return bool
 	bool GetShrinked(){return mShrinked;}
 
+	void CreateRedundancyFly(std::shared_ptr<Program> program, double locX, double locY, double speed);
+
 	void Load(const wxString &filename);
 	void XmlItem(wxXmlNode *node,  std::shared_ptr<Program> program);
 
