@@ -109,10 +109,12 @@ void PlayArea::Update(double elapsed)
 		object->Update(elapsed);
 		if (object->MoveFinish())
 		{
-			DeleteObject(object);
+		//	DeleteObject(object);
 			continue;
 		}
+
 	}
+
 }
 
 /**

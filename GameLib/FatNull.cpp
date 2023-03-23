@@ -12,7 +12,7 @@
 */
 FatNull::FatNull(Game *game) : BugNull(game), FatBug(game)
 {
-
+	Bug::SetFatSize();
 }
 
 
@@ -37,6 +37,14 @@ void FatNull::XmlLoad(wxXmlNode *node)
 void FatNull::DoubleClick()
 {
 	FatBug::showWindow();
+}
+
+/**
+ * Disable singleClick behavior on this fatbug
+ */
+void FatNull::SingleClick()
+{
+
 }
 
 /**

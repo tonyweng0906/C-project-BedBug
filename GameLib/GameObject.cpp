@@ -33,12 +33,13 @@ GameObject::~GameObject()
  * @param game The game this item is a member of
  * @param filename the loaded in xml file
  */
-GameObject::GameObject(Game *game, const std::wstring & name) : mGame(game)
+GameObject::GameObject(Game *game, const std::string & name) : mGame(game)
 {
 	//mGameImage = make_unique<wxImage>(filename, wxBITMAP_TYPE_ANY);
 	//mGameBitmap = make_unique<wxBitmap>(*mGameImage);
 	//*mItemBitmap = *image;
-	mObjectImage = std::make_shared<wxImage>(name);
+	//mObjectImage = std::make_shared<wxImage>(name);
+	mObjectImage = mGame->GetPlayArea().GetImage(name);
 
 }
 

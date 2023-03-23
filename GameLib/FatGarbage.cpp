@@ -13,7 +13,7 @@
 */
 FatGarbage::FatGarbage(Game *game) : BugGarbage(game), FatBug(game)
 {
-
+	Bug::SetFatSize();
 }
 
 
@@ -39,6 +39,14 @@ void FatGarbage::DoubleClick()
 {
 	FatBug::showWindow();
 }
+
+/**
+ * Disable singleClick behavior on this fatbug
+ */
+ void FatGarbage::SingleClick()
+ {
+
+ }
 
 /**
 * calls the make ide function in fatbug class

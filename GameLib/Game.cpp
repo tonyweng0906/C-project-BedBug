@@ -25,27 +25,6 @@ const static int Height = 1000;
 /// Scale to shrink to when in shrink mode
 const double ShrinkScale = 0.75;
 
-/********Scoreboard Constants**********/
-/// Score font size to use
-const int ScoreSize = 85;
-
-/// Lable for score font size to use
-const int LabelSize = 40;
-
-/// The font color to use
-const wxColour FontColor = wxColour(0, 200, 200);
-
-/// Left score X location. The right score is
-/// the width minus this value.
-const int LeftScoreX = 150;
-
-/// Score Y location
-const int ScoreY = 20;
-
-/// Score label Y location
-const int ScoreLabelY = 100;
-
-
 /**
  * Game Constructor
  */
@@ -234,4 +213,15 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 void Game::Update(double elapsed)
 {
 	mPlayArea.Update(elapsed);
+}
+
+
+void Game::CreateRedundancyFly(std::shared_ptr<Program> program, double locX, double locY, double speed)
+{
+	auto item = std::make_shared<BugRedundancy>(this);
+	mPlayArea.Add(item);
+	item->SetProgram(program);
+	item->SetLocation(locX, locY);
+	item->SetOriginal(false);
+	item->SetSpeed(speed);
 }

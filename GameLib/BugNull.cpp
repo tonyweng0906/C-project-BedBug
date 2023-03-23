@@ -7,11 +7,8 @@
 #include "pch.h"
 #include "BugNull.h"
 
-/// The bug sprite image
-const std::wstring NullBugSpriteImageName = L"images/scarlet-gray-bug.png";
-
-/// The splat image
-const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
+/// Bug Name
+const std::string BugName = "null";
 
 /// Number of sprite images
 const int NullBugNumSpriteImages = 6;
@@ -21,7 +18,11 @@ const int NullBugNumSpriteImages = 6;
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugNull::BugNull(Game *game) : Bug(game,NullBugSpriteImageName)
+BugNull::BugNull(Game *game) : Bug(game,BugName)
 {
 
+}
+
+void BugNull::AddScore() {
+    mScoreBoard.AddFixed();
 }

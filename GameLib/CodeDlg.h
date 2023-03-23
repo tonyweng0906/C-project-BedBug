@@ -17,6 +17,7 @@ class CodeDlg : public wxDialog
 {
 private:
 	wxTextCtrl *textBox;
+    wxButton *okButton;
 	std::wstring mCode;
 	std::wstring mPass;
 	FatBug* mBug;

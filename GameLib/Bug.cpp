@@ -13,8 +13,9 @@
  * @param game The game we are in
  * @param filename Filename for the image we use
  */
-Bug::Bug(Game *game, const std::wstring & name ) : GameObject(game, name)
+Bug::Bug(Game *game, const std::string & name ) : GameObject(game, name)
 {
+	mSplatImage = game->GetPlayArea().GetImage(name+"Splat");
 }
 
 /**
@@ -50,7 +51,6 @@ void Bug::Update(double elapsed)
 	// GameObject::UpdateSpriteSheet();
 
 
-
 }
 
 
@@ -80,13 +80,25 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	{
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
 	}
+	if (mSplatBitmap.IsNull())
+	{
+		mSplatBitmap = dc->CreateBitmapFromImage(*mSplatImage);
+	}
 
-	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
-	dc->PushState();
-	dc->Translate(mX,mY);
-	dc->Rotate(mRotation);
-	dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
-	dc->PopState();
+	if(!mSplat){
+		mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
+		dc->PushState();
+		dc->Translate(mX,mY);
+		dc->Rotate(mRotation);
+		dc->DrawBitmap(mSubBugBitmap, -50, -50, mBugSize, mBugSize);
+		dc->PopState();
+	}
+	else{
+		int objectWid = mSplatImage->GetWidth();
+		int objectHit = mSplatImage->GetHeight();
+		dc->DrawBitmap(mSplatBitmap, mX-(objectWid/2), mY-(objectHit/2), objectWid, objectHit);
+	}
+
 
 
 }
@@ -97,14 +109,49 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 */
 bool Bug::MoveFinish()
 {
-
-	if (abs(GetY()-mProgram->GetY()) <= 5 && abs(GetX()-mProgram->GetX()) <= 5)
+	if(mProgram)
 	{
-		return true;
+		if (abs(GetY()-mProgram->GetY()) <= 5 && abs(GetX()-mProgram->GetX()) <= 5)
+		{
+			return true;
+		}
 	}
 	return false;
 }
 
+/**
+ * Single click calls the squish bug function
+ */
+ void Bug::SingleClick()
+{
+	 // Change to squashed image
+	 this->Squish();
+}
+
+/**
+ * Squish the bug to disable movement and change image
+ */
+ void Bug::Squish()
+ {
+	 mSpeed = 0;
+	 mSplat = true;
+ }
+
+/**
+* Test to see if we hit near this object with a mouse.
+ *
+* @param x X position to test
+* @param y Y position to test
+* @return true if hit. False if this is a splat bug.
+*/
+bool Bug::HitTest(int x, int y)
+{
+	if(!mSplat)
+	{
+		return GameObject::HitTest(x, y);
+	}
+	return false;
+}
 
 
 ///**

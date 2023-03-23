@@ -20,6 +20,10 @@
 class Bug : public GameObject
 {
 private:
+	/// Bug size
+	double mBugSize = 100;
+
+protected:
 	/// Bug speed in the X direction
 	/// in pixels per second
 	double mSpeed = 0;
@@ -30,14 +34,20 @@ private:
 	/// Bug rotation in degrees
 	double mRotation = 0;
 
-	/// Program the bug will target
-	std::shared_ptr<Program> mProgram;
+	/// Bug is splat
+	bool mSplat = false;
 
 	/// The item sub bitmap
 	wxGraphicsBitmap mSubBugBitmap;
 
+	/// Image of the splat bug
+	std::shared_ptr<wxImage> mSplatImage;
 
+	/// Bitmap of the splat bug
+	wxGraphicsBitmap mSplatBitmap;
 
+	/// Program the bug will target
+	std::shared_ptr<Program> mProgram;
 public:
 	/// Default constructor (disabled)
 	Bug() = delete;
@@ -60,6 +70,9 @@ public:
 	 */
 	double GetSpeed() const { return mSpeed; }
 
+	/// Set the size for fat bugs
+	void SetFatSize() {mBugSize = 125;}
+
 	/**
 	 * Set the target program
 	  * @param program the target
@@ -71,16 +84,27 @@ public:
 	//void XmlLoad(wxXmlNode *node);
 
 	void BugSpeed(double speedX, double speedY);
+
+	/// Setter for bug speed
+	void SetSpeed(double speed){mSpeed = speed;}
+
 	virtual void XmlLoad(wxXmlNode *node);
 
 	bool MoveFinish();
 
 	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
+
+	void Squish();
+
+	bool HitTest(int x, int y) override;
+
+	void SingleClick();
+
 //	int GetWidth() const;
 //
 //	int GetHeight() const;
 protected:
-	Bug(Game *game, const std::wstring & name );
+	Bug(Game *game, const std::string & name );
 
 
 };

@@ -29,7 +29,7 @@ private:
 	std::vector<std::shared_ptr<GameObject>> mObjects;
 
 	/// List of all the images
-	std::map<std::string,  wxGraphicsBitmap> mImages;
+	std::map<std::string,  std::shared_ptr<wxImage>> mImages;
 public:
 	PlayArea();
 
@@ -48,12 +48,13 @@ public:
 
 	 void Accept(ObjectVisitor * visitor);
 
+	 
 	 void OnDraw(wxDC* graphics);
 
 	// Loading and saving functions go here?
 	void ClearObject();
 
-	wxGraphicsBitmap GetBitmap(std::string name);
+	std::shared_ptr<wxImage> GetImage(std::string name);
 
 	///Getter for the objects
 	///@return vector of the object

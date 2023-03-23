@@ -9,11 +9,12 @@
 #define PROJECT1BEDBUG_GAMELIB_BUGNULL_H
 
 #include "Bug.h"
+#include "ScoreBoard.h"
 
 class BugNull : public Bug
 {
 private:
-
+    ScoreBoard mScoreBoard;
 public:
 	/// Constructor
 	BugNull(Game *game);
@@ -23,6 +24,8 @@ public:
      * @param visitor The visitor we accept
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugNull(this);}
+
+    void AddScore() override;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGNULL_H

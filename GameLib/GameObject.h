@@ -23,7 +23,7 @@ private:
 	Game  *mGame;
 
 protected:
-	GameObject(Game *game, const std::wstring & name );
+	GameObject(Game *game, const std::string & name );
 
 	// Item location in the game
 	double  mX = 0;     ///< X location for the center of the item
@@ -46,8 +46,8 @@ protected:
 public:
 	virtual ~GameObject();
 	/**
-	* Determine the bug done the moving
-	* @return On the program or not
+	* Determine if we should remove the bug
+	* @return bool true if we should remove false otherwise
 	*/
 	virtual bool MoveFinish() {return false;}
 	/**
@@ -90,15 +90,20 @@ public:
 	 */
 	virtual void makeIDE(wxWindow* window){};
 
-	bool HitTest(int x, int y);
+	virtual bool HitTest(int x, int y);
 
 	double DistanceTo(std::shared_ptr<GameObject> gameObject);
 
 	/**
-	 * Double Click checks if image is double clicked
+	 * Double Click executes actions for being double clicked
 	 */
 	virtual void DoubleClick(){};
 
+	/**
+	 * single Click executes actions for being double clicked
+	 */
+	virtual void SingleClick(){};
+    virtual void AddScore(){};
 	/**
 	 * Set the target program
 	  * @param program the target
@@ -119,7 +124,6 @@ public:
 	 * @return Pointer to game object
  	*/
 	Game *GetGame() { return mGame;  }
-
 
 
 	virtual int GetWidth() const;

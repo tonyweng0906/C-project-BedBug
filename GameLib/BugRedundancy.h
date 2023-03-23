@@ -10,6 +10,7 @@
 
 #include <wx/graphics.h>
 #include "Bug.h"
+#include "ScoreBoard.h"
 
 class BugRedundancy : public Bug
 {
@@ -27,6 +28,18 @@ private:
 	wxGraphicsBitmap mRightWingBitmap;
 	/// top bitmap
 	wxGraphicsBitmap mTopBitmap;
+
+    ScoreBoard mScoreBoard;
+	/// wing rotation rate
+	double mWingRotation = 0;
+	/// rotate clockwise or not
+	double mClockwise = true;
+
+	/// Track if this Redundancy fly is an original
+	bool mOriginal = true;
+
+	/// Track if this bug has been popped
+	bool mPopped = false;
 
 public:
 	/// constructor
@@ -47,6 +60,20 @@ public:
      * @param visitor The visitor we accept
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
+
+    void AddScore() override;
+
+	void Update(double elapsed);
+
+	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
+	void SingleClick() override;
+
+	void PopBug();
+
+	bool MoveFinish() override;
+
+	/// Setter for if this bug is an original
+	void SetOriginal(bool state){mOriginal = state;}
 
 //	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };
