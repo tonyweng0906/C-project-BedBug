@@ -78,6 +78,8 @@ public:
 
 	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
 
+	void Squish();
+
 	void SingleClick();
 
 //	int GetWidth() const;

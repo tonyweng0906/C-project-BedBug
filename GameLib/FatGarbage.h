@@ -35,6 +35,7 @@ public:
 	void XmlLoad(wxXmlNode *node);
 
 	void DoubleClick() override;
+	void SingleClick() override;
 
 	void makeIDE(wxWindow *window);
 };

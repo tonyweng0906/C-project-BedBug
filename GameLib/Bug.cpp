@@ -108,12 +108,21 @@ bool Bug::MoveFinish()
 }
 
 /**
- * Single click changes the bug to a squished bug image and stops animation
+ * Single click calls the squish bug function
  */
  void Bug::SingleClick()
 {
 	 // Change to squashed image
+	 this->Squish();
 }
+
+/**
+ * Squish the bug to disable movement and change image
+ */
+ void Bug::Squish()
+ {
+	 mSpeed = 0;
+ }
 
 
 ///**

@@ -124,6 +124,7 @@ void GameView::OnLeftDown(wxMouseEvent &event)
 	if (object)
 	{
 		// Single click function for objects to squish them?
+		object->SingleClick();
         object->AddScore();
 	}
 

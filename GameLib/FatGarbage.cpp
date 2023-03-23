@@ -41,6 +41,14 @@ void FatGarbage::DoubleClick()
 }
 
 /**
+ * Disable singleClick behavior on this fatbug
+ */
+ void FatGarbage::SingleClick()
+ {
+
+ }
+
+/**
 * calls the make ide function in fatbug class
  * @param wxWindow parent window for the ide
 */
