@@ -23,7 +23,7 @@ CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring 
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
 							 wxTE_MULTILINE | wxTE_RICH | wxScrolledWindowStyle, wxDefaultValidator, wxTextCtrlNameStr);
     okButton = new wxButton(this, wxID_ANY, "OK", wxDefaultPosition, wxDefaultSize);
-	//Bind(wxCloseEvent, &CodeDlg::OnClose, this, wxID_EXIT);
+
 
 
     auto sizer = new wxBoxSizer( wxVERTICAL );
@@ -35,7 +35,7 @@ CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::wstring 
 
     // Layout (place) the child windows.
     Layout();
-	Bind(wxEVT_CLOSE_WINDOW, &CodeDlg::OnClose, this, wxID_EXIT);
+
 
 }
 
@@ -56,15 +56,6 @@ bool CodeDlg::testCode(std::wstring pass)
 
 	// Still need to build regex test to look for the pass value in the stored text
 	return false;
-}
-
-/**
- * Function to set behavior on the dialog box closing
- * @param event Close Event
- */
-void CodeDlg::OnClose(wxCloseEvent& event)
-{
-	mBug->GetGame()->SetPaused(false);
 }
 
 /**
