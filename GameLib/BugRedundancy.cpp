@@ -12,21 +12,6 @@ using namespace std;
 /// Bug Name
 const std::string BugName = "redundancy";
 
-/// The bug base image
-const std::wstring RedundancyFlyImageName = L"images/redundancy-fly-base.png";
-
-/// The bug top image
-const std::wstring RedundancyFlyTopImageName = L"images/redundancy-fly-top.png";
-
-/// The left wing image
-const std::wstring RedundancyFlyLeftWingImageName = L"images/redundancy-fly-lwing.png";
-
-/// The right wing image
-const std::wstring RedundancyFlyRightWingImageName = L"images/redundancy-fly-rwing.png";
-
-/// The splat image
-const std::wstring RedundancyFlySplatImageName = L"images/redundancy-fly-splat.png";
-
 /// Wing flapping period in seconds
 const double WingPeriod = 0.2;
 
@@ -56,9 +41,10 @@ const int WingSetY = 5;
 */
 BugRedundancy::BugRedundancy(Game *game) : Bug(game,BugName)
 {
-	mImageLeftWing = std::make_shared<wxImage>(RedundancyFlyLeftWingImageName);
-	mImageRightWing =  std::make_shared<wxImage>(RedundancyFlyRightWingImageName);
-	mImageTop = std::make_shared<wxImage>(RedundancyFlyTopImageName);
+	mImageLeftWing = game->GetPlayArea().GetImage("leftWing");
+	mImageRightWing =  game->GetPlayArea().GetImage("rightWing");
+	mImageTop = game->GetPlayArea().GetImage("redundancyTop");
+
 }
 
 

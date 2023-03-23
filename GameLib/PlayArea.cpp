@@ -24,6 +24,15 @@ const std::wstring FeatureBugSplatImageName = L"images/feature-splat.png";
 /// The redundancy fly image
 const std:: wstring RedundancyFlyImageName = L"images/redundancy-fly-base.png";
 
+/// The redundancy top image
+const std::wstring RedundancyFlyTopImageName = L"images/redundancy-fly-top.png";
+
+/// The left wing image
+const std::wstring RedundancyFlyLeftWingImageName = L"images/redundancy-fly-lwing.png";
+
+/// The right wing image
+const std::wstring RedundancyFlyRightWingImageName = L"images/redundancy-fly-rwing.png";
+
 /// The redundancy fly splat image
 const std::wstring RedundancyFlySplatImageName = L"images/redundancy-fly-splat.png";
 
@@ -74,6 +83,18 @@ PlayArea::PlayArea()
 	std::shared_ptr<wxImage> RedundancyFlyImage = std::make_shared<wxImage>(RedundancyFlyImageName);
 	mImages.insert({"redundancy", RedundancyFlyImage});
 
+	// Adding RedundancyFlyTop Image
+	std::shared_ptr<wxImage> RedundancyFlyTopImage = std::make_shared<wxImage>(RedundancyFlyTopImageName);
+	mImages.insert({"redundancyTop", RedundancyFlyTopImage});
+
+	// Adding LeftWing Image
+	std::shared_ptr<wxImage> LeftWingImage = std::make_shared<wxImage>(RedundancyFlyLeftWingImageName);
+	mImages.insert({"leftWing", LeftWingImage});
+
+	// Adding RightWing Image
+	std::shared_ptr<wxImage> RightWingImage = std::make_shared<wxImage>(RedundancyFlyRightWingImageName);
+	mImages.insert({"rightWing", RightWingImage});
+
 	// Adding RedundancyFly Splat Image
 	std::shared_ptr<wxImage> RedundancyFlySplatImage = std::make_shared<wxImage>(RedundancyFlySplatImageName);
 	mImages.insert({"redundancySplat", RedundancyFlySplatImage});
@@ -81,7 +102,6 @@ PlayArea::PlayArea()
 	// Adding Program Image
 	std::shared_ptr<wxImage> ProgramImage = std::make_shared<wxImage>(ProgramImageName);
 	mImages.insert({"program", ProgramImage});
-
 
 }
 
@@ -180,6 +200,7 @@ std::shared_ptr<wxImage> PlayArea::GetImage(std::string name)
 	{
 		return image->second;
 	}
+	return nullptr;
 }
 
 
