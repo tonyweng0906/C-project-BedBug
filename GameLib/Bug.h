@@ -30,6 +30,9 @@ private:
 	/// Bug rotation in degrees
 	double mRotation = 0;
 
+	/// Bug is splat
+	bool mSplat = false;
+
 	/// Program the bug will target
 	std::shared_ptr<Program> mProgram;
 

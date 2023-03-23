@@ -81,13 +81,25 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	{
 		mObjectBitmap = dc->CreateBitmapFromImage(*mObjectImage);
 	}
+	if (mSplatBitmap.IsNull())
+	{
+		mSplatBitmap = dc->CreateBitmapFromImage(*mSplatImage);
+	}
 
-	mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
-	dc->PushState();
-	dc->Translate(mX,mY);
-	dc->Rotate(mRotation);
-	dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
-	dc->PopState();
+	if(!mSplat){
+		mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
+		dc->PushState();
+		dc->Translate(mX,mY);
+		dc->Rotate(mRotation);
+		dc->DrawBitmap(mSubBugBitmap, -50, -50, 100, 100);
+		dc->PopState();
+	}
+	else{
+		int objectWid = mSplatImage->GetWidth();
+		int objectHit = mSplatImage->GetHeight();
+		dc->DrawBitmap(mSplatBitmap, mX-(objectWid/2), mY-(objectHit/2), objectWid, objectHit);
+	}
+
 
 
 }
@@ -123,6 +135,7 @@ bool Bug::MoveFinish()
  void Bug::Squish()
  {
 	 mSpeed = 0;
+	 mSplat = true;
  }
 
 
