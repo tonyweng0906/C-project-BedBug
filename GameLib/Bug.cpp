@@ -40,29 +40,32 @@ void Bug::BugSpeed(double speedX, double speedY)
  */
 void Bug::Update(double elapsed)
 {
+	//int index = 1;
 	mStart -= elapsed;
 
-	if (mStart <= 0)
+	if(mStart <= 0)
 	{
-		if (!mBitmapVector.empty())
+		if(!mBitmapVector.empty())
 		{
-			if (mPosition >= mNumberOfSpriteSheet-1)
+			if(mPosition >= mNumberOfSpriteSheet - 1)
 			{
 				mPosition = 0;
 			}
 			mSubBugBitmap = mBitmapVector[mPosition];
-			mPosition ++;
+			mPosition++;
 		}
 
-		double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
-		mRotation = 3.1415+angle;
+		double angle = atan2(GetY() - mProgram->GetY(), GetX() - mProgram->GetX());
+		mRotation = 3.1415 + angle;
 		double newX = GetX() + elapsed * -mSpeed * cos(angle);
 		double newY = GetY() + elapsed * -mSpeed * sin(angle);
-		SetLocation(newX,newY);
+		SetLocation(newX, newY);
 	}
-	// GameObject::UpdateSpriteSheet();
-
-
+	else {
+		if (!mBitmapVector.empty()) {
+			mSubBugBitmap = mBitmapVector[mNumberOfSpriteSheet - 2];
+		}
+	}
 }
 
 
@@ -121,9 +124,6 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 		int objectHit = mSplatImage->GetHeight();
 		dc->DrawBitmap(mSplatBitmap, mX-(objectWid/2), mY-(objectHit/2), objectWid, objectHit);
 	}
-
-
-
 }
 
 /**

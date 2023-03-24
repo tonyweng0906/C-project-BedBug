@@ -36,21 +36,21 @@ public:
 	/**
 	 * Destructor
 	 */
-	 virtual ~PlayArea() = default;
+	virtual ~PlayArea() = default;
 
-	 void Add(std::shared_ptr<GameObject> object);
+	void Add(std::shared_ptr<GameObject> object);
 
-	 std::shared_ptr<GameObject> HitTest(int x, int y);
+	std::shared_ptr<GameObject> HitTest(int x, int y);
 
-	 void DeleteObject(std::shared_ptr<GameObject> object);
+	void DeleteObject(std::shared_ptr<GameObject> object);
 
-	 void Update(double elapsed);
+	void Update(double elapsed);
 
-	 void Accept(ObjectVisitor * visitor);
+	void Accept(ObjectVisitor * visitor);
 
-	 void MoveToTheBack(std::shared_ptr<GameObject> object);
+	void MoveToTheBack(std::shared_ptr<GameObject> object);
 
-	 void OnDraw(wxDC* graphics);
+	void OnDraw(wxDC* graphics);
 
 	// Loading and saving functions go here?
 	void ClearObject();
@@ -61,14 +61,14 @@ public:
 	/**
 	 * reverse the order of the game objects in the play area
 	 */
-	 void ReverseOrder(){ std::reverse(mObjects.begin(), mObjects.end());}
+	void ReverseOrder(){ std::reverse(mObjects.begin(), mObjects.end());}
 
-	 ///Get the number of the object
-	 ///@return number of object
-	 int NumberOfObject(){return mObjects.size();}
+	///Get the number of the object
+	///@return number of object
+	int NumberOfObject(){return mObjects.size();}
 
 
-	 void Draw(std::shared_ptr<wxGraphicsContext> dc);
+	void Draw(std::shared_ptr<wxGraphicsContext> dc);
 
 };
 
