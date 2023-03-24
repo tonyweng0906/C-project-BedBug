@@ -20,13 +20,11 @@ private:
     wxButton *okButton;
 	std::wstring mCode;
 	std::string mPass;
-	FatBug* mBug;
+
 
 public:
-	CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::string pass);
+	CodeDlg(wxWindow* parent, std::wstring code);
 	bool testCode(std::string pass);
-	void OnClose(wxCloseEvent &event);
-	void OnOpen();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_CODEDLG_H

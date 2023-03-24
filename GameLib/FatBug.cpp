@@ -14,14 +14,12 @@
 void FatBug::showWindow()
 {
 	//CodeDlg dlg(window, mCode);
-	mIDE->OnOpen();
+	mGame->SetPaused(true);
 	mIDE->ShowModal();
 	mGame->SetResumed(true);
 	mGame->SetPaused(false);
 
-	// Function testCode not yet built
-	// once built, if true, we squish this bug
-	auto SquishBug = mIDE->testCode(mPass);
+	//auto SquishBug = mIDE->testCode(mPass);
 }
 
 /**
@@ -57,5 +55,5 @@ void FatBug::XmlLoad(wxXmlNode *node)
  */
 void FatBug::makeIDE(wxWindow* window)
 {
-	mIDE = std::make_unique<CodeDlg>(this, window, mCode, mPass);
+	mIDE = std::make_unique<CodeDlg>(window, mCode);
 }

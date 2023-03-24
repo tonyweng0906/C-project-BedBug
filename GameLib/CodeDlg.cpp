@@ -7,24 +7,21 @@
 #include "CodeDlg.h"
 #include "regex"
 #include "FatBug.h"
+#include <wx/regex.h>
 
 /**
  * Constructor for the code dialog box
  * @param parent window to bind to as parent
  * @param code text to display for user to edit
  */
-CodeDlg::CodeDlg(FatBug* Bug, wxWindow* parent, std::wstring code, std::string pass)
+CodeDlg::CodeDlg(wxWindow* parent, std::wstring code)
 {
 	wxDialog::Create(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition,
 					 wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxTRANSPARENT_WINDOW, L"Bug Squash IDE");
 	mCode = code;
-	mPass = pass;
-	mBug = Bug;
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
 							 wxTE_MULTILINE | wxTE_RICH | wxScrolledWindowStyle, wxDefaultValidator, wxTextCtrlNameStr);
     okButton = new wxButton(this, wxID_OK , "OK", wxDefaultPosition, wxDefaultSize);
-
-
 
     auto sizer = new wxBoxSizer( wxVERTICAL );
 
@@ -52,18 +49,9 @@ bool CodeDlg::testCode(std::string pass)
 	// and the return value will indicate whether it squishes or not
 
 	// This will return the text stored in the text box
-	auto code = textBox->GetValue().ToStdString();
-	// Still need to build regex test to look for the pass value in the stored text
-	std::regex key;
-	key.assign(pass);
-	return std::regex_search(code, key);
-
-}
-
-/**
-* Function to pause the game on open
-*/
-void CodeDlg::OnOpen()
-{
-	mBug->GetGame()->SetPaused(true);
+	auto code = textBox->GetValue();
+	// Create the Regex Key to test against
+	auto key = wxRegEx(pass);
+	// Test text against key
+	return key.Matches(code);
 }
