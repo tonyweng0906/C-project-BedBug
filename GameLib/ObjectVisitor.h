@@ -9,7 +9,8 @@
 #define PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H
 
 class Bug;
-class FatBug;
+class FatGarbage;
+class FatNull;
 class GameObject;
 class BugGarbage;
 class BugNull;
@@ -37,10 +38,16 @@ public:
 	virtual void VisitBug(Bug * bug) {}
 
 	/**
-	* Visit a FatBug object
-	* @param fatBug FatBug we are visiting
+	* Visit a FatGarbage object
+	* @param fatGarbage FatGarbage we are visiting
 	*/
-	virtual void VisitFatBug(FatBug * fatBug) {}
+	virtual void VisitFatGarbage(FatGarbage * fatBug) {}
+
+	/**
+	* Visit a FatNull object
+	* @param fatNull FatNull we are visiting
+	*/
+	virtual void VisitFatNull(FatNull * fatBug) {}
 
 	/**
 	* Visit a BugGarbage object
@@ -71,6 +78,12 @@ public:
 	* @param program Program we are visiting
 	*/
 	virtual void VisitProgram(Program * program) {}
+
+	/**
+	* Visit a  object
+	* @param program Program we are visiting
+	*/
+	virtual void VisitObject(GameObject * gameObject) {}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H

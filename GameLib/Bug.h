@@ -23,6 +23,15 @@ private:
 	/// Bug size
 	double mBugSize = 100;
 
+	/// Num of sprite sheet
+	int mNumberOfSpriteSheet = 0;
+
+	///Bitmap vector
+	std::vector<wxGraphicsBitmap> mBitmapVector;
+
+	///Position of Vector;
+	int mPosition = 0;
+
 protected:
 	/// Bug speed in the X direction
 	/// in pixels per second
@@ -48,6 +57,8 @@ protected:
 
 	/// Program the bug will target
 	std::shared_ptr<Program> mProgram;
+
+	Bug(Game *game, const std::string & name, int SpriteSheetNum );
 public:
 	/// Default constructor (disabled)
 	Bug() = delete;
@@ -70,8 +81,17 @@ public:
 	 */
 	double GetSpeed() const { return mSpeed; }
 
+	/// Getter to check if bug is spatted
+	bool GetSplat() const {return mSplat;}
+
 	/// Set the size for fat bugs
 	void SetFatSize() {mBugSize = 125;}
+
+	/**
+	* Determine if the bug is splatted
+	* @return bool true if the bug is splatted
+	*/
+	bool GetSplat() override {return mSplat;}
 
 	/**
 	 * Set the target program
@@ -100,11 +120,7 @@ public:
 
 	void SingleClick();
 
-//	int GetWidth() const;
-//
-//	int GetHeight() const;
-protected:
-	Bug(Game *game, const std::string & name );
+
 
 
 };

@@ -45,7 +45,7 @@ const int WingSetY = 5;
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugRedundancy::BugRedundancy(Game *game) : Bug(game,BugName)
+BugRedundancy::BugRedundancy(Game *game) : Bug(game,BugName, 1)
 {
 	mImageLeftWing = game->GetPlayArea().GetImage("leftWing");
 	mImageRightWing =  game->GetPlayArea().GetImage("rightWing");

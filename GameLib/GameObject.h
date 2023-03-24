@@ -51,6 +51,11 @@ public:
 	*/
 	virtual bool MoveFinish() {return false;}
 	/**
+	* Determine if the bug is splatted
+	* @return bool true if the bug is splatted
+	*/
+	virtual bool GetSplat() {return false;}
+	/**
      * The X location of the item
      * @return X location in pixels
      */

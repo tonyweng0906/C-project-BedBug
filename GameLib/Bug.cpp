@@ -13,9 +13,10 @@
  * @param game The game we are in
  * @param filename Filename for the image we use
  */
-Bug::Bug(Game *game, const std::string & name ) : GameObject(game, name)
+Bug::Bug(Game *game, const std::string & name, int SpriteSheetNum ) : GameObject(game, name)
 {
 	mSplatImage = game->GetPlayArea().GetImage(name+"Splat");
+	mNumberOfSpriteSheet = SpriteSheetNum;
 }
 
 /**
@@ -40,8 +41,19 @@ void Bug::BugSpeed(double speedX, double speedY)
 void Bug::Update(double elapsed)
 {
 	mStart -= elapsed;
+
 	if (mStart <= 0)
 	{
+		if (!mBitmapVector.empty())
+		{
+			if (mPosition >= mNumberOfSpriteSheet-1)
+			{
+				mPosition = 0;
+			}
+			mSubBugBitmap = mBitmapVector[mPosition];
+			mPosition ++;
+		}
+
 		double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
 		mRotation = 3.1415+angle;
 		double newX = GetX() + elapsed * -mSpeed * cos(angle);
@@ -86,7 +98,18 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	}
 
 	if(!mSplat){
-		mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
+		if (mSubBugBitmap.IsNull())
+		{
+			mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,100*(mNumberOfSpriteSheet-1),100,100);
+		}
+		if (mBitmapVector.empty())
+		{
+			for (int i =0; i < mNumberOfSpriteSheet-1; i++)
+			{
+				mBitmapVector.push_back(dc->CreateSubBitmap(mObjectBitmap,0,100*i,100,100));
+			}
+		}
+
 		dc->PushState();
 		dc->Translate(mX,mY);
 		dc->Rotate(mRotation);

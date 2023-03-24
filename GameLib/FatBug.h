@@ -21,7 +21,7 @@ class FatBug
 {
 private:
 	/// String we search for to pass the test
-	std::wstring mPass;
+	std::string mPass;
 	/// String of the broken code to display
 	std::wstring mCode;
 	/// IDE window for this bug
@@ -34,6 +34,12 @@ public:
 	void showWindow();
 	virtual void XmlLoad(wxXmlNode *node);
 	void makeIDE(wxWindow* window);
+
+	/**
+	 * Check if Code in CodeDlg has been correct
+	 * @return Bool true if code is corrected
+	 */
+	 bool TestCode() {return mIDE->testCode(mPass);}
 
 	/**
  	* Get the pointer to the game object

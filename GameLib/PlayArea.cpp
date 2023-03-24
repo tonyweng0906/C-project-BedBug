@@ -9,19 +9,42 @@
 #include <iostream>
 
 
-/// The bug sprite image
-const std::wstring GarbageBugSpriteImageName = L"images/blue-maize-bug.png";
+/// The garbage bug image
+const std::wstring GarbageBugImageName = L"images/blue-maize-bug.png";
 
-/// The splat image
+/// The garbage bug splat image
 const std::wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
 
 /// The bug feature image
 const std::wstring FeatureBugImageName = L"images/feature.png";
 
+/// The bug feature splat image
+const std::wstring FeatureBugSplatImageName = L"images/feature-splat.png";
+
 /// The redundancy fly image
 const std:: wstring RedundancyFlyImageName = L"images/redundancy-fly-base.png";
 
+/// The redundancy top image
+const std::wstring RedundancyFlyTopImageName = L"images/redundancy-fly-top.png";
+
+/// The left wing image
+const std::wstring RedundancyFlyLeftWingImageName = L"images/redundancy-fly-lwing.png";
+
+/// The right wing image
+const std::wstring RedundancyFlyRightWingImageName = L"images/redundancy-fly-rwing.png";
+
+/// The redundancy fly splat image
+const std::wstring RedundancyFlySplatImageName = L"images/redundancy-fly-splat.png";
+
+/// The Null Bug image
 const std::wstring NullBugImageName = L"images/scarlet-gray-bug.png";
+
+/// The Null Bug splat image
+const std::wstring NullBugSplatImageName = L"images/scarlet-gray-splat.png";
+
+/// The Program image
+const std::wstring ProgramImageName = L"images/laptop.png";
+
 /// Number of sprite images
 const int GarbageBugNumSpriteImages = 5;
 
@@ -32,25 +55,53 @@ const int GarbageBugNumSpriteImages = 5;
 
 PlayArea::PlayArea()
 {
-//	// Adding the GarbageBug bitmap
-//	std::shared_ptr<wxImage> mGarbageBugImage = std::make_shared<wxImage>(GarbageBugSpriteImageName);
-//	wxGraphicsBitmap GarbageBugBitmap = CreateBitmapFromImage(*mGarbageBugImage);
-//	mImages.insert({"garbage", GarbageBugBitmap});
-//
-//	std::shared_ptr<wxImage> FeatureBugImage =
-//		std::make_unique<wxImage>(FeatureBugImageName, wxBITMAP_TYPE_ANY);
-//	wxGraphicsBitmap FeatureBugBitmap = std::make_unique<wxBitmap>(*FeatureBugImage);
-//	mImages.insert({"feature", FeatureBugBitmap});
-//
-//	std::shared_ptr<wxImage> RedundancyFlyImage =
-//		std::make_unique<wxImage>(RedundancyFlyImageName, wxBITMAP_TYPE_ANY);
-//	wxGraphicsBitmap RedundancyFlyBitmap = std::make_unique<wxBitmap>(*RedundancyFlyImage);
-//	mImages.insert({"redundancy", RedundancyFlyBitmap});
-//
-//	std::shared_ptr<wxImage> NullBugImage =
-//		std::make_unique<wxImage>(NullBugImageName, wxBITMAP_TYPE_ANY);
-//	wxGraphicsBitmap NullBugBitmap = std::make_unique<wxBitmap>(*NullBugImage);
-//	mImages.insert({"null", NullBugBitmap});
+	// Adding the GarbageBug image
+	std::shared_ptr<wxImage> GarbageBugImage = std::make_shared<wxImage>(GarbageBugImageName);
+	mImages.insert({"garbage", GarbageBugImage});
+
+	// Adding the splat GarbageBug image
+	std::shared_ptr<wxImage> GarbageBugSplatImage = std::make_shared<wxImage>(GarbageBugSplatImageName);
+	mImages.insert({"garbageSplat", GarbageBugSplatImage});
+
+	// Adding the NullBug image
+	std::shared_ptr<wxImage> NullBugImage = std::make_shared<wxImage>(NullBugImageName);
+	mImages.insert({"null", NullBugImage});
+
+	// Adding Nullbug splat image
+	std::shared_ptr<wxImage> NullBugSplatImage = std::make_shared<wxImage>(NullBugSplatImageName);
+	mImages.insert({"nullSplat", NullBugSplatImage});
+
+	// Adding FeatureBug Image
+	std::shared_ptr<wxImage> FeatureBugImage = std::make_shared<wxImage>(FeatureBugImageName);
+	mImages.insert({"feature", FeatureBugImage});
+
+	// Adding FeatureBug Splat Image
+	std::shared_ptr<wxImage> FeatureBugSplatImage = std::make_shared<wxImage>(FeatureBugSplatImageName);
+	mImages.insert({"featureSplat", FeatureBugSplatImage});
+
+	// Adding RedundancyFly Image
+	std::shared_ptr<wxImage> RedundancyFlyImage = std::make_shared<wxImage>(RedundancyFlyImageName);
+	mImages.insert({"redundancy", RedundancyFlyImage});
+
+	// Adding RedundancyFlyTop Image
+	std::shared_ptr<wxImage> RedundancyFlyTopImage = std::make_shared<wxImage>(RedundancyFlyTopImageName);
+	mImages.insert({"redundancyTop", RedundancyFlyTopImage});
+
+	// Adding LeftWing Image
+	std::shared_ptr<wxImage> LeftWingImage = std::make_shared<wxImage>(RedundancyFlyLeftWingImageName);
+	mImages.insert({"leftWing", LeftWingImage});
+
+	// Adding RightWing Image
+	std::shared_ptr<wxImage> RightWingImage = std::make_shared<wxImage>(RedundancyFlyRightWingImageName);
+	mImages.insert({"rightWing", RightWingImage});
+
+	// Adding RedundancyFly Splat Image
+	std::shared_ptr<wxImage> RedundancyFlySplatImage = std::make_shared<wxImage>(RedundancyFlySplatImageName);
+	mImages.insert({"redundancySplat", RedundancyFlySplatImage});
+
+	// Adding Program Image
+	std::shared_ptr<wxImage> ProgramImage = std::make_shared<wxImage>(ProgramImageName);
+	mImages.insert({"program", ProgramImage});
 
 }
 
@@ -106,15 +157,20 @@ void PlayArea::Update(double elapsed)
 {
 	for (auto object : mObjects)
 	{
-		object->Update(elapsed);
-		if (object->MoveFinish())
+		if (object != nullptr)
 		{
-		//	DeleteObject(object);
-			continue;
+			object->Update(elapsed);
+			if (object->MoveFinish())
+			{
+				DeleteObject(object);
+				continue;
+			}
+//			if(object->GetSplat())
+//			{
+//				MoveToTheBack(object);
+//			}
 		}
-
 	}
-
 }
 
 /**
@@ -141,13 +197,44 @@ void PlayArea::ClearObject()
  * @param name name of the object
  * @return  the bitmap
  */
-wxGraphicsBitmap PlayArea::GetBitmap(std::string name)
+std::shared_ptr<wxImage> PlayArea::GetImage(std::string name)
 {
-	auto bitMap = mImages.find(name);
-	if (bitMap!=mImages.end())
+	auto image = mImages.find(name);
+	if (image!=mImages.end())
 	{
-		return bitMap->second;
+		return image->second;
 	}
+	return nullptr;
 }
 
 
+/**
+ * Draw all the item
+ * @param dc wxGraphicsContext
+ *
+ */
+void PlayArea::Draw(std::shared_ptr<wxGraphicsContext> dc)
+{
+	for (auto item : mObjects)
+	{
+		item->Draw(dc);
+	}
+}
+
+/**
+ * Move the object to the front of the vector
+ * @param object object we move
+ *
+ */
+void PlayArea::MoveToTheBack(std::shared_ptr<GameObject> object)
+{
+	auto loc = find(std::begin(mObjects), std::end(mObjects), object);
+	if (loc != std::end(mObjects))
+	{
+		auto objectTemp = *loc;
+
+		mObjects.erase(loc);
+		mObjects.insert(mObjects.begin(), objectTemp);
+
+	}
+}

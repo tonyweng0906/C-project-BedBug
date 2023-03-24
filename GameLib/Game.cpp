@@ -15,6 +15,7 @@
 #include "FatNull.h"
 #include "Feature.h"
 #include "Program.h"
+#include "BugCounterVisitor.h"
 
 /// Game area in virtual pixels
 const static int Width = 1250;
@@ -30,6 +31,7 @@ const double ShrinkScale = 0.75;
  */
  Game::Game()
  {
+	 Load(L"Level/level1.xml");
  }
 /**
  * Draw the game area
@@ -67,10 +69,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	//
 	// Your drawing code goes here
 	//
-	for (auto item : mPlayArea.GetObject())
-	{
-		item->Draw(graphics);
-	}
+	mPlayArea.Draw(graphics);
 
 	// hide the bugs
 	if (!mShrinked)
@@ -201,7 +200,6 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		if(node->GetChildren())
 		{
 			item->makeIDE(mMainFrame);
-			// Create CodeDlg box here for this item, we need to pass it the mainframe?
 		}
 	}
 }
@@ -213,9 +211,38 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 void Game::Update(double elapsed)
 {
 	mPlayArea.Update(elapsed);
+	if(!BugCount())
+	{
+		switch(mLevel)
+		{
+			case 0:
+				Load(L"Level/level1.xml");
+				mLevel = 1;
+				break;
+			case 1:
+				Load(L"Level/level2.xml");
+				mLevel = 2;
+				break;
+			case 2:
+				Load(L"Level/level3.xml");
+				mLevel = 3;
+				break;
+			case 3:
+				Load(L"Level/level3.xml");
+				break;
+		}
+
+	}
 }
 
-
+/**
+ * Create a Redundancy Fly to add to the game
+ * Bug begins moving immediately
+ * @param program Program this bug will target
+ * @param locX X Location this bug begins at
+ * @param locY Y location this bug begins at
+ * @param speed Speed of this bug
+ */
 void Game::CreateRedundancyFly(std::shared_ptr<Program> program, double locX, double locY, double speed)
 {
 	auto item = std::make_shared<BugRedundancy>(this);
@@ -225,3 +252,14 @@ void Game::CreateRedundancyFly(std::shared_ptr<Program> program, double locX, do
 	item->SetOriginal(false);
 	item->SetSpeed(speed);
 }
+
+/**
+ * Count the number of bugs in the game
+ */
+int Game::BugCount()
+{
+	BugCounterVisitor visitor;
+	mPlayArea.Accept(&visitor);
+	return visitor.GetNumBugs();
+}
+

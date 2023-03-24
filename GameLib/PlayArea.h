@@ -48,7 +48,8 @@ public:
 
 	 void Accept(ObjectVisitor * visitor);
 
-	 
+	 void MoveToTheBack(std::shared_ptr<GameObject> object);
+
 	 void OnDraw(wxDC* graphics);
 
 	// Loading and saving functions go here?
@@ -56,14 +57,18 @@ public:
 
 	std::shared_ptr<wxImage> GetImage(std::string name);
 
-	///Getter for the objects
-	///@return vector of the object
-	std::vector<std::shared_ptr<GameObject>> GetObject() {return mObjects;}
 
 	/**
 	 * reverse the order of the game objects in the play area
 	 */
 	 void ReverseOrder(){ std::reverse(mObjects.begin(), mObjects.end());}
+
+	 ///Get the number of the object
+	 ///@return number of object
+	 int NumberOfObject(){return mObjects.size();}
+
+
+	 void Draw(std::shared_ptr<wxGraphicsContext> dc);
 
 };
 

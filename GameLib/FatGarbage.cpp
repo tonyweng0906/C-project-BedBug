@@ -38,6 +38,10 @@ void FatGarbage::XmlLoad(wxXmlNode *node)
 void FatGarbage::DoubleClick()
 {
 	FatBug::showWindow();
+	if(FatBug::TestCode())
+	{
+		Squish();
+	}
 }
 
 /**

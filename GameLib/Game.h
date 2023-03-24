@@ -28,7 +28,8 @@ private:
 	bool mPaused = false;
 	/// bool lto track if the game has just resumed
 	bool mResumed = false;
-
+	/// Current level
+	int mLevel = 1;
 	/// play area we create
 	PlayArea mPlayArea;
 	/// Main Window Frame
@@ -39,6 +40,8 @@ public:
 	Game();
 
 	void OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+
+	int BugCount();
 
 	/// Set the Shrinked when click on view
 	void SetShrinked();
@@ -72,6 +75,8 @@ public:
 	void SetResumed(bool state){mResumed = state;}
 	///Getter for game Resumed state
 	bool GetResumed(){return mResumed;}
+	///Setter for current level
+	void SetLevel(int level){mLevel = level;}
 
 };
 

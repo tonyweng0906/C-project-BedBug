@@ -29,7 +29,7 @@ public:
      * Accept a visitor
      * @param visitor The visitor we accept
      */
-	void Accept(ObjectVisitor* visitor) override { //visitor->VisitFatGarbage(this);
+	void Accept(ObjectVisitor* visitor) override { visitor->VisitFatGarbage(this);
 		 }
 
 	void XmlLoad(wxXmlNode *node);

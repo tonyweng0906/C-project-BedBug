@@ -13,7 +13,7 @@
 class Program : public GameObject
 {
 private:
-
+	std::wstring mName;
 public:
 	/// Constructor
 	Program(Game *game);
@@ -24,11 +24,19 @@ public:
 	/// Copy constructor (disabled)
 	Program(const Program&) = delete;
 
+	void XmlLoad(wxXmlNode *node);
+
 	/**
      * Accept a visitor
      * @param visitor The visitor we accept
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitProgram(this);}
+
+	/**
+	* Draw this program
+	* @param dc Device context to draw on
+	*/
+	void Draw(std::shared_ptr<wxGraphicsContext> dc) override;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_PROGRAM_H
