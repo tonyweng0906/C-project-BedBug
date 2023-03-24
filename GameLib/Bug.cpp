@@ -40,7 +40,6 @@ void Bug::BugSpeed(double speedX, double speedY)
  */
 void Bug::Update(double elapsed)
 {
-	//int index = 1;
 	mStart -= elapsed;
 
 	if(mStart <= 0)
@@ -60,6 +59,8 @@ void Bug::Update(double elapsed)
 		double newX = GetX() + elapsed * -mSpeed * cos(angle);
 		double newY = GetY() + elapsed * -mSpeed * sin(angle);
 		SetLocation(newX, newY);
+
+		mStart = 3.0 / mSpeed;
 	}
 	else {
 		if (!mBitmapVector.empty()) {
