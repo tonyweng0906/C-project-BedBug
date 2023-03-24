@@ -31,8 +31,6 @@ public:
 
 	void XmlLoad(wxXmlNode *node);
 
-	void Update(double elapsed) override;
-
 	/**
 	 * Set the target program
 	  * @param program the target

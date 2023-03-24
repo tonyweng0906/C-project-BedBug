@@ -38,30 +38,6 @@ void Feature::XmlLoad(wxXmlNode *node)
 	Bug::XmlLoad(node);
 }
 
-/**
- * Handle updates in time of our feature
- * This is called before we draw and allows us to
- * move our bug. We add our speed times the amount
- * of time that has elapsed.
- * @param elapsed Time elapsed since the class call
- */
-void Feature::Update(double elapsed)
-{
-	mStart -= elapsed;
-	if (mStart <=0)
-	{
-		double angle = atan2(GetY()-mProgram->GetY(),GetX()-mProgram->GetX());
-		mRotation = 3.1415926+angle;
-		double newX = GetX() + elapsed * -mSpeed * cos(angle);
-		double newY = GetY() + elapsed * -mSpeed * sin(angle);
-		SetLocation(newX,newY);
-	}
-
-	if (GetY()-mProgram->GetY() <= 5 && GetX()-mProgram->GetX() <= 5)
-	{
-
-	}
-}
 
 void Feature::AddScore() {
     mScoreBoard.AddOops();

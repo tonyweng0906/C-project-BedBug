@@ -46,7 +46,10 @@ void Bug::Update(double elapsed)
 	{
 		if (!mBitmapVector.empty())
 		{
-
+			if (mPosition >= mNumberOfSpriteSheet-1)
+			{
+				mPosition = 0;
+			}
 			mSubBugBitmap = mBitmapVector[mPosition];
 			mPosition ++;
 		}
@@ -99,11 +102,14 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 		{
 			mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,100*(mNumberOfSpriteSheet-1),100,100);
 		}
-
-		for (int i =0; i < mNumberOfSpriteSheet; i++)
+		if (mBitmapVector.empty())
 		{
-			mBitmapVector.push_back(dc->CreateSubBitmap(mObjectBitmap,0,100*i,100,100));
+			for (int i =0; i < mNumberOfSpriteSheet-1; i++)
+			{
+				mBitmapVector.push_back(dc->CreateSubBitmap(mObjectBitmap,0,100*i,100,100));
+			}
 		}
+
 		dc->PushState();
 		dc->Translate(mX,mY);
 		dc->Rotate(mRotation);
