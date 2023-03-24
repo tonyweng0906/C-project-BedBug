@@ -62,11 +62,6 @@ void Bug::Update(double elapsed)
 
 		mStart = 3.0 / mSpeed;
 	}
-	else {
-		if (!mBitmapVector.empty()) {
-			mSubBugBitmap = mBitmapVector[mNumberOfSpriteSheet - 2];
-		}
-	}
 }
 
 
