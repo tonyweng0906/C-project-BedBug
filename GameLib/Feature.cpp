@@ -19,7 +19,7 @@ const int FeatureNumSpriteImages = 7;
  * Constructor
  * @param game The game we are in
  */
-Feature::Feature(Game *game) : Bug(game, BugName)
+Feature::Feature(Game *game) : Bug(game, BugName, FeatureNumSpriteImages)
 {
 
 }

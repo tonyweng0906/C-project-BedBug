@@ -48,7 +48,8 @@ public:
 
 	 void Accept(ObjectVisitor * visitor);
 
-	 
+	 void MoveToTheBack(std::shared_ptr<GameObject> object);
+
 	 void OnDraw(wxDC* graphics);
 
 	// Loading and saving functions go here?

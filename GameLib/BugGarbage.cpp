@@ -12,7 +12,7 @@
 const std::string BugName = "garbage";
 
 /// Number of sprite images
-const int GarbageBugNumSpriteImages = 5;
+const int GarbageBugNumSpriteImages = 6;
 
 void BugGarbage::AddScore() {
     mScoreBoard.AddFixed();
@@ -23,7 +23,7 @@ void BugGarbage::AddScore() {
  * @param game the game this is a member of
  * @param image the image this object is represented by
 */
-BugGarbage::BugGarbage(Game *game) : Bug(game, BugName )
+BugGarbage::BugGarbage(Game *game) : Bug(game, BugName, GarbageBugNumSpriteImages )
 {
 
 }

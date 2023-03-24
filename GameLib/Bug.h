@@ -23,6 +23,9 @@ private:
 	/// Bug size
 	double mBugSize = 100;
 
+	/// Num of sprite sheet
+	int mNumberOfSpriteSheet = 0;
+
 protected:
 	/// Bug speed in the X direction
 	/// in pixels per second
@@ -48,6 +51,8 @@ protected:
 
 	/// Program the bug will target
 	std::shared_ptr<Program> mProgram;
+
+	Bug(Game *game, const std::string & name, int SpriteSheetNum );
 public:
 	/// Default constructor (disabled)
 	Bug() = delete;
@@ -77,6 +82,12 @@ public:
 	void SetFatSize() {mBugSize = 125;}
 
 	/**
+	* Determine if the bug is splatted
+	* @return bool true if the bug is splatted
+	*/
+	bool GetSplat() override {return mSplat;}
+
+	/**
 	 * Set the target program
 	  * @param program the target
 	  */
@@ -103,11 +114,7 @@ public:
 
 	void SingleClick();
 
-//	int GetWidth() const;
-//
-//	int GetHeight() const;
-protected:
-	Bug(Game *game, const std::string & name );
+
 
 
 };

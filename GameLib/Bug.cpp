@@ -13,9 +13,10 @@
  * @param game The game we are in
  * @param filename Filename for the image we use
  */
-Bug::Bug(Game *game, const std::string & name ) : GameObject(game, name)
+Bug::Bug(Game *game, const std::string & name, int SpriteSheetNum ) : GameObject(game, name)
 {
 	mSplatImage = game->GetPlayArea().GetImage(name+"Splat");
+	mNumOfSheets = SpriteSheetNum;
 }
 
 /**
@@ -86,7 +87,7 @@ void Bug::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	}
 
 	if(!mSplat){
-		mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,0,100,100);
+		mSubBugBitmap = dc->CreateSubBitmap(mObjectBitmap,0,100*mNumberOfSpriteSheet,100,100);
 		dc->PushState();
 		dc->Translate(mX,mY);
 		dc->Rotate(mRotation);

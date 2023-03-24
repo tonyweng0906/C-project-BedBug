@@ -165,6 +165,10 @@ void PlayArea::Update(double elapsed)
 				DeleteObject(object);
 				continue;
 			}
+//			if(object->GetSplat())
+//			{
+//				MoveToTheBack(object);
+//			}
 		}
 	}
 }
@@ -214,5 +218,23 @@ void PlayArea::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	for (auto item : mObjects)
 	{
 		item->Draw(dc);
+	}
+}
+
+/**
+ * Move the object to the front of the vector
+ * @param object object we move
+ *
+ */
+void PlayArea::MoveToTheBack(std::shared_ptr<GameObject> object)
+{
+	auto loc = find(std::begin(mObjects), std::end(mObjects), object);
+	if (loc != std::end(mObjects))
+	{
+		auto objectTemp = *loc;
+
+		mObjects.erase(loc);
+		mObjects.insert(mObjects.begin(), objectTemp);
+
 	}
 }
