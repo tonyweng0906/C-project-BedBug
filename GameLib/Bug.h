@@ -26,6 +26,12 @@ private:
 	/// Num of sprite sheet
 	int mNumberOfSpriteSheet = 0;
 
+	///Bitmap vector
+	std::vector<wxGraphicsBitmap> mBitmapVector;
+
+	///Position of Vector;
+	int mPosition = 0;
+
 protected:
 	/// Bug speed in the X direction
 	/// in pixels per second
