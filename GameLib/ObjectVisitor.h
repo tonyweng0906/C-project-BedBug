@@ -17,6 +17,7 @@ class BugNull;
 class BugRedundancy;
 class Feature;
 class Program;
+class BugMulti;
 
 /// class for the Visitor
 class ObjectVisitor
@@ -84,6 +85,12 @@ public:
 	* @param program Program we are visiting
 	*/
 	virtual void VisitObject(GameObject * gameObject) {}
+
+	/**
+	* Visit a BugNull object
+	* @param bugNull BugNull we are visiting
+	*/
+	virtual void VisitBugMulti(BugMulti * bugMulti) {}
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H

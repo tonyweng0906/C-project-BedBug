@@ -42,6 +42,8 @@ public:
 
 	void VisitFeature(Feature* bug) override;
 
+	void VisitBugMulti(BugMulti* bug) override;
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGCOUNTERVISITOR_H

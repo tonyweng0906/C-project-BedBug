@@ -15,6 +15,12 @@ const std::wstring GarbageBugImageName = L"images/blue-maize-bug.png";
 /// The garbage bug splat image
 const std::wstring GarbageBugSplatImageName = L"images/blue-maize-splat.png";
 
+/// The multi bug image
+const std::wstring MultiBugImageName = L"images/multi-bug.png";
+
+/// The multi bug splat image
+const std::wstring MultiBugSplatImageName = L"images/multi-splat.png";
+
 /// The bug feature image
 const std::wstring FeatureBugImageName = L"images/feature.png";
 
@@ -62,6 +68,14 @@ PlayArea::PlayArea()
 	// Adding the splat GarbageBug image
 	std::shared_ptr<wxImage> GarbageBugSplatImage = std::make_shared<wxImage>(GarbageBugSplatImageName);
 	mImages.insert({"garbageSplat", GarbageBugSplatImage});
+
+	// Adding the MultiBug image
+	std::shared_ptr<wxImage> MultiBugImage = std::make_shared<wxImage>(MultiBugImageName);
+	mImages.insert({"multi", MultiBugImage});
+
+	// Adding the splat MultiBug image
+	std::shared_ptr<wxImage> MultiBugSplatImage = std::make_shared<wxImage>(MultiBugSplatImageName);
+	mImages.insert({"multiSplat", MultiBugSplatImage});
 
 	// Adding the NullBug image
 	std::shared_ptr<wxImage> NullBugImage = std::make_shared<wxImage>(NullBugImageName);

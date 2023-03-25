@@ -194,9 +194,11 @@ void BugRedundancy::SingleClick()
 	{
 		Bug::SingleClick();
 	}
-
-
 }
+
+/**
+ * Pop this bug into multiple duplicate bugs
+ */
 void BugRedundancy::PopBug()
 {
 	for (int i = 0; i < NewBugs; i++)

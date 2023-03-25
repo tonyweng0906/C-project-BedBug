@@ -11,6 +11,7 @@
 #include "Feature.h"
 #include "FatGarbage.h"
 #include "FatNull.h"
+#include "BugMulti.h"
 
 /**
 * visit a BugGarbage object
@@ -83,6 +84,21 @@ void BugCounterVisitor::VisitFeature(Feature *bug)
 		mNumBugs++;
 	}
 }
+
+/**
+* visit a multi bug oject
+* @param MultiBug object we are visiting
+*/
+void BugCounterVisitor::VisitBugMulti(BugMulti *bug)
+{
+	if(!bug->GetSplat())
+	{
+		mNumBugs++;
+	}
+}
+
+
+
 
 
 

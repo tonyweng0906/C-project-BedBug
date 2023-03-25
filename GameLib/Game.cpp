@@ -16,6 +16,7 @@
 #include "Feature.h"
 #include "Program.h"
 #include "BugCounterVisitor.h"
+#include "BugMulti.h"
 
 /// Game area in virtual pixels
 const static int Width = 1250;
@@ -156,7 +157,7 @@ void Game::Load(const wxString &filename)
  */
 void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 {
-//	 A pointer for the object we are loading
+	// A pointer for the object we are loading
 	std::shared_ptr<GameObject> item;
 	// We have an item. What type?
 	auto type = node->GetAttribute(L"type");
@@ -177,6 +178,10 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 		if(type == L"garbage")
 		{
 			item = std::make_shared<BugGarbage>(this);
+		}
+		if(type == L"multi")
+		{
+			item = std::make_shared<BugMulti>(this);
 		}
 		if(type == L"redundancy")
 		{
@@ -252,6 +257,41 @@ void Game::CreateRedundancyFly(std::shared_ptr<Program> program, double locX, do
 	item->SetOriginal(false);
 	item->SetSpeed(speed);
 }
+
+/**
+ * Create a Fatbug to add to the game
+ * Bug begins moving immediately
+ * @param program Program this bug will target
+ * @param locX X Location this bug begins at
+ * @param locY Y location this bug begins at
+ * @param speed Speed of this bug
+ */
+void Game::CreateFatBug(std::shared_ptr<Program> program, double locX, double locY, double speed)
+{
+	auto item = std::make_shared<BugGarbage>(this);
+	mPlayArea.Add(item);
+	item->SetProgram(program);
+	item->SetLocation(locX, locY);
+	item->SetSpeed(speed);
+}
+
+/**
+ * Create a NullBug to add to the game
+ * Bug begins moving immediately
+ * @param program Program this bug will target
+ * @param locX X Location this bug begins at
+ * @param locY Y location this bug begins at
+ * @param speed Speed of this bug
+ */
+void Game::CreateNullBug(std::shared_ptr<Program> program, double locX, double locY, double speed)
+{
+	auto item = std::make_shared<BugNull>(this);
+	mPlayArea.Add(item);
+	item->SetProgram(program);
+	item->SetLocation(locX, locY);
+	item->SetSpeed(speed);
+}
+
 
 /**
  * Count the number of bugs in the game
