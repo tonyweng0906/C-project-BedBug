@@ -120,7 +120,7 @@ void GameView::OnLeftDown(wxMouseEvent &event)
 {
 	double oX = (event.GetX() - mGame.GetXOffset()) / mGame.GetScale();
 	double oY = (event.GetY() - mGame.GetYOffset()) / mGame.GetScale();
-	auto object = mGame.GetPlayArea().HitTest(oX, oY);
+	auto object = mGame.GetPlayArea()->HitTest(oX, oY);
 	if (object)
 	{
 		// Single click function for objects to squish them?
@@ -138,7 +138,7 @@ void GameView::OnLeftDoubleClick(wxMouseEvent &event)
 {
 	double oX = (event.GetX() - mGame.GetXOffset()) / mGame.GetScale();
 	double oY = (event.GetY() - mGame.GetYOffset()) / mGame.GetScale();
-	auto object = mGame.GetPlayArea().HitTest(oX, oY);
+	auto object = mGame.GetPlayArea()->HitTest(oX, oY);
 	if (object)
 	{
 		object->DoubleClick();

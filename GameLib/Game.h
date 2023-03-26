@@ -60,7 +60,7 @@ public:
 
 	///Getter for the playarea
 	///@return PlayArea
-	PlayArea GetPlayArea(){return mPlayArea;}
+	PlayArea* GetPlayArea(){return &mPlayArea;}
 	void Update(double elapsed);
 	///Getter for X offset @return mXOffset
 	double GetXOffset(){return mXOffset;}

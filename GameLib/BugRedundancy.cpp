@@ -47,9 +47,9 @@ const int WingSetY = 5;
 */
 BugRedundancy::BugRedundancy(Game *game) : Bug(game,BugName, 1)
 {
-	mImageLeftWing = game->GetPlayArea().GetImage("leftWing");
-	mImageRightWing =  game->GetPlayArea().GetImage("rightWing");
-	mImageTop = game->GetPlayArea().GetImage("redundancyTop");
+	mImageLeftWing = game->GetPlayArea()->GetImage("leftWing");
+	mImageRightWing =  game->GetPlayArea()->GetImage("rightWing");
+	mImageTop = game->GetPlayArea()->GetImage("redundancyTop");
 
 }
 

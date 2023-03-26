@@ -15,7 +15,7 @@
  */
 Bug::Bug(Game *game, const std::string & name, int SpriteSheetNum ) : GameObject(game, name)
 {
-	mSplatImage = game->GetPlayArea().GetImage(name+"Splat");
+	mSplatImage = game->GetPlayArea()->GetImage(name+"Splat");
 	mNumberOfSpriteSheet = SpriteSheetNum;
 }
 

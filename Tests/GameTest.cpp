@@ -72,21 +72,21 @@ TEST_F(GameTest, Load) {
 	game.Load(L"Level/level0.xml");
 
 
-	cout <<game.GetPlayArea().NumberOfObject() << endl;
+	cout <<game.GetPlayArea()->NumberOfObject() << endl;
 
-	ASSERT_TRUE(game.GetPlayArea().NumberOfObject() == 4);
+	ASSERT_TRUE(game.GetPlayArea()->NumberOfObject() == 4);
 
 	game2.Load(L"Level/level1.xml");
 
-	cout << game2.GetPlayArea().NumberOfObject() << endl;
+	cout << game2.GetPlayArea()->NumberOfObject() << endl;
 
-	ASSERT_TRUE(game2.GetPlayArea().NumberOfObject() == 13);
+	ASSERT_TRUE(game2.GetPlayArea()->NumberOfObject() == 13);
 
 
 	game3.Load(L"Level/level2.xml");
 
-	cout << game3.GetPlayArea().NumberOfObject() << endl;
-	ASSERT_TRUE(game3.GetPlayArea().NumberOfObject() == 27);
+	cout << game3.GetPlayArea()->NumberOfObject() << endl;
+	ASSERT_TRUE(game3.GetPlayArea()->NumberOfObject() == 27);
 
 
 }
