@@ -303,3 +303,12 @@ int Game::BugCount()
 	return visitor.GetNumBugs();
 }
 
+
+/**
+ * Accept a visitor for the collection
+ * @param visitor The visitor for the collection
+ */
+void Game::Accept(ObjectVisitor *visitor)
+{
+	mPlayArea.Accept(visitor);
+}

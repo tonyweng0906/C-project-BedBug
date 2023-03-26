@@ -1,10 +1,7 @@
 /**
- * @file GameTest.cpp
+ * @file VisitorTest.cpp
  * @author Xin Weng
  */
-
-
-
 
 
 #include <pch.h>
@@ -21,8 +18,10 @@ using namespace std;
 #include <fstream>
 #include <streambuf>
 #include <wx/filename.h>
+#include <BugCounterVisitor.h>
 
-class GameTest : public ::testing::Test
+
+class VisitorTest : public ::testing::Test
 {
 protected:
 	/**
@@ -39,35 +38,27 @@ protected:
 		return str;
 	}
 
-	void TestAllTypesWithSpeed(wxString filename)
+	void Squish(Game * game)
 	{
-		cout << "Temp file: " << filename << endl;
 
-		auto xml = ReadFile(filename);
-		cout << xml << endl;
-
-		// Ensure the positions are correct
-
-		// Ensure the positions are correct
-		ASSERT_TRUE(regex_search(xml, wregex(L"<bug type=\"redundancy\" x=\"100\" y=\"600\" "
-											 "speed=\"120\" start=\"0\"")));
-		ASSERT_TRUE(regex_search(xml, wregex(L"<feature x=\"100\" y=\"800\" "
-											 "speed=\"120\" start=\"0\"")));
 	}
 };
 
-TEST_F(GameTest, Construct){
-Game game;
+TEST_F(VisitorTest, Construct){
+	Game game;
 }
 
-TEST_F(GameTest, Load) {
 
-	// Create a game
+TEST_F(VisitorTest, Load) {
+
+	// Create an aquarium
 	Game game;
 	Game game2;
 	Game game3;
+	//
+	// First test, saving an empty aquarium
+	//
 
-	TestAllTypesWithSpeed(L"Level/level0.xml");
 
 	game.Load(L"Level/level0.xml");
 
@@ -76,17 +67,38 @@ TEST_F(GameTest, Load) {
 
 	ASSERT_TRUE(game.GetPlayArea().NumberOfObject() == 4);
 
+	BugCounterVisitor visitor1;
+	game.Accept(&visitor1);
+
+	cout << visitor1.GetNumBugs() << endl;
+
+	ASSERT_TRUE(visitor1.GetNumBugs()== 3);
+
 	game2.Load(L"Level/level1.xml");
 
 	cout << game2.GetPlayArea().NumberOfObject() << endl;
 
 	ASSERT_TRUE(game2.GetPlayArea().NumberOfObject() == 13);
 
+	BugCounterVisitor visitor2;
+	game2.Accept(&visitor2);
+
+	cout << visitor2.GetNumBugs() << endl;
+
+	ASSERT_TRUE(visitor2.GetNumBugs()== 12);
 
 	game3.Load(L"Level/level2.xml");
 
 	cout << game3.GetPlayArea().NumberOfObject() << endl;
 	ASSERT_TRUE(game3.GetPlayArea().NumberOfObject() == 27);
 
+	BugCounterVisitor visitor3;
+	game3.Accept(&visitor3);
+
+	cout << visitor3.GetNumBugs() << endl;
+
+	ASSERT_TRUE(visitor3.GetNumBugs()== 24);
+
+//	TestAllTypesWithSpeed(L"Level/level1.xml");
 
 }

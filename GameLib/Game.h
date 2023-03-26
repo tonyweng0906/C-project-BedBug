@@ -81,6 +81,7 @@ public:
 	///Setter for current level
 	void SetLevel(int level){mLevel = level;}
 
+	void Accept(ObjectVisitor * visitor);
 
 };
 
