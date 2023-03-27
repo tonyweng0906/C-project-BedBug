@@ -131,7 +131,6 @@ TEST_F(VisitorTest, VisitorTest)
 
 	cout << gameTest.GetPlayArea()->NumberOfObject() << endl;
 	ASSERT_TRUE(gameTest.GetPlayArea()->NumberOfObject() == 6);
-
 	BugCounterVisitor visitorTest;
 	gameTest.Accept(&visitorTest);
 

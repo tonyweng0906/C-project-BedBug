@@ -2,5 +2,11 @@
 <bug-squash level="Your Level">
   <program name="Your Level" x="625" y="500">
     <bug type="garbage" x="-100" y="-100" speed="120" start="1"/>
+    <bug type="garbage" x="-100" y="900" speed="60" start="3">
+      <code pass="int.*number.*=.*[0-9]*.*;"><![CDATA[
+      int number;
+      std::cout << number << std::endl;
+]]></code>
+    </bug>
   </program>
 </bug-squash>
