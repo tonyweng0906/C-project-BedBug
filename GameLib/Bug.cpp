@@ -15,7 +15,7 @@
  */
 Bug::Bug(Game *game, const std::string & name, int SpriteSheetNum ) : GameObject(game, name)
 {
-	mSplatImage = game->GetPlayArea().GetImage(name+"Splat");
+	mSplatImage = game->GetPlayArea()->GetImage(name+"Splat");
 	mNumberOfSpriteSheet = SpriteSheetNum;
 }
 
@@ -56,8 +56,8 @@ void Bug::Update(double elapsed)
 
 		double angle = atan2(GetY() - mProgram->GetY(), GetX() - mProgram->GetX());
 		mRotation = 3.1415 + angle;
-		double newX = GetX() + elapsed * -mSpeed * cos(angle);
-		double newY = GetY() + elapsed * -mSpeed * sin(angle);
+		double newX = GetX() + elapsed * (-mSpeed) * cos(angle);
+		double newY = GetY() + elapsed * (-mSpeed) * sin(angle);
 		SetLocation(newX, newY);
 
 		mStart = 3.0 / mSpeed;

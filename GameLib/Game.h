@@ -60,9 +60,9 @@ public:
 	void Load(const wxString &filename);
 	void XmlItem(wxXmlNode *node,  std::shared_ptr<Program> program);
 
-	///Getter for the playarea
+	///Getter for the playArea
 	///@return PlayArea
-	PlayArea GetPlayArea(){return mPlayArea;}
+	PlayArea* GetPlayArea(){return &mPlayArea;}
 	void Update(double elapsed);
 	///Getter for X offset @return mXOffset
 	double GetXOffset(){return mXOffset;}
@@ -87,6 +87,7 @@ public:
     ///Getter for ScoreBoard
     ScoreBoard* GetBoard(){return &mScoreBoard;}
 
+	void Accept(ObjectVisitor * visitor);
 
 };
 

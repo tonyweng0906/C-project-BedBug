@@ -39,7 +39,7 @@ GameObject::GameObject(Game *game, const std::string & name) : mGame(game)
 	//mGameBitmap = make_unique<wxBitmap>(*mGameImage);
 	//*mItemBitmap = *image;
 	//mObjectImage = std::make_shared<wxImage>(name);
-	mObjectImage = mGame->GetPlayArea().GetImage(name);
+	mObjectImage = mGame->GetPlayArea()->GetImage(name);
 
 }
 
