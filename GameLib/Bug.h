@@ -121,7 +121,6 @@ public:
 
 	void SingleClick();
 
-    void AddScore();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUG_H

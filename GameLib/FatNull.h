@@ -36,6 +36,7 @@ public:
 
 	void DoubleClick() override;
 	void SingleClick() override;
+    void AddScore() override;
 	void makeIDE(wxWindow *window);
 };
 

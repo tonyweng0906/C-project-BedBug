@@ -30,6 +30,8 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugGarbage(this);}
 
+    void AddScore() override;
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGGARBAGE_H

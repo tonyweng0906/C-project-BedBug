@@ -221,18 +221,22 @@ void Game::Update(double elapsed)
 		switch(mLevel)
 		{
 			case 0:
+                mScoreBoard.Reset();
 				Load(L"Level/level1.xml");
 				mLevel = 1;
 				break;
 			case 1:
+                mScoreBoard.Reset();
 				Load(L"Level/level2.xml");
 				mLevel = 2;
 				break;
 			case 2:
+                mScoreBoard.Reset();
 				Load(L"Level/level3.xml");
 				mLevel = 3;
 				break;
 			case 3:
+                mScoreBoard.Reset();
 				Load(L"Level/level3.xml");
 				break;
 		}
