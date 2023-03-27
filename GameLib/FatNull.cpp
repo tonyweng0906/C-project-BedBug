@@ -61,3 +61,10 @@ void FatNull::makeIDE(wxWindow* window)
 {
 	FatBug::makeIDE(window);
 }
+
+/**
+ * Disables Add Score
+ */
+void FatNull::AddScore() {
+
+}

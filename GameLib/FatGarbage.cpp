@@ -32,6 +32,14 @@ void FatGarbage::XmlLoad(wxXmlNode *node)
 	FatBug::XmlLoad(node);
 }
 
+
+/**
+ * Disables Add Score
+ */
+void FatGarbage::AddScore() {
+
+}
+
 /**
  * Set behavior for when this bug is double clicked on
  */

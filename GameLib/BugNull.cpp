@@ -22,3 +22,8 @@ BugNull::BugNull(Game *game) : Bug(game,BugName, NullBugNumSpriteImages)
 {
 
 }
+
+void BugNull::AddScore() {
+    ScoreBoard *scoreBoard = GetBoard();
+    scoreBoard->AddFixed();
+}

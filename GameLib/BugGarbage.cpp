@@ -24,3 +24,8 @@ BugGarbage::BugGarbage(Game *game) : Bug(game, BugName, GarbageBugNumSpriteImage
 
 }
 
+void BugGarbage::AddScore() {
+    ScoreBoard *scoreBoard = GetBoard();
+    scoreBoard->AddFixed();
+}
+
