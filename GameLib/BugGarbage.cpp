@@ -14,10 +14,6 @@ const std::string BugName = "garbage";
 /// Number of sprite images
 const int GarbageBugNumSpriteImages = 6;
 
-void BugGarbage::AddScore() {
-    mScoreBoard.AddFixed();
-}
-
 /**
 * Constructor
  * @param game the game this is a member of

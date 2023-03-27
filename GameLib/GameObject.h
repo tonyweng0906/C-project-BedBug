@@ -12,6 +12,7 @@
 #include "ObjectVisitor.h"
 
 class Game;
+class ScoreBoard;
 
 /**
  * Base class for any Object in our game.
@@ -142,6 +143,8 @@ public:
 	virtual void Accept(ObjectVisitor* visitor) {};
 
 	void UpdateSpriteSheet();
+
+    ScoreBoard *GetBoard();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H

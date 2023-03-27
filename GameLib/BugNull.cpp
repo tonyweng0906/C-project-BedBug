@@ -22,7 +22,3 @@ BugNull::BugNull(Game *game) : Bug(game,BugName, NullBugNumSpriteImages)
 {
 
 }
-
-void BugNull::AddScore() {
-    mScoreBoard.AddFixed();
-}

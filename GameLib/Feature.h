@@ -15,8 +15,6 @@
 class Feature : public Bug
 {
 private:
-
-    ScoreBoard mScoreBoard;
 protected:
 
 

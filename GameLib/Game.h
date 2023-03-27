@@ -34,6 +34,8 @@ private:
 	PlayArea mPlayArea;
 	/// Main Window Frame
 	wxWindow* mMainFrame = nullptr;
+    /// ScoreBoard we create
+    ScoreBoard mScoreBoard;
 
 public:
 
@@ -80,6 +82,10 @@ public:
 	bool GetResumed(){return mResumed;}
 	///Setter for current level
 	void SetLevel(int level){mLevel = level;}
+    ///Setter for ScoreBoard
+    void SetBoard(ScoreBoard scoreBoard){mScoreBoard = scoreBoard;}
+    ///Getter for ScoreBoard
+    ScoreBoard* GetBoard(){return &mScoreBoard;}
 
 
 };

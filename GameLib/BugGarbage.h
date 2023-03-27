@@ -14,7 +14,6 @@
 class BugGarbage : public Bug
 {
 private:
-    ScoreBoard mScoreBoard;
 public:
 	/// constructor
 	BugGarbage(Game* game);
@@ -31,7 +30,6 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugGarbage(this);}
 
-    void AddScore() override;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGGARBAGE_H

@@ -40,5 +40,6 @@ void Feature::XmlLoad(wxXmlNode *node)
 
 
 void Feature::AddScore() {
-    mScoreBoard.AddOops();
+    ScoreBoard *scoreBoard = GetBoard();
+    scoreBoard->AddOops();
 }

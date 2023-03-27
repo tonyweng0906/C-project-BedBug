@@ -172,6 +172,11 @@ bool Bug::HitTest(int x, int y)
 	return false;
 }
 
+void Bug::AddScore() {
+    ScoreBoard *scoreBoard = GetBoard();
+    scoreBoard->AddFixed();
+}
+
 
 ///**
 //* Get the width of image

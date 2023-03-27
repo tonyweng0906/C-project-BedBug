@@ -178,7 +178,11 @@ void BugRedundancy::Draw(std::shared_ptr<wxGraphicsContext> dc)
 }
 
 void BugRedundancy::AddScore() {
-    mScoreBoard.AddFixed();
+    if (!mOriginal){
+        ScoreBoard *scoreBoard = GetBoard();
+        scoreBoard->AddFixed();
+    }
+
 }
 
 /**

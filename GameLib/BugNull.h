@@ -14,7 +14,6 @@
 class BugNull : public Bug
 {
 private:
-    ScoreBoard mScoreBoard;
 public:
 	/// Constructor
 	BugNull(Game *game);
@@ -25,7 +24,6 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugNull(this);}
 
-    void AddScore() override;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUGNULL_H

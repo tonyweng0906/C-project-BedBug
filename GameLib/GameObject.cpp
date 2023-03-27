@@ -125,3 +125,8 @@ int GameObject::GetWidth() const { return mObjectImage->GetWidth();}
  * @return height of the fish
 */
 int GameObject::GetHeight() const { return mObjectImage->GetHeight();}
+
+ScoreBoard *GameObject::GetBoard() {
+    ScoreBoard *scoreBoard = mGame->GetBoard();
+    return scoreBoard;
+}

@@ -11,6 +11,7 @@
 #include "GameObject.h"
 #include "ObjectVisitor.h"
 #include "Program.h"
+#include "ScoreBoard.h"
 
 /**
  * Base class for a bug
@@ -119,6 +120,8 @@ public:
 	bool HitTest(int x, int y) override;
 
 	void SingleClick();
+
+    void AddScore();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_BUG_H

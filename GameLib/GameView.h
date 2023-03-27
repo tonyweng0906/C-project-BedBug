@@ -19,9 +19,6 @@ class GameView  : public wxWindow
 private:
 	/// An object that describes our game
 	Game  mGame;
-
-    ScoreBoard mScoreBoard;
-
 	/// The timer that allows for animation
 	wxTimer mTimer;
 	/// Stopwatch used to measure elapsed time
