@@ -99,3 +99,9 @@ void ScoreBoard::AddOops(){
     return;
 }
 
+void ScoreBoard::Reset() {
+    mFixed = 0;
+    mMissed = 0;
+    mOops = 0;
+}
+

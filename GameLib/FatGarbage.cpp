@@ -41,6 +41,8 @@ void FatGarbage::DoubleClick()
 	if(FatBug::TestCode())
 	{
 		Squish();
+        ScoreBoard *scoreBoard = GetBoard();
+        scoreBoard->AddFixed();
 	}
 }
 

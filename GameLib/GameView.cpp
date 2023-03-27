@@ -163,6 +163,8 @@ void GameView::OnLevel0(wxCommandEvent& event)
 {
 	mGame.Load(L"Level/level0.xml");
 	mGame.SetLevel(0);
+    ScoreBoard *scoreBoard = mGame.GetBoard();
+    scoreBoard->Reset();
 	Refresh();
 }
 
@@ -174,6 +176,8 @@ void GameView::OnLevel1(wxCommandEvent& event)
 {
 	mGame.Load(L"Level/level1.xml");
 	mGame.SetLevel(1);
+    ScoreBoard *scoreBoard = mGame.GetBoard();
+    scoreBoard->Reset();
 	Refresh();
 }
 
@@ -185,6 +189,8 @@ void GameView::OnLevel2(wxCommandEvent& event)
 {
 	mGame.Load(L"Level/level2.xml");
 	mGame.SetLevel(2);
+    ScoreBoard *scoreBoard = mGame.GetBoard();
+    scoreBoard->Reset();
 	Refresh();
 }
 
@@ -196,5 +202,7 @@ void GameView::OnLevel3(wxCommandEvent& event)
 {
 	mGame.Load(L"Level/level3.xml");
 	mGame.SetLevel(3);
+    ScoreBoard *scoreBoard = mGame.GetBoard();
+    scoreBoard->Reset();
 	Refresh();
 }

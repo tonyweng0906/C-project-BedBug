@@ -109,7 +109,11 @@ public:
 	 * single Click executes actions for being double clicked
 	 */
 	virtual void SingleClick(){};
+    /**
+     * Score functions that add scores
+     */
     virtual void AddScore(){};
+    virtual void AddFatScore(){};
 	/**
 	 * Set the target program
 	  * @param program the target
