@@ -70,6 +70,8 @@ public:
 
 	void Draw(std::shared_ptr<wxGraphicsContext> dc);
 
+    void Missed();
+
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_PLAYAREA_H

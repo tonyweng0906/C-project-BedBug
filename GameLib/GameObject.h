@@ -149,6 +149,8 @@ public:
 	void UpdateSpriteSheet();
 
     ScoreBoard *GetBoard();
+
+    void Missed();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H

@@ -130,3 +130,8 @@ ScoreBoard *GameObject::GetBoard() {
     ScoreBoard *scoreBoard = mGame->GetBoard();
     return scoreBoard;
 }
+
+void GameObject::Missed() {
+    ScoreBoard *scoreBoard = mGame->GetBoard();
+    scoreBoard->AddMissed();
+}
