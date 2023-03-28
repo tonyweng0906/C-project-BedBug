@@ -176,6 +176,7 @@ void PlayArea::Update(double elapsed)
 			object->Update(elapsed);
 			if (object->MoveFinish())
 			{
+                object->Missed();
 				DeleteObject(object);
 				continue;
 			}
