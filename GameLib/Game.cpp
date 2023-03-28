@@ -71,7 +71,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	// Your drawing code goes here
 	//
 	mPlayArea.Draw(graphics);
-
+	mScoreBoard.Draw(graphics);
 	// hide the bugs
 	if (!mShrinked)
 	{

@@ -78,8 +78,6 @@ void GameView::OnPaint(wxPaintEvent& event)
 	}
 	mGame.Update(elapsed);
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
-    ScoreBoard *scoreBoard = mGame.GetBoard();
-    scoreBoard->Draw(gc,rect.GetWidth(),rect.GetHeight());
 }
 
 void GameView::OnShrink(wxCommandEvent& event)

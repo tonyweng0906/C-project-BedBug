@@ -15,7 +15,7 @@ public:
     void AddFixed();
     void AddMissed();
     void AddOops();
-    void Draw(std::shared_ptr<wxGraphicsContext> graphics, int width, int height);
+    void Draw(std::shared_ptr<wxGraphicsContext> graphics);
     void Reset();
 
 
