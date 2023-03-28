@@ -37,6 +37,12 @@ private:
     /// ScoreBoard we create
     ScoreBoard mScoreBoard;
 
+	///level complete time
+	double mCompleteTime = 2;
+
+	///if we need to draw level complete title
+	bool mComplete = false;
+
 public:
 
 	Game();

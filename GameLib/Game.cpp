@@ -72,6 +72,19 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 	//
 	mPlayArea.Draw(graphics);
 	mScoreBoard.Draw(graphics);
+	if (mComplete)
+	{
+		wxFont bigFont(wxSize(0, 150),
+					   wxFONTFAMILY_SWISS,
+					   wxFONTSTYLE_NORMAL,
+					   wxFONTWEIGHT_BOLD);
+		graphics->SetFont(bigFont, wxColour(255, 0, 0));
+
+		double wid, hit;
+		graphics->GetTextExtent(L"Level Complete!", &wid, &hit);
+		graphics->DrawText(L"Level Complete!", Width/2 - wid/2+30, Height/2 - hit/2);
+
+	}
 	// hide the bugs
 	if (!mShrinked)
 	{
@@ -102,6 +115,7 @@ void Game::SetShrinked()
  */
 void Game::Load(const wxString &filename)
 {
+
 	std::vector<std::shared_ptr<Program>> programList;
 	wxXmlDocument xmlDoc;
 	if(!xmlDoc.Load(filename))
@@ -218,28 +232,38 @@ void Game::Update(double elapsed)
 	mPlayArea.Update(elapsed);
 	if(!BugCount())
 	{
-		switch(mLevel)
+		mCompleteTime -= elapsed;
+		if (mCompleteTime<=0)
 		{
-			case 0:
-                mScoreBoard.Reset();
-				Load(L"Level/level1.xml");
-				mLevel = 1;
-				break;
-			case 1:
-                mScoreBoard.Reset();
-				Load(L"Level/level2.xml");
-				mLevel = 2;
-				break;
-			case 2:
-                mScoreBoard.Reset();
-				Load(L"Level/level3.xml");
-				mLevel = 3;
-				break;
-			case 3:
-                mScoreBoard.Reset();
-				Load(L"Level/level3.xml");
-				break;
+			mComplete = false;
+			mCompleteTime = 2;
+			switch(mLevel)
+			{
+				case 0:
+					mScoreBoard.Reset();
+					Load(L"Level/level1.xml");
+					mLevel = 1;
+					break;
+				case 1:
+					mScoreBoard.Reset();
+					Load(L"Level/level2.xml");
+					mLevel = 2;
+					break;
+				case 2:
+					mScoreBoard.Reset();
+					Load(L"Level/level3.xml");
+					mLevel = 3;
+					break;
+				case 3:
+					mScoreBoard.Reset();
+					Load(L"Level/level3.xml");
+					break;
+			}
 		}
+		else{
+			mComplete = true;
+		}
+
 
 	}
 }
