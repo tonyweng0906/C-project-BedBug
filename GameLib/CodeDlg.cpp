@@ -17,16 +17,16 @@
 CodeDlg::CodeDlg(wxWindow* parent, std::wstring code)
 {
 	wxDialog::Create(parent, wxID_ANY, L"Bug Squash IDE", wxDefaultPosition,
-					 wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxTRANSPARENT_WINDOW, L"Bug Squash IDE");
+            wxSize( 490,510 ), wxDEFAULT_DIALOG_STYLE | wxTRANSPARENT_WINDOW, L"Bug Squash IDE");
 	mCode = code;
 	textBox = new wxTextCtrl(this, wxID_ANY, mCode, wxDefaultPosition, wxDefaultSize,
-							 wxTE_MULTILINE | wxTE_RICH | wxScrolledWindowStyle, wxDefaultValidator, wxTextCtrlNameStr);
+							 wxTE_MULTILINE | wxTE_RICH | wxScrolledWindowStyle | wxALWAYS_SHOW_SB, wxDefaultValidator, wxTextCtrlNameStr);
     okButton = new wxButton(this, wxID_OK , "OK", wxDefaultPosition, wxDefaultSize);
 
     auto sizer = new wxBoxSizer( wxVERTICAL );
 
-    sizer->Add(textBox,1, wxEXPAND | wxALL );
-    sizer->Add(okButton,1, wxALIGN_CENTER | wxALL );
+    sizer->Add(textBox,10, wxEXPAND | wxALL );
+    sizer->Add(okButton, 0.5, wxALIGN_CENTER | wxALL );
     // Set the sizer for this frame
     SetSizer( sizer );
 
