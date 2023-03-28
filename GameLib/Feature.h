@@ -36,6 +36,7 @@ public:
 	void SetProgram(std::shared_ptr<Program> program) {mProgram = program;}
 
     void AddScore() override;
+    void Missed() override;
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_FEATURE_H

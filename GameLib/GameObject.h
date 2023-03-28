@@ -150,7 +150,7 @@ public:
 
     ScoreBoard *GetBoard();
 
-    void Missed();
+    virtual void Missed();
 };
 
 #endif //PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H

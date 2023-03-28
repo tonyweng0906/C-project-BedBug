@@ -43,3 +43,9 @@ void Feature::AddScore() {
     ScoreBoard *scoreBoard = GetBoard();
     scoreBoard->AddOops();
 }
+/**
+ * Disables missed for features
+ */
+void Feature::Missed() {
+
+}
