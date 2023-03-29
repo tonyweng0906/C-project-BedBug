@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <bug-squash level="Your Level">
   <program name="My Program" x="625" y="500">
-    
+
     <bug type="null" x="100" y="-100" speed="120" start="3"/>
     <bug type="multi" x="30" y="-100" speed="50" start="5"/>
     <bug type="redundancy" x="1300" y="300" speed="120" start="1"/>
@@ -27,7 +27,7 @@ public:
     <bug type="garbage" x="1050" y="-100" speed="150" start="8"/>
 
     <feature x="200" y="-700" speed="150" start="12"/>
-
+    <bug type="multi" x="-1000" y="-300" speed="30" start="12"/>
     <bug type="garbage" x="1350" y="100" speed="150" start="4"/>
       <code pass="float.*mSpeed.*=.*[0-9]*.*;"><![CDATA[/**
  * A simple game object
@@ -42,5 +42,9 @@ public:
     void Update(float deltaTime);
 };
 ]]></code>
+
+    <feature x="600" y="-100" speed="120" start="13"/>
+
+    <bug type="garbage" x="-100" y="100" speed="120" start="15"/>
   </program>
 </bug-squash>
