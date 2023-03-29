@@ -2,7 +2,7 @@
  * @file BugRedundancy.h
  * @author Xin Weng
  *
- *
+ * Base class for redundancy bug
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUGREDUNDANCY_H

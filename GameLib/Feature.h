@@ -2,7 +2,7 @@
  * @file Feature.h
  * @author Xin Weng
  *
- *
+ * Base class for feature
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_FEATURE_H

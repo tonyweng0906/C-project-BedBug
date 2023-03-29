@@ -2,7 +2,7 @@
  * @file ObjectVisitor.h
  * @author Xin Weng
  *
- *
+ * class for the Visitor
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_OBJECTVISITOR_H

@@ -2,7 +2,7 @@
  * @file GameObject.h
  * @author Team BedBug
  *
- *
+ * Base class for any Object in our game.
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_GAMEOBJECT_H

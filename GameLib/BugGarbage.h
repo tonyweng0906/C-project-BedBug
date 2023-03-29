@@ -2,7 +2,7 @@
  * @file BugGarbage.h
  * @author Xin Weng
  *
- *
+ * Base class for garbage bug
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUGGARBAGE_H

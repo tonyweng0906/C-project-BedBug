@@ -2,7 +2,7 @@
  * @file CodeDlg.h
  * @author Aron DuBois
  *
- *
+ *  Base class for IDE question
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_CODEDLG_H

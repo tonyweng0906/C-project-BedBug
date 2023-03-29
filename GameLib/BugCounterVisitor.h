@@ -2,7 +2,7 @@
  * @file BugCounterVisitor.h
  * @author Aron DuBois
  *
- *
+ *  Visitor class for bug counting
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUGCOUNTERVISITOR_H

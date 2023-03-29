@@ -2,7 +2,7 @@
  * @file BugNull.h
  * @author Xin Weng
  *
- *
+ * Base class for null bug
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUGNULL_H

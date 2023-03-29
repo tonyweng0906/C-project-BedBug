@@ -2,7 +2,7 @@
  * @file BugMulti.h
  * @author Aron DuBois
  *
- *
+ * Base class for team feature
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUGMULTI_H
