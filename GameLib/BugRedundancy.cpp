@@ -230,3 +230,13 @@ bool BugRedundancy::MoveFinish()
 		return Bug::MoveFinish();
 	}
 }
+
+/**
+ * Disables missed for features
+ */
+void BugRedundancy::Missed() {
+    if (!mOriginal){
+        ScoreBoard *scoreBoard = GetBoard();
+        scoreBoard->AddMissed();
+    }
+}

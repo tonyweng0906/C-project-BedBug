@@ -92,6 +92,9 @@ public:
      */
 	void SetOriginal(bool state){mOriginal = state;}
 
+    /// adding the missing
+    void Missed() override;
+
 //	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
 };
 
