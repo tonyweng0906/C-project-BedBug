@@ -50,6 +50,11 @@ private:
 	///name of the level
 	std::wstring mLevelName;
 
+    bool mStart = false;
+
+    wxString mLevelName;
+
+    double mStartTime = 0;
 public:
 
 	Game();

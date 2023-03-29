@@ -85,6 +85,20 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 		graphics->DrawText(L"Level Complete!", Width/2 - wid/2+30, Height/2 - hit/2);
 
 	}
+
+    if ((mStart))
+    {
+        wxFont bigFont(wxSize(0, 150),
+                wxFONTFAMILY_SWISS,
+                wxFONTSTYLE_NORMAL,
+                wxFONTWEIGHT_BOLD);
+        graphics->SetFont(bigFont, wxColour(255, 0, 0));
+
+        double wid, hit;
+        graphics->GetTextExtent(mLevelName, &wid, &hit);
+        graphics->DrawText(mLevelName, Width/2 - wid/2+30, Height/2 - hit/2);
+
+    }
 	// hide the bugs
 	if (!mShrinked)
 	{
@@ -127,7 +141,7 @@ void Game::Load(const wxString &filename)
 
 	// Get the XML document root node
 	auto root = xmlDoc.GetRoot();
-
+    mLevelName = root->GetAttribute(L"level");
 	//
 	// Traverse the children of the root
 	// node of the XML document in memory!!!!
@@ -143,6 +157,7 @@ void Game::Load(const wxString &filename)
 
 		//Bugs
 		auto child = rootChild->GetChildren();
+
 		for( ; child; child=child->GetNext())
 		{
 
@@ -155,6 +170,7 @@ void Game::Load(const wxString &filename)
 			{
 				XmlItem(child, program);
 			}
+
 		}
 
 	}
@@ -231,12 +247,17 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
  */
 void Game::Update(double elapsed)
 {
+    if (mStartTime == 0){
+        mStart = true;
+    }
 	mPlayArea.Update(elapsed);
+
 	if(!BugCount())
 	{
 		mCompleteTime -= elapsed;
 		if (mCompleteTime<=0)
 		{
+            mStart = false;
 			mComplete = false;
 			mCompleteTime = 2;
 			switch(mLevel)
@@ -255,6 +276,7 @@ void Game::Update(double elapsed)
 					mScoreBoard.Reset();
 					Load(L"Level/level3.xml");
 					mLevel = 3;
+
 					break;
 				case 3:
 					mScoreBoard.Reset();
@@ -263,11 +285,12 @@ void Game::Update(double elapsed)
 			}
 		}
 		else{
+            mStart = false;
 			mComplete = true;
 		}
 
-
 	}
+
 }
 
 /**
