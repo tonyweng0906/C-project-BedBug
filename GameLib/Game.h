@@ -50,9 +50,11 @@ private:
 	///name of the level
 	std::wstring mLevelName;
 
+	/// If is start
     bool mStart = false;
 
-    double mStartTime = 0;
+	/// When should the level title dismiss
+    double mStartTime = 2;
 public:
 
 	Game();

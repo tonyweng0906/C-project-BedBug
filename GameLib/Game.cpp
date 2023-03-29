@@ -86,7 +86,7 @@ void Game::OnDraw(std::shared_ptr<wxGraphicsContext> graphics, int width, int he
 
 	}
 
-    if ((mStart))
+    if (!mStart)
     {
         wxFont bigFont(wxSize(0, 150),
                 wxFONTFAMILY_SWISS,
@@ -129,6 +129,10 @@ void Game::SetShrinked()
  */
 void Game::Load(const wxString &filename)
 {
+
+	mStart = false;
+	mStartTime = 2;
+
 
 	std::vector<std::shared_ptr<Program>> programList;
 	wxXmlDocument xmlDoc;
@@ -247,49 +251,52 @@ void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
  */
 void Game::Update(double elapsed)
 {
-    if (mStartTime == 0){
-        mStart = true;
-    }
-	mPlayArea.Update(elapsed);
-
-	if(!BugCount())
+    mStartTime -= elapsed;
+	if (mStartTime <= 0)
 	{
-		mCompleteTime -= elapsed;
-		if (mCompleteTime<=0)
+		mPlayArea.Update(elapsed);
+		mStart = true;
+		if(!BugCount())
 		{
-            mStart = false;
-			mComplete = false;
-			mCompleteTime = 2;
-			switch(mLevel)
+			mCompleteTime -= elapsed;
+			if (mCompleteTime<=0)
 			{
-				case 0:
-					mScoreBoard.Reset();
-					Load(L"Level/level1.xml");
-					mLevel = 1;
-					break;
-				case 1:
-					mScoreBoard.Reset();
-					Load(L"Level/level2.xml");
-					mLevel = 2;
-					break;
-				case 2:
-					mScoreBoard.Reset();
-					Load(L"Level/level3.xml");
-					mLevel = 3;
+				mComplete = false;
+				mCompleteTime = 2;
+				switch(mLevel)
+				{
+					case 0:
+						mScoreBoard.Reset();
+						Load(L"Level/level1.xml");
+						mLevel = 1;
+						break;
+					case 1:
+						mScoreBoard.Reset();
+						Load(L"Level/level2.xml");
+						mLevel = 2;
+						break;
+					case 2:
+						mScoreBoard.Reset();
+						Load(L"Level/level3.xml");
+						mLevel = 3;
 
-					break;
-				case 3:
-					mScoreBoard.Reset();
-					Load(L"Level/level3.xml");
-					break;
+						break;
+					case 3:
+						mScoreBoard.Reset();
+						Load(L"Level/level3.xml");
+						break;
+				}
+				mStart = false;
+				mStartTime = 2;
 			}
-		}
-		else{
-            mStart = false;
-			mComplete = true;
-		}
+			else{
 
+				mComplete = true;
+			}
+
+		}
 	}
+
 
 }
 
