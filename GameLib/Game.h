@@ -52,8 +52,6 @@ private:
 
     bool mStart = false;
 
-    wxString mLevelName;
-
     double mStartTime = 0;
 public:
 
