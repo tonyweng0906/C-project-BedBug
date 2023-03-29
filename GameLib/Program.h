@@ -2,7 +2,7 @@
  * @file Program.h
  * @author Xin Weng
  *
- *
+ * Base class for program
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_PROGRAM_H

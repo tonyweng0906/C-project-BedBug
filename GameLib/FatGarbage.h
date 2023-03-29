@@ -2,7 +2,7 @@
  * @file FatGarbage.h
  * @author Aron DuBois
  *
- *
+ * Base class for fat garbage bug
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_FATGARBAGE_H

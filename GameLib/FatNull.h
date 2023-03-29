@@ -2,7 +2,7 @@
  * @file FatNull.h
  * @author Aron DuBois
  *
- *
+ * Base class for fat null bug
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_FATNULL_H
@@ -12,7 +12,7 @@
 #include "FatBug.h"
 
 /**
- * Base class for far null bug
+ * Base class for fat null bug
  */
 
 class FatNull : public BugNull, public FatBug

@@ -2,7 +2,7 @@
  * @file Game.h
  * @author Xin Weng
  *
- *
+ * Class for the Game part
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_GAME_H

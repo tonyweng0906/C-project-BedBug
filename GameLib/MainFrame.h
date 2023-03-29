@@ -2,7 +2,7 @@
  * @file MainFrame.h
  * @author Xin Weng
  *
- *
+ * The top-level (main) frame of the application
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_MAINFRAME_H

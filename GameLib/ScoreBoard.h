@@ -1,6 +1,7 @@
 /**
  * @file ScoreBoard.h
  * @author Alec Gardiner
+ * Base class for scoreboard
  */
 
 #ifndef PROJECT1BEDBUG_SCOREBOARD_H

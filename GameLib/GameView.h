@@ -2,7 +2,7 @@
  * @file GameView.h
  * @author Xin Weng
  *
- *
+ * View class for our game
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_GAMEVIEW_H

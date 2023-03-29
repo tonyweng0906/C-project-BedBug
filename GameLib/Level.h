@@ -2,7 +2,7 @@
  * @file Level.h
  * @author saipr
  *
- *
+ * Base class for level
  */
 
 #ifndef PROJECT1BEDBUG_LEVEL_H

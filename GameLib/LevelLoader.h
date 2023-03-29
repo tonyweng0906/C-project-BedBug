@@ -2,7 +2,7 @@
  * @file LevelLoader.h
  * @author saipr
  *
- *
+ * Base class for level loader
  */
 
 #ifndef PROJECT1BEDBUG_LEVELLOADER_H

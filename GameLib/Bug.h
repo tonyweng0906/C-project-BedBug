@@ -2,7 +2,9 @@
  * @file Bug.h
  * @author Team BedBug
  *
- *
+ * Base class for a bug
+ * This applies to all of the bug
+ * object in the game.
  */
 
 #ifndef PROJECT1BEDBUG_GAMELIB_BUG_H
