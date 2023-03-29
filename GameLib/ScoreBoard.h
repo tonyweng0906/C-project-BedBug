@@ -7,8 +7,8 @@
 #define PROJECT1BEDBUG_SCOREBOARD_H
 
 #include "GameObject.h"
-/*
- * class for game scoreboard
+/**
+ * Base class for scoreboard
  */
 class ScoreBoard{
 public:

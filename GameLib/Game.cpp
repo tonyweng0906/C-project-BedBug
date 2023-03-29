@@ -132,6 +132,7 @@ void Game::Load(const wxString &filename)
 	// Traverse the children of the root
 	// node of the XML document in memory!!!!
 	//
+	mLevelName = root->GetAttribute(L"level", L"");
 	auto rootChild = root->GetChildren();
 	for( ; rootChild; rootChild=rootChild->GetNext())
 	{

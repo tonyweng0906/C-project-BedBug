@@ -12,6 +12,9 @@
 #include "Bug.h"
 #include "ScoreBoard.h"
 
+/**
+ * Base class for feature
+ */
 class Feature : public Bug
 {
 private:

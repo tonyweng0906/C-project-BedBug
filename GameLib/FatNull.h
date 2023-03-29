@@ -11,6 +11,10 @@
 #include "BugNull.h"
 #include "FatBug.h"
 
+/**
+ * Base class for far null bug
+ */
+
 class FatNull : public BugNull, public FatBug
 {
 private:

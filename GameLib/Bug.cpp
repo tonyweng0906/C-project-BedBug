@@ -11,7 +11,9 @@
 /**
  * Constructor
  * @param game The game we are in
- * @param filename Filename for the image we use
+ * @param name the name of the bug
+ * @param SpriteSheetNum the number of sprite sheet
+ *
  */
 Bug::Bug(Game *game, const std::string & name, int SpriteSheetNum ) : GameObject(game, name)
 {
@@ -24,7 +26,6 @@ Bug::Bug(Game *game, const std::string & name, int SpriteSheetNum ) : GameObject
  * @param speedX x-parameter
  * @param speedY y-parameter
  */
-
 void Bug::BugSpeed(double speedX, double speedY)
 {
 

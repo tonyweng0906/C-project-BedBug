@@ -12,6 +12,9 @@
 #include "Bug.h"
 #include "ScoreBoard.h"
 
+/**
+ * Base class for redundancy bug
+ */
 class BugRedundancy : public Bug
 {
 private:

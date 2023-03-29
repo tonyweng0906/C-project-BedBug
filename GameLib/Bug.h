@@ -82,7 +82,10 @@ public:
 	 */
 	double GetSpeed() const { return mSpeed; }
 
-	/// Getter to check if bug is spatted
+	/**
+	* Getter to check if bug is spatted
+	* @return bool If is splat
+	*/
 	bool GetSplat() const {return mSplat;}
 
 	/// Set the size for fat bugs
@@ -106,7 +109,10 @@ public:
 
 	void BugSpeed(double speedX, double speedY);
 
-	/// Setter for bug speed
+	/**
+ 	* Setter for bug speed
+	 * @param speed Speed we set
+ 	*/
 	void SetSpeed(double speed){mSpeed = speed;}
 
 	virtual void XmlLoad(wxXmlNode *node);

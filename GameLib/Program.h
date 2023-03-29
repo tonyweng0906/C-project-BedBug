@@ -10,9 +10,13 @@
 
 #include "GameObject.h"
 
+/**
+ * Base class for program
+ */
 class Program : public GameObject
 {
 private:
+	/// name of the Program
 	std::wstring mName;
 public:
 	/// Constructor

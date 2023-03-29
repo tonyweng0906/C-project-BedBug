@@ -11,6 +11,9 @@
 #include "Bug.h"
 #include "ScoreBoard.h"
 
+/**
+ * Base class for null bug
+ */
 class BugNull : public Bug
 {
 private:

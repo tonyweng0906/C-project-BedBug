@@ -11,6 +11,9 @@
 #include "Bug.h"
 #include "ScoreBoard.h"
 
+/**
+ * Base class for garbage bug
+ */
 class BugGarbage : public Bug
 {
 private:
@@ -30,6 +33,7 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugGarbage(this);}
 
+	/// add the score to the scoreboard
     void AddScore() override;
 
 };

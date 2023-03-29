@@ -15,7 +15,7 @@
 
 /**
 * visit a BugGarbage object
-* @param BugGarbage object we are visiting
+* @param bug object we are visiting
 */
 void BugCounterVisitor::VisitBugGarbage(BugGarbage *bug)
 {
@@ -27,7 +27,7 @@ void BugCounterVisitor::VisitBugGarbage(BugGarbage *bug)
 
 /**
 * visit a BugNull object
-* @param BugNull object we are visiting
+* @param bug object we are visiting
 */
 void BugCounterVisitor::VisitBugNull(BugNull *bug)
 {
@@ -39,7 +39,7 @@ void BugCounterVisitor::VisitBugNull(BugNull *bug)
 
 /**
 * visit a BugRedundancy object
-* @param BugRedundancy object we are visiting
+* @param bug object we are visiting
 */
 void BugCounterVisitor::VisitBugRedundancy(BugRedundancy *bug)
 {
@@ -51,7 +51,7 @@ void BugCounterVisitor::VisitBugRedundancy(BugRedundancy *bug)
 
 /**
 * visit a FatGarbage object
-* @param FatGarbage object we are visiting
+* @param bug object we are visiting
 */
 void BugCounterVisitor::VisitFatGarbage(FatGarbage *bug)
 {
@@ -63,7 +63,7 @@ void BugCounterVisitor::VisitFatGarbage(FatGarbage *bug)
 
 /**
 * visit a FatNull object
-* @param FatNull object we are visiting
+* @param bug object we are visiting
 */
 void BugCounterVisitor::VisitFatNull(FatNull *bug)
 {
@@ -75,7 +75,7 @@ void BugCounterVisitor::VisitFatNull(FatNull *bug)
 
 /**
 * visit a Feature object
-* @param Feature object we are visiting
+* @param bug feature object we are visiting
 */
 void BugCounterVisitor::VisitFeature(Feature *bug)
 {
@@ -87,7 +87,7 @@ void BugCounterVisitor::VisitFeature(Feature *bug)
 
 /**
 * visit a multi bug oject
-* @param MultiBug object we are visiting
+* @param bug object we are visiting
 */
 void BugCounterVisitor::VisitBugMulti(BugMulti *bug)
 {

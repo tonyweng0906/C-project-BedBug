@@ -43,6 +43,9 @@ private:
 	///if we need to draw level complete title
 	bool mComplete = false;
 
+	///name of the level
+	std::wstring mLevelName;
+
 public:
 
 	Game();

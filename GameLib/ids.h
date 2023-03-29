@@ -8,6 +8,9 @@
 #ifndef PROJECT1BEDBUG_GAMELIB_IDS_H
 #define PROJECT1BEDBUG_GAMELIB_IDS_H
 
+/**
+ * All ID
+ */
 enum IDs {
 	IDM_ONLEVEL0 = wxID_HIGHEST + 1,
 

@@ -13,6 +13,9 @@
 
 class Game;
 
+/**
+ * Base class for level
+ */
 class Level {
 private:
     Game *mGame;

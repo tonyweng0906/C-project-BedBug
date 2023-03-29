@@ -13,6 +13,10 @@
 
 class FatBug;
 
+/**
+ * Base class for IDE question
+ */
+
 class CodeDlg : public wxDialog
 {
 private:

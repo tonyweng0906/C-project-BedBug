@@ -9,7 +9,9 @@
 #define PROJECT1BEDBUG_GAMELIB_BUGCOUNTERVISITOR_H
 
 #include "ObjectVisitor.h"
-
+/**
+ * Visitor class for bug counting
+ */
 class BugCounterVisitor : public ObjectVisitor
 {
 private:

@@ -10,6 +10,9 @@
 
 #include "Level.h"
 
+/**
+ * Base class for level loader
+ */
 class LevelLoader {
 private:
     /// order list

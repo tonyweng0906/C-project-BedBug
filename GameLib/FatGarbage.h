@@ -11,6 +11,9 @@
 #include "BugGarbage.h"
 #include "FatBug.h"
 
+/**
+ * Base class for fat garbage bug
+ */
 class FatGarbage : public BugGarbage, public FatBug
 {
 private:

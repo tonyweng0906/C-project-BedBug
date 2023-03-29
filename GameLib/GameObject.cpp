@@ -9,12 +9,12 @@
 #include <memory>
 #include <wx/dcbuffer.h>
 #include <wx/graphics.h>
+using namespace std;
 
 bool mMirror = false;   ///< True mirrors the item image
 
+/// the height of each sprite
 const int SpriteHeight= 100.0;
-
-using namespace std;
 
 /// Distance in pixels to how far away a bug can be clicked on
 const double BugHitRange = 50;
@@ -118,20 +118,31 @@ void GameObject::XmlLoad(wxXmlNode *node)
 * Get the width of image
  * @return width of the fish
 */
-int GameObject::GetWidth() const { return mObjectImage->GetWidth();}
+int GameObject::GetWidth() const
+{
+	return mObjectImage->GetWidth();
+}
 
 /**
 * Get the height of image
  * @return height of the fish
 */
-int GameObject::GetHeight() const { return mObjectImage->GetHeight();}
+int GameObject::GetHeight() const
+{
+	return mObjectImage->GetHeight();
+}
 
-ScoreBoard *GameObject::GetBoard() {
+ScoreBoard *GameObject::GetBoard()
+{
     ScoreBoard *scoreBoard = mGame->GetBoard();
     return scoreBoard;
 }
 
-void GameObject::Missed() {
+/**
+ * Adding the missing score
+ */
+void GameObject::Missed()
+{
     ScoreBoard *scoreBoard = mGame->GetBoard();
     scoreBoard->AddMissed();
 }

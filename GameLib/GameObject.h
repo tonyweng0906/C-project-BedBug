@@ -36,13 +36,6 @@ protected:
 	/// The item bitmap
 	wxGraphicsBitmap mObjectBitmap;
 
-	double mObjectWidth;
-
-	double mObjectHeight;
-
-	int mNumOfSheets = 0;
-
-	double mSheetHeight = 0.0;
 
 public:
 	virtual ~GameObject();
@@ -113,6 +106,10 @@ public:
      * Score functions that add scores
      */
     virtual void AddScore(){};
+
+	/**
+ 	* class for add fat bug score
+ 	*/
     virtual void AddFatScore(){};
 	/**
 	 * Set the target program
@@ -146,10 +143,12 @@ public:
  	 */
 	virtual void Accept(ObjectVisitor* visitor) {};
 
-	void UpdateSpriteSheet();
 
+	/// Getter for the scoreboard
+	///@return Scoreboard
     ScoreBoard *GetBoard();
 
+	/// missing point
     virtual void Missed();
 };
 

@@ -11,6 +11,10 @@
 #include "Bug.h"
 #include "ScoreBoard.h"
 
+/**
+ * Base class for team feature
+ */
+
 class BugMulti : public Bug
 {
 private:
