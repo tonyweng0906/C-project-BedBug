@@ -18,11 +18,13 @@ class Game;
  */
 class Level {
 private:
+	/// the game
     Game *mGame;
+	/// The width of the image
     double mWidth;
-
+	/// the height of the image
     double mHeight;
-
+	/// the Bug
     Bug *mBug;
 
     ///Level xml document

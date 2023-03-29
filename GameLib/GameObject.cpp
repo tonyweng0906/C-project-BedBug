@@ -31,7 +31,7 @@ GameObject::~GameObject()
 /**
  * Constructor
  * @param game The game this item is a member of
- * @param filename the loaded in xml file
+ * @param name the loaded in xml file
  */
 GameObject::GameObject(Game *game, const std::string & name) : mGame(game)
 {
@@ -45,7 +45,7 @@ GameObject::GameObject(Game *game, const std::string & name) : mGame(game)
 
 /**
  * Compute the distance from this item to another item
- * @param item Item we are computing the distance to
+ * @param gameObject Item we are computing the distance to
  * @return Distance in pixels
  */
 double GameObject::DistanceTo(std::shared_ptr<GameObject> gameObject)
@@ -86,19 +86,7 @@ void GameObject::Draw(std::shared_ptr<wxGraphicsContext> dc)
 	dc->DrawBitmap(mObjectBitmap, mX-(objectWid/2), mY-(objectHit/2), objectWid, objectHit);
 
 }
-/**
- *
 
-/**
- * Shifts sprite sheet
- void GameObject::UpdateSpriteSheet()
-{
-	 mSheetHeight += SpriteHeight;
-	 if (mSheetHeight >= mNumOfSheets*SpriteHeight)
-	 {
-		 mSheetHeight = 0.0;
-	 }
-}*/
 
 /**
  * Load the attributes for an item node.
@@ -116,7 +104,7 @@ void GameObject::XmlLoad(wxXmlNode *node)
 
 /**
 * Get the width of image
- * @return width of the fish
+ * @return width of the bug
 */
 int GameObject::GetWidth() const
 {
@@ -125,7 +113,7 @@ int GameObject::GetWidth() const
 
 /**
 * Get the height of image
- * @return height of the fish
+ * @return height of the bug
 */
 int GameObject::GetHeight() const
 {

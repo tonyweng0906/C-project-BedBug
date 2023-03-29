@@ -36,14 +36,15 @@ const int ScoreY = 20;
 /// Score label Y location
 const int ScoreLabelY = 100;
 
-
+/**
+* Draw this scoreboard
+* @param graphics Device context to draw on
+*/
 void ScoreBoard::Draw(std::shared_ptr<wxGraphicsContext> graphics) {
 
 
     graphics->PushState();
 
-    graphics->Translate(mXOffset, mYOffset);
-    graphics->Scale(mScale, mScale);
 
     /****Drawing ScoreBoard stuff****/
     wxFont LabelFont(wxSize(0,LabelSize),wxFONTFAMILY_SWISS,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_EXTRABOLD);
@@ -85,6 +86,9 @@ void ScoreBoard::AddOops(){
     return;
 }
 
+/**
+* Reset the scoreboard
+*/
 void ScoreBoard::Reset() {
     mFixed = 0;
     mMissed = 0;

@@ -27,6 +27,7 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugNull(this);}
 
+	/// adding the score
     void AddScore() override;
 };
 

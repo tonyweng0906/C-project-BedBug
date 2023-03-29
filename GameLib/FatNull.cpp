@@ -55,7 +55,7 @@ void FatNull::SingleClick()
 
 /**
 * calls the make ide function in fatbug class
- * @param wxWindow parent window for the ide
+ * @param window parent window for the ide
 */
 void FatNull::makeIDE(wxWindow* window)
 {

@@ -9,7 +9,7 @@
 /**
 * Constructor
  * @param game the game this is a member of
- * @param image the image this object is represented by
+ *
 */
 FatGarbage::FatGarbage(Game *game) : BugGarbage(game), FatBug(game)
 {
@@ -64,7 +64,7 @@ void FatGarbage::DoubleClick()
 
 /**
 * calls the make ide function in fatbug class
- * @param wxWindow parent window for the ide
+ * @param window parent window for the ide
 */
 void FatGarbage::makeIDE(wxWindow* window)
 {

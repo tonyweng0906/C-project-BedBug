@@ -24,7 +24,7 @@ void FatBug::showWindow()
 
 /**
  * constructor for this fatbug
- * @param pass solution for the coding challenge
+ * @param game The main game
  */
 FatBug::FatBug(Game* game)
 {

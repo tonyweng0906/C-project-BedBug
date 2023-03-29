@@ -169,6 +169,7 @@ void Game::Load(const wxString &filename)
 /**
  * Handle a node of type item.
  * @param node XML node
+ * @param program The target program
  */
 void Game::XmlItem(wxXmlNode *node, std::shared_ptr<Program> program)
 {
@@ -324,6 +325,7 @@ void Game::CreateNullBug(std::shared_ptr<Program> program, double locX, double l
 
 /**
  * Count the number of bugs in the game
+ * @return number of bug
  */
 int Game::BugCount()
 {

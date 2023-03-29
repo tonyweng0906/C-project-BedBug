@@ -80,6 +80,10 @@ void GameView::OnPaint(wxPaintEvent& event)
 	mGame.OnDraw(gc, rect.GetWidth(), rect.GetHeight());
 }
 
+/**
+ * Shrink the window
+ * @param event Shrink event
+ */
 void GameView::OnShrink(wxCommandEvent& event)
 {
 	mGame.SetShrinked();

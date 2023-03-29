@@ -29,10 +29,6 @@ private:
     /// oops score
     int mOops = 0;
 
-    double mXOffset = 0;
-    double mYOffset = 0;
-    double mScale = 0;
-    bool mShrinked = false;
 
 
 };

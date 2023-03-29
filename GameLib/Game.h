@@ -19,9 +19,13 @@
 class Game
 {
 private:
+	/// scale of X
 	double mXOffset = 0;
+	/// scale of Y
 	double mYOffset = 0;
+	/// scale number
 	double mScale = 0;
+	/// if scale or not
 	bool mShrinked = false;
 
 	/// bool to see if game is paused or not
@@ -79,21 +83,47 @@ public:
 	double GetYOffset(){return mYOffset;}
 	///Getter for scale @return scale
 	double GetScale(){return mScale;}
+
 	///Setter for mainframe of the game
+	///@param window The parent window
 	void SetMainFrame(wxWindow* window){mMainFrame = window;}
-	///Setter for game Paused state
+
+	/**
+     * Setter for game Paused state
+     * @param state The paused or not
+     */
 	void SetPaused(bool state){mPaused = state;}
+
 	///Getter for game Paused state
+	/// @return Pause or not
 	bool GetPaused(){return mPaused;}
-	///Setter for game Resumed state
+
+	/**
+     * Setter for game Resumed state
+     * @param state The resume or not
+     */
 	void SetResumed(bool state){mResumed = state;}
-	///Getter for game Resumed state
+
+	/**
+     * Getter for game Resumed state
+     * @return if Resumed or not
+     */
 	bool GetResumed(){return mResumed;}
-	///Setter for current level
+	/**
+     * Setter for current level
+     * @param level The level
+     */
 	void SetLevel(int level){mLevel = level;}
-    ///Setter for ScoreBoard
+	/**
+	 * Setter for ScoreBoard
+	 * @param scoreBoard Set the scoreboard
+	 */
     void SetBoard(ScoreBoard scoreBoard){mScoreBoard = scoreBoard;}
-    ///Getter for ScoreBoard
+
+	/**
+	 * Getter for ScoreBoard
+	 * @return Scoreboard
+	 */
     ScoreBoard* GetBoard(){return &mScoreBoard;}
 
 	void Accept(ObjectVisitor * visitor);

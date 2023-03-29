@@ -20,9 +20,13 @@ class FatBug;
 class CodeDlg : public wxDialog
 {
 private:
+	/// the text
 	wxTextCtrl *textBox;
+	/// the ok button
     wxButton *okButton;
+	/// The code show in the IDE
 	std::wstring mCode;
+	/// the passing code
 	std::string mPass;
 
 

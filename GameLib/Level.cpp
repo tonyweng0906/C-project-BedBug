@@ -10,7 +10,10 @@
 
 using namespace std;
 
-
+/**
+ * level of the game
+ * @param game The game
+ */
 Level::Level(Game* game) : mGame(game)
 {
 }

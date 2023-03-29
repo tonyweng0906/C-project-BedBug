@@ -18,9 +18,8 @@
 class Feature : public Bug
 {
 private:
+
 protected:
-
-
 
 public:
 	Feature(Game *game);
@@ -38,7 +37,10 @@ public:
 	  */
 	void SetProgram(std::shared_ptr<Program> program) {mProgram = program;}
 
+	/// adding the score
     void AddScore() override;
+
+	/// adding the missing
     void Missed() override;
 };
 

@@ -18,9 +18,9 @@
 class BugMulti : public Bug
 {
 private:
+	/// Scoreboard the this bug
 	ScoreBoard mScoreBoard;
 public:
-	/// Constructor
 	BugMulti(Game *game);
 
 	/// Default constructor (disabled)
@@ -35,6 +35,7 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugMulti(this);}
 
+	/// Adding the score
 	void AddScore() override;
 
 	void SingleClick() override;

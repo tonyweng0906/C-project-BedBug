@@ -32,6 +32,7 @@ private:
 	/// top bitmap
 	wxGraphicsBitmap mTopBitmap;
 
+	/// score board of the bug
     ScoreBoard mScoreBoard;
 	/// wing rotation rate
 	double mWingRotation = 0;
@@ -64,18 +65,31 @@ public:
      */
 	void Accept(ObjectVisitor* visitor) override { visitor->VisitBugRedundancy(this);}
 
+	/// adding the score
     void AddScore() override;
 
+	/**
+     * Update the animation
+     * @param elapsed Time past
+     */
 	void Update(double elapsed);
 
+	/**
+     * Draw the object
+     * @param graphics Draw
+     */
 	void Draw (std::shared_ptr<wxGraphicsContext> graphics);
+
 	void SingleClick() override;
 
 	void PopBug();
 
 	bool MoveFinish() override;
 
-	/// Setter for if this bug is an original
+	/**
+     * Setter for if this bug is an original
+     * @param state At original or not
+     */
 	void SetOriginal(bool state){mOriginal = state;}
 
 //	void Draw (std::shared_ptr<wxGraphicsContext> graphics);

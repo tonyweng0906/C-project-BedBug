@@ -50,7 +50,6 @@ public:
 
 	void MoveToTheBack(std::shared_ptr<GameObject> object);
 
-	void OnDraw(wxDC* graphics);
 
 	// Loading and saving functions go here?
 	void ClearObject();
@@ -70,7 +69,7 @@ public:
 
 	void Draw(std::shared_ptr<wxGraphicsContext> dc);
 
-    void Missed();
+
 
 };
 

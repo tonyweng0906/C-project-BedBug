@@ -40,13 +40,13 @@ public:
 
 	/**
 	* Visit a FatGarbage object
-	* @param fatGarbage FatGarbage we are visiting
+	* @param fatBug FatGarbage we are visiting
 	*/
 	virtual void VisitFatGarbage(FatGarbage * fatBug) {}
 
 	/**
 	* Visit a FatNull object
-	* @param fatNull FatNull we are visiting
+	* @param fatBug FatNull we are visiting
 	*/
 	virtual void VisitFatNull(FatNull * fatBug) {}
 
@@ -82,13 +82,13 @@ public:
 
 	/**
 	* Visit a  object
-	* @param program Program we are visiting
+	* @param gameObject Program we are visiting
 	*/
 	virtual void VisitObject(GameObject * gameObject) {}
 
 	/**
 	* Visit a BugNull object
-	* @param bugNull BugNull we are visiting
+	* @param bugMulti bugMulti we are visiting
 	*/
 	virtual void VisitBugMulti(BugMulti * bugMulti) {}
 };
